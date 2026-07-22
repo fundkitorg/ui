@@ -83,3 +83,155 @@ body[class*="dono_page_dono-"] {
         margin: 0;
     }
 }
+
+// Page chrome shared by every Dono admin screen (core + add-ons): crumbs,
+// page head, the view-toggle tab pills, and status pills. Same classes as
+// the campaign screens so add-on pages are indistinguishable from core.
+
+.dono-crumbs {
+    font-size: 13px;
+    color: $text-muted;
+    margin-bottom: 6px;
+
+    a { color: $text-muted; text-decoration: none; }
+    a:hover { color: $text; }
+
+    .sep { margin: 0 6px; color: #cbd0d5; }
+}
+
+.dono-page-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+
+    h1 {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+    }
+
+    &__left {
+        display: flex; flex-direction: column; gap: 6px;
+        min-width: 0;
+    }
+
+    &__title-row { display: flex; align-items: center; gap: 10px; }
+
+    &__meta-row {
+        display: inline-flex; align-items: center; gap: 10px;
+        flex-wrap: wrap;
+        font-size: 12.5px;
+        color: $text-muted;
+    }
+
+    &__right {
+        display: flex; align-items: center; gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    &__actions {
+        display: flex; align-items: center; gap: 8px;
+    }
+
+    &__meta,
+    &__sub {
+        font-size: 12.5px;
+        color: $text-muted;
+    }
+
+    &__sub { margin: 4px 0 0; }
+}
+
+.dono-cmp-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: 1px solid $border-soft;
+    border-radius: 8px;
+    padding: 7px 10px 7px 12px;
+    font-size: 13px;
+    color: $text;
+    cursor: pointer;
+    box-shadow: $shadow-md;
+    font-family: inherit;
+    text-decoration: none;
+
+    &:hover, &.is-open { border-color: #d8dadd; }
+    &.is-active {
+        background: $accent-soft;
+        border-color: $accent;
+        color: $accent-dark;
+    }
+
+    // wp-admin's common.css a:focus outranks the base declaration; re-state
+    // so the pill keeps its radius and colour on click.
+    &:focus {
+        outline: none;
+        box-shadow: none;
+        border-radius: 8px;
+        color: $text;
+    }
+    &.is-active:focus { color: $accent-dark; }
+    &:focus-visible {
+        outline: 2px solid $accent;
+        outline-offset: 2px;
+    }
+
+    svg { display: block; color: $text-muted; }
+    &.is-active svg { color: $accent-dark; }
+}
+
+.dono-view-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    .dono-cmp-toggle {
+        text-decoration: none;
+        font-weight: 500;
+        box-shadow: none;
+        border-color: $border-mid;
+    }
+    .dono-cmp-toggle.is-active {
+        background: $accent-soft;
+        border-color: $accent;
+        color: $accent-dark;
+
+        svg { color: $accent-dark; }
+    }
+}
+
+.dono-pill {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 500;
+    white-space: nowrap;
+
+    &::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+    &:has(.dono-pill__dot)::before { display: none; }
+
+    &--lg     { padding: 4px 12px; font-size: 12.5px; }
+
+    &.is-ok    { background: $accent-soft; color: $accent-dark; }
+    &.is-warn  { background: $amber-soft;  color: $amber; }
+    &.is-error { background: $red-soft;    color: $red; }
+    &.is-muted { background: $bg-soft;      color: $text-muted; }
+    &.is-info  { background: $blue-soft;    color: $blue; }
+
+    &--type {
+        background: $accent-soft;
+        color: $accent-dark;
+        font-weight: 600;
+
+        &::before { display: none; }
+    }
+}
