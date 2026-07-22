@@ -3,15 +3,18 @@
 // donors, donations, forms, funds, onboarding) regardless of which
 // per-page wrapper class is present in the DOM.
 //
-// Targets the WP-generated body classes:
-//   - body.toplevel_page_dono            -> the Dono "Dashboard" entry
+// Targets the WP-generated body classes, matching any plugin whose menu slug
+// starts with `dono` so add-ons with their own slug are covered too:
+//   - body.toplevel_page_dono            -> Dono's "Dashboard" entry
+//   - body.toplevel_page_dono-license    -> an add-on's top-level entry
 //   - body[class*="dono_page_dono-"]     -> every Dono submenu page
+//   - body[class*="_page_dono-"]         -> every add-on submenu page
 //
 // The consumer is expected to have @import'd @dono/ui/scss/tokens
 // already so $accent / $accent-dark are in scope.
 
-body.toplevel_page_dono,
-body[class*="dono_page_dono-"] {
+body[class*="toplevel_page_dono"],
+body[class*="_page_dono-"] {
     // Re-skin WP components (ToggleControl, primary buttons, focus rings,
     // etc.) from the default WP admin blue to the Dono accent. Many WP
     // components read --wp-admin-theme-color directly.
