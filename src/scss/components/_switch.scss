@@ -36,3 +36,30 @@
     input:checked ~ &__track { background: $accent; }
     input:checked ~ &__track::after { transform: translateX(14px); }
 }
+
+// Toggle row: title + sub on the left, the Switch on the right. Lives with
+// the component (ToggleRow in Switch.jsx); previously copy-pasted per page.
+.dono-toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid $border-soft;
+
+    &:last-child { border-bottom: 0; }
+
+    &__body { flex: 1; }
+
+    &__title {
+        font-size: 13px;
+        font-weight: 500;
+        color: $text;
+    }
+
+    &__sub {
+        font-size: 11.5px;
+        color: $text-muted;
+        margin-top: 2px;
+        line-height: 1.4;
+    }
+}
