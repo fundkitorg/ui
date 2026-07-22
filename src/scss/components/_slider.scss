@@ -1,0 +1,228 @@
+// Slider: connected card with range + number + unit.
+
+.dono-slider {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+
+    &:last-child { margin-bottom: 0; }
+
+    &__label {
+        font-size: 13px;
+        font-weight: 600;
+        color: $text;
+        line-height: 1.4;
+        letter-spacing: -.005em;
+    }
+
+    // Positioning anchor for the unit menu. The row itself uses
+    // `overflow: hidden` to clip its inner border-radius, so the menu can't
+    // live inside it; rendering as a sibling under this shell lets us anchor
+    // the popover to `top: 100%` and have it escape the clipped row.
+    &__shell { position: relative; }
+
+    &__row {
+        display: grid;
+        grid-template-columns: 1fr 56px auto;
+        align-items: stretch;
+        background: #fff;
+        border: 1px solid $border-mid;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    &__range {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 100%;
+        height: 100%;
+        min-height: 44px;
+        padding: 0 14px;
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+
+        &::-webkit-slider-runnable-track {
+            height: 4px;
+            background: $border-soft;
+            border-radius: 2px;
+        }
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: $accent;
+            border: 0;
+            margin-top: -5px;
+            cursor: pointer;
+            transition: transform .12s;
+        }
+        &:hover::-webkit-slider-thumb,
+        &:focus::-webkit-slider-thumb { transform: scale(1.15); }
+
+        &::-moz-range-track {
+            height: 4px;
+            background: $border-soft;
+            border-radius: 2px;
+        }
+        &::-moz-range-thumb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: $accent;
+            border: 0;
+            cursor: pointer;
+        }
+
+        &:focus { outline: 0; }
+        &:disabled { cursor: not-allowed; opacity: .5; }
+    }
+
+    &__num {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        border-left: 1px solid $border-soft;
+        cursor: text;
+        transition: background-color .12s;
+
+        &:hover         { background: $bg-page; }
+        &:focus-within  { background: $accent-soft; }
+    }
+
+    // Element-prefixed selector bumps specificity over WP admin's
+    // `input[type=number]` and `input:focus` rules.
+    &__input,
+    input.dono-slider__input,
+    input[type="number"].dono-slider__input {
+        appearance: textfield;
+        -moz-appearance: textfield;
+        width: 100%;
+        min-height: 0;
+        height: 22px;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        font-size: 14px;
+        font-weight: 500;
+        font-variant-numeric: tabular-nums;
+        color: $text;
+        text-align: center;
+        font-family: inherit;
+        line-height: 1;
+
+        &:focus {
+            outline: 0;
+            border: 0;
+            box-shadow: none;
+        }
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+
+    &__unit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 14px;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        color: $text-muted;
+        background: $bg-page;
+        border-left: 1px solid $border-soft;
+    }
+
+    &__unit-cell {
+        position: relative;
+        display: flex;
+        background: $bg-page;
+        border-left: 1px solid $border-soft;
+    }
+
+    &__unit-btn {
+        appearance: none;
+        background: transparent;
+        border: 0;
+        padding: 0 14px;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        color: $text-muted;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color .12s, color .12s;
+
+        &:hover { color: $text; background: rgba(0, 0, 0, .04); }
+
+        &.is-open {
+            color: $accent;
+            background: $accent-soft;
+        }
+
+        &:focus-visible {
+            outline: 0;
+            box-shadow: inset 0 0 0 2px $accent-soft;
+        }
+    }
+
+    &__unit-menu {
+        list-style: none;
+        margin: 0;
+        padding: 4px;
+        position: absolute;
+        top: calc(100% + 4px);
+        right: 0;
+        z-index: 10;
+        min-width: 72px;
+        background: #fff;
+        border: 1px solid $border-mid;
+        border-radius: 8px;
+        box-shadow: 0 6px 20px rgba(15, 23, 42, .10);
+
+        li { display: block; }
+    }
+
+    &__unit-option {
+        appearance: none;
+        width: 100%;
+        background: transparent;
+        border: 0;
+        padding: 6px 10px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        color: $text;
+        text-align: left;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color .12s, color .12s;
+
+        &:hover { background: $bg-page; }
+
+        &.is-on {
+            background: $accent;
+            color: #fff;
+        }
+    }
+
+    &__help {
+        margin: 0;
+        font-size: 12px;
+        color: $text-muted;
+        line-height: 1.4;
+    }
+}

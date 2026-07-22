@@ -1,0 +1,44 @@
+// Color trigger button (swatch + hex label) used by ColorInput.jsx. Opens
+// the WP ColorPicker in a popover.
+.dono-color {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 12px 4px 4px;
+    background: #fff;
+    border: 1px solid $border-soft;
+    border-radius: 8px;
+    cursor: pointer;
+    font: inherit;
+    color: $text;
+    transition: border-color .12s, box-shadow .12s;
+
+    &:hover { border-color: #c7cdd4; }
+    &:focus-visible {
+        outline: 0;
+        border-color: $accent;
+        box-shadow: 0 0 0 3px $accent-soft;
+    }
+
+    &__swatch {
+        display: block;
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        flex-shrink: 0;
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .08);
+    }
+
+    &__hex {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 12px;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: .02em;
+        color: $text-muted;
+    }
+}
+
+.dono-color-picker-popover {
+    .components-popover__content { padding: 12px; }
+}

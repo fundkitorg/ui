@@ -1,0 +1,49 @@
+// Inline notice (Notice.jsx). Persistent, in-flow, dismissible.
+
+@import '../tokens';
+
+.dono-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 11px 14px;
+    margin: 0 0 16px;
+    border: 1px solid $border-mid;
+    border-left-width: 3px;
+    border-radius: $radius-md;
+    background: $bg-card;
+    color: $text;
+    font-family: $font-sans;
+    font-size: $text-base;
+    line-height: 1.45;
+
+    &__body {
+        flex: 1;
+        min-width: 0;
+
+        a { color: inherit; text-decoration: underline; }
+    }
+
+    &__close {
+        flex-shrink: 0;
+        appearance: none;
+        background: none;
+        border: 0;
+        padding: 0;
+        margin: -2px -4px 0 0;
+        width: 22px;
+        height: 22px;
+        font-size: 17px;
+        line-height: 1;
+        color: $text-soft;
+        cursor: pointer;
+        border-radius: $radius-sm;
+
+        &:hover { color: $text; }
+    }
+
+    &--success { border-left-color: $accent;  background: $accent-tint; color: $accent-dark; }
+    &--error   { border-left-color: $red;     background: $red-tint;    color: $red; }
+    &--warning { border-left-color: $amber;   background: $amber-tint;  color: $amber; }
+    &--info    { border-left-color: $blue;    background: $blue-tint;   color: $blue; }
+}

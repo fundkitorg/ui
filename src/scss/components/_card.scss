@@ -1,0 +1,65 @@
+// Card chrome (head + body + foot). Consumed by `Card.jsx` and used by
+// every admin panel that wants section chrome.
+
+@import '../tokens';
+
+.dono-card {
+    background: $bg-card;
+    border: 1px solid $border-soft;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-md;
+    margin-bottom: $space-4;
+    transition: border-color .12s;
+
+    &:hover { border-color: #dbe0e6; }
+
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $space-3;
+        padding: $space-4 $space-5 $space-3;
+        border-bottom: 1px solid $border-soft;
+    }
+
+    &__head-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: $text-md;
+        font-weight: $weight-semibold;
+        color: $text;
+    }
+
+    &__sub {
+        font-size: $text-sm;
+        color: $text-muted;
+        margin-top: 2px;
+    }
+
+    &__meta {
+        font-size: $text-sm;
+        color: $text-muted;
+    }
+
+    &__body { padding: $space-4 $space-5 $space-5; }
+
+    &__foot {
+        padding: $space-3 $space-5;
+        border-top: 1px solid $border-soft;
+        background: $bg-page;
+        border-bottom-left-radius: $radius-lg;
+        border-bottom-right-radius: $radius-lg;
+        font-size: $text-sm;
+        color: $text-muted;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: $space-3;
+    }
+}

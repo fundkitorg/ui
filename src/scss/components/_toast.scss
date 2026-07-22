@@ -1,0 +1,98 @@
+// Toast stack (Toaster.jsx). Fixed, transient, auto-dismissed.
+// Default = dark Gutenberg-snackbar look; error/warning stay light + colored
+// so severity is unmistakable.
+
+@import '../tokens';
+
+.dono-toaster {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: $z-toast;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: min(380px, calc(100vw - 40px));
+    pointer-events: none; // let clicks through the gaps
+}
+
+.dono-toast {
+    pointer-events: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+    background: #1e1e1e;
+    color: #fff;
+    border-radius: $radius-md;
+    box-shadow: $shadow-lg;
+    font-family: $font-sans;
+    font-size: $text-base;
+    line-height: 1.4;
+    animation: dono-toast-in .18s ease-out;
+
+    &__icon {
+        flex-shrink: 0;
+        display: flex;
+        margin-top: 1px;
+        color: rgba(255, 255, 255, .85);
+    }
+
+    &__msg { flex: 1; min-width: 0; }
+
+    &__action {
+        flex-shrink: 0;
+        appearance: none;
+        background: none;
+        border: 0;
+        padding: 0;
+        font: inherit;
+        font-weight: $weight-semibold;
+        color: #5bbd86; // lightened brand green, legible on the dark surface
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    &__close {
+        flex-shrink: 0;
+        appearance: none;
+        background: none;
+        border: 0;
+        padding: 0;
+        margin: -2px -2px 0 0;
+        width: 20px;
+        height: 20px;
+        font-size: 16px;
+        line-height: 1;
+        color: rgba(255, 255, 255, .6);
+        cursor: pointer;
+        border-radius: $radius-sm;
+
+        &:hover { color: #fff; }
+    }
+
+    // Keep severity legible: error/warning use a light card with a colored
+    // accent rather than the dark snackbar.
+    &--error,
+    &--warning {
+        background: $bg-card;
+        color: $text;
+        border: 1px solid $border-mid;
+        border-left: 3px solid;
+
+        .dono-toast__action { color: $accent-dark; }
+        .dono-toast__close  { color: $text-soft; &:hover { color: $text; } }
+    }
+
+    &--error   { border-left-color: $red;   .dono-toast__icon { color: $red; } }
+    &--warning { border-left-color: $amber; .dono-toast__icon { color: $amber; } }
+}
+
+@keyframes dono-toast-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@media ( prefers-reduced-motion: reduce ) {
+    .dono-toast { animation: none; }
+}

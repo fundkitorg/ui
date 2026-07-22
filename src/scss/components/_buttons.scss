@@ -1,0 +1,48 @@
+// Btn component styles. Consumed by Btn.jsx and admin action buttons.
+
+@import '../tokens';
+
+.dono-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: $bg-card;
+    color: $text;
+    border: 1px solid $border-mid;
+    border-radius: $radius-md;
+    font-size: $text-base;
+    font-weight: $weight-medium;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color .12s, background .12s, color .12s;
+    font-family: inherit;
+
+    &:hover    { border-color: #cbd0d5; background: $bg-page; }
+    &:disabled { opacity: .55; cursor: not-allowed; }
+
+    &--primary {
+        background: $accent;
+        color: #fff;
+        border-color: $accent;
+
+        &:hover { background: $accent-dark; border-color: $accent-dark; }
+    }
+
+    &--sm { padding: 5px 10px; font-size: $text-sm; }
+
+    &--ghost {
+        background: transparent;
+        border-color: transparent;
+        color: $text-muted;
+
+        &:hover { color: $text; background: $bg-page; }
+    }
+
+    &--danger {
+        color: $red;
+        border-color: #f6c5c0;
+
+        &:hover { background: $red-soft; border-color: $red; color: $red; }
+    }
+}

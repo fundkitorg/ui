@@ -1,0 +1,119 @@
+// Dono admin design tokens. Single source of truth.
+
+// Brand colours
+$accent:         #1e8a4e;  // Primary brand green. Buttons, focus rings, active states.
+$accent-dark:    #14693a;  // Hover/pressed accent. Body text variant.
+$accent-soft:    #e7f5ec;  // Filled badges and selection backgrounds.
+$accent-tint:    #f3faf5;  // Whisper-quiet accent wash (card hover, pre-selected tiles).
+
+// Neutrals (text + surface)
+$text:           #111827;  // Default body text.
+$text-muted:     #6b7280;  // Secondary labels, help text, captions.
+$text-soft:      #9ca3af;  // Placeholder text, decorative metadata.
+
+$bg-page:        #f7f8fa;  // Page background (admin chrome).
+$bg-soft:        #f3f4f6;  // Quiet fills (avatar placeholder, code chips).
+$bg-card:        #ffffff;  // Cards, inputs, raised surfaces.
+
+$border-mid:     #e5e7eb;  // 1px boundaries on inputs, cards, tiles.
+$border-soft:    #eef0f2;  // Hairline dividers between rows or sections.
+
+// Status colours (base = filled badge, soft = active background, tint = wash)
+$amber:          #b97a05;
+$amber-soft:     #fef5e1;
+$amber-tint:     #fffaee;
+
+$red:            #b42318;
+$red-soft:       #fdecec;
+$red-tint:       #fff7f7;
+
+$blue:           #1d4ed8;
+$blue-soft:      #eaf0fd;
+$blue-tint:      #f5f8ff;
+
+// Spacing scale: 4px grid. Use `$space-N` instead of magic numbers.
+$space-0:        0;
+$space-1:        4px;
+$space-2:        8px;
+$space-3:        12px;
+$space-4:        16px;
+$space-5:        20px;
+$space-6:        24px;
+$space-7:        32px;
+$space-8:        48px;
+$space-9:        64px;
+
+// Radius scale: $radius-md for controls, $radius-lg for cards, pill for buttons.
+$radius-xs:      4px;
+$radius-sm:      6px;
+$radius-md:      8px;
+$radius-lg:      12px;
+$radius-xl:      16px;
+$radius-pill:    999px;
+
+// Shadow scale: sm = input lift, md = card chrome, lg = floating panels.
+$shadow-sm:      0 1px 2px rgba(15, 23, 42, .04);
+$shadow-md:      0 1px 2px rgba(15, 23, 42, .04), 0 1px 3px rgba(15, 23, 42, .06);
+$shadow-lg:      0 8px 24px rgba(15, 23, 42, .08);
+
+// Type scale (px; admin context, no rem reset)
+$text-xs:        11px;   // Uppercase captions, tag labels.
+$text-sm:        12px;   // Help text, metadata.
+$text-base:      13px;   // Default body text in the admin.
+$text-md:        14px;   // Field inputs, primary buttons.
+$text-lg:        15px;   // Card titles, form labels at default size.
+$text-xl:        18px;   // Section headlines inside cards.
+$text-2xl:       22px;   // Page-level titles.
+$text-3xl:       28px;   // Hero / wizard headlines.
+
+$weight-regular:  400;
+$weight-medium:   500;
+$weight-semibold: 600;
+$weight-bold:     700;
+
+// Z-index scale
+$z-base:         1;
+$z-sticky:       100;    // Sticky save bar, sticky table heads.
+$z-overlay:      500;    // Backdrops behind modals.
+$z-modal:        1000;
+$z-popover:      2000;   // Searchable-select dropdowns, tooltips.
+$z-toast:        5000;
+
+// Type stack
+$font-sans:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+$font-mono:      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+// Colours mirrored on :root for runtime theming; spacing/radius stay SCSS-only.
+:root {
+    --dono-color-accent:        #{$accent};
+    --dono-color-accent-dark:   #{$accent-dark};
+    --dono-color-accent-soft:   #{$accent-soft};
+    --dono-color-accent-tint:   #{$accent-tint};
+
+    --dono-color-text:          #{$text};
+    --dono-color-text-muted:    #{$text-muted};
+    --dono-color-text-soft:     #{$text-soft};
+
+    --dono-color-bg-page:       #{$bg-page};
+    --dono-color-bg-soft:       #{$bg-soft};
+    --dono-color-bg-card:       #{$bg-card};
+
+    --dono-color-border-mid:    #{$border-mid};
+    --dono-color-border-soft:   #{$border-soft};
+
+    --dono-color-amber:         #{$amber};
+    --dono-color-amber-soft:    #{$amber-soft};
+    --dono-color-red:           #{$red};
+    --dono-color-red-soft:      #{$red-soft};
+    --dono-color-blue:          #{$blue};
+    --dono-color-blue-soft:     #{$blue-soft};
+
+    --dono-shadow-sm:           #{$shadow-sm};
+    --dono-shadow-md:           #{$shadow-md};
+    --dono-shadow-lg:           #{$shadow-lg};
+}
+
+// Lucide icons are stroke-only (fill="none"). WP rules like
+// `.block-editor-block-icon.has-colors svg { fill: currentColor }`
+// (specificity 0,0,3,1) override that, so !important is required here.
+svg.lucide { fill: none !important; }

@@ -1,0 +1,29 @@
+// @dono/ui — full stylesheet barrel.
+//
+// Tokens come first (every partial references the $-variables defined there),
+// then each component partial. Consumers can either @import this whole file or
+// cherry-pick `@dono/ui/scss/components/<name>` after importing tokens.
+
+@import 'tokens';
+
+@import 'components/skeleton';
+@import 'components/buttons';
+@import 'components/card';
+@import 'components/switch';
+@import 'components/form';
+@import 'components/field';
+@import 'components/color-input';
+@import 'components/segmented';
+@import 'components/amount-input';
+@import 'components/number-with-unit';
+@import 'components/searchable-select';
+@import 'components/drawer';
+@import 'components/dialog';
+@import 'components/notice';
+@import 'components/toast';
+@import 'components/empty-state';
+@import 'components/date-field';
+@import 'components/collapsible';
+@import 'components/box-control';
+@import 'components/slider';
+@import 'components/style-preview';

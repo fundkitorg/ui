@@ -1,0 +1,46 @@
+// Segmented button group: small pill picker for up to ~4 options.
+.dono-segmented {
+    display: flex;
+    width: 100%;
+    border: 1px solid $border-mid;
+    border-radius: 6px;
+    overflow: hidden;
+    background: $bg-soft;
+
+    &__btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        flex: 1;
+        appearance: none;
+        background: transparent;
+        border: 0;
+        padding: 6px 10px;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: capitalize;
+        color: $text-muted;
+        cursor: pointer;
+        font-family: inherit;
+        border-right: 1px solid $border-mid;
+        transition: background-color .12s, color .12s;
+
+        &:last-child { border-right: 0; }
+        &:hover { color: $text; background: rgba(0, 0, 0, .02); }
+
+        svg {
+            flex-shrink: 0;
+            width: 13px;
+            height: 13px;
+            opacity: .75;
+        }
+
+        &.is-on {
+            background: $accent;
+            color: #fff;
+        }
+
+        &.is-on svg { opacity: 1; }
+    }
+}

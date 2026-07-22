@@ -1,0 +1,93 @@
+// Searchable select (combobox). Consumed by `SearchableSelect.jsx`.
+//
+// Children are matched as descendants of `.dono-searchable` (two-class
+// specificity) rather than flat BEM. That is deliberate: inside the normal
+// WP admin chrome, core's `.wrap ul` / `.wrap ul li` rules out-specify a
+// single class and would otherwise repaint the dropdown list/options. Same
+// technique the input styles in _form.scss use to beat WP admin.
+
+@import '../tokens';
+
+.dono-searchable {
+    position: relative;
+
+    .dono-searchable__input {
+        width: 100%;
+        padding: 10px 36px 10px 12px;
+        font-size: $text-md;
+        font-family: inherit;
+        line-height: 1.3;
+        color: $text;
+        background: $bg-card;
+        border: 1px solid $border-mid;
+        border-radius: $radius-md;
+        outline: 0;
+        box-shadow: none;
+        margin: 0;
+        box-sizing: border-box;
+        transition: border-color .12s ease, box-shadow .12s ease;
+
+        &::placeholder { color: $text-soft; }
+        &:focus {
+            outline: 0;
+            border-color: $accent;
+            box-shadow: 0 0 0 3px $accent-soft;
+        }
+    }
+
+    .dono-searchable__chevron {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $text-muted;
+        pointer-events: none;
+        display: inline-flex;
+        transition: transform .15s ease;
+    }
+    &.is-open .dono-searchable__chevron { transform: translateY(-50%) rotate(180deg); }
+
+    .dono-searchable__list {
+        position: absolute;
+        top: calc(100% + 4px);
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 4px;
+        list-style: none;
+        background: $bg-card;
+        border: 1px solid $border-mid;
+        border-radius: $radius-md;
+        box-shadow: $shadow-lg;
+        max-height: 280px;
+        overflow-y: auto;
+        z-index: $z-popover;
+    }
+
+    .dono-searchable__option {
+        margin: 0;
+        padding: 8px 10px;
+        border-radius: $radius-sm;
+        font-size: $text-base;
+        color: $text;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $space-2;
+
+        &.is-active,
+        &:hover { background: $accent-tint; }
+        &.is-current { color: $accent-dark; font-weight: $weight-medium; }
+    }
+
+    .dono-searchable__label { flex: 1; }
+    .dono-searchable__hint {
+        font-size: $text-xs;
+        color: $text-soft;
+        font-family: $font-mono;
+        letter-spacing: .02em;
+    }
+
+    &.is-disabled { opacity: .6; pointer-events: none; }
+}

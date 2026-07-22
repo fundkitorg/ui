@@ -1,0 +1,51 @@
+// DateField trigger + WP popover styles. Used anywhere DateField renders.
+// Pairs with _form.scss for the .dono-input base; this partial only adds the
+// flex layout + popover accent overrides.
+
+.dono-date-field {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    text-align: left;
+    cursor: pointer;
+    background: #fff;
+
+    &:hover:not(:disabled) { border-color: #cbd0d5; }
+
+    &__value {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &.is-empty { color: $text-soft; }
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        color: $text-muted;
+    }
+
+    &__popover {
+        padding: 8px 6px 6px;
+        background: #fff;
+
+        // WP's DatePicker reads accent from --wp-components-color-accent and
+        // --wp-admin-theme-color; overriding here recolors the selected day,
+        // focus rings, and the "Clear date" button in one shot.
+        --wp-components-color-accent:           #{$accent};
+        --wp-components-color-accent-darker-10: #{$accent-dark};
+        --wp-components-color-accent-darker-20: #{$accent-dark};
+        --wp-admin-theme-color:                 #{$accent};
+        --wp-admin-theme-color-darker-10:       #{$accent-dark};
+        --wp-admin-theme-color-darker-20:       #{$accent-dark};
+    }
+
+    &__clear {
+        margin-top: 4px;
+        width: 100%;
+        justify-content: center !important;
+    }
+}

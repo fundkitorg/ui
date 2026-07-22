@@ -1,0 +1,86 @@
+// Drawer chrome. Consumed by `Drawer.jsx`.
+
+@import '../tokens';
+
+// Above the WP admin bar/menu (~99999); the $z-* scale tops out at 5000 which
+// is not enough to cover WP chrome, so this overlay uses a literal.
+.dono-drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, .28);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 100000;
+}
+
+.dono-drawer {
+    width: 460px;
+    max-width: 92vw;
+    background: $bg-card;
+    box-shadow: $shadow-lg;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &__head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 20px 22px 16px;
+        border-bottom: 1px solid $border-soft;
+
+        h2 { margin: 0 0 3px; font-size: $text-xl; font-weight: $weight-semibold; }
+        p  { margin: 0; font-size: $text-sm; color: $text-muted; font-family: $font-mono; }
+    }
+
+    &__close {
+        appearance: none;
+        border: 0;
+        background: transparent;
+        font-size: $text-xl;
+        color: $text-soft;
+        cursor: pointer;
+        padding: 4px 6px;
+        border-radius: $radius-sm;
+
+        &:hover { background: $bg-soft; color: $text; }
+    }
+
+    &__body { flex: 1; overflow-y: auto; padding: 18px 22px; }
+
+    &__error {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 12px;
+        margin-bottom: 16px;
+        background: $red-soft;
+        border: 1px solid rgba(180, 35, 24, .25);
+        border-radius: $radius-md;
+        color: $red;
+        font-size: $text-sm;
+        line-height: 1.5;
+
+        span { flex: 1; }
+
+        button {
+            appearance: none;
+            border: 0;
+            background: transparent;
+            color: $red;
+            cursor: pointer;
+            font-size: $text-base;
+            line-height: 1;
+            padding: 2px 4px;
+        }
+    }
+
+    &__foot {
+        display: flex;
+        justify-content: flex-end;
+        gap: $space-2;
+        padding: 14px 22px;
+        border-top: 1px solid $border-soft;
+        background: $bg-card;
+    }
+}

@@ -1,0 +1,162 @@
+// Form chrome: rows, inputs, textareas, selects, the input-row composite.
+
+@import '../tokens';
+
+.dono-form-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: $space-5;
+    padding: $space-3 0;
+    border-bottom: 1px solid $border-soft;
+
+    &:last-child { border-bottom: 0; }
+
+    &--wide {
+        grid-template-columns: 1fr;
+        gap: $space-2;
+    }
+
+    &__label {
+        font-size: $text-base;
+        font-weight: $weight-medium;
+        color: $text;
+        line-height: 1.4;
+        padding-top: $space-2;
+
+        .req {
+            color: $red;
+            margin-left: 2px;
+        }
+    }
+
+    &__help {
+        font-size: 11.5px;
+        color: $text-muted;
+        font-weight: $weight-regular;
+        margin-top: 2px;
+        line-height: 1.4;
+    }
+
+    &__field { min-width: 0; }
+
+    &__field-help {
+        margin-top: 6px;
+        font-size: 11.5px;
+        color: $text-muted;
+        line-height: 1.4;
+    }
+}
+
+.dono-input,
+.dono-textarea,
+.dono-select {
+    width: 100%;
+    padding: 7px 10px;
+    background: $bg-card;
+    border: 1px solid $border-mid;
+    border-radius: $radius-md;
+    font-size: 13.5px;
+    color: $text;
+    transition: border-color .12s, box-shadow .12s;
+    font-family: inherit;
+
+    &:focus {
+        outline: 0;
+        border-color: $accent;
+        box-shadow: 0 0 0 3px rgba($accent, .12);
+    }
+}
+
+// WordPress admin's `input[type=text]` (0,1,1) and `.wp-core-ui select` (0,1,1)
+// outrank the bare `.dono-input` / `.dono-select` classes (0,1,0), so at rest
+// inputs and dropdowns fall back to WP's grey #949494 border, 2px corners and
+// dashicon arrow. Element-qualify to match that specificity; this sheet is
+// enqueued after wp-admin's forms.css so source order wins. The :focus and
+// --edited element bumps below (0,2,1) still win over these.
+input.dono-input {
+    border: 1px solid $border-mid;
+    border-radius: $radius-md;
+    background: $bg-card;
+    padding: 7px 10px;
+}
+input.dono-input--edited,
+select.dono-input--edited {
+    border-color: $accent;
+    box-shadow: inset 2px 0 0 $accent;
+}
+
+// Element selectors (input.dono-input) are intentional: they bump specificity
+// over WordPress admin's `input[type=text]:focus { ... }` (0,0,2,1) and
+// `select:focus`, which otherwise paint the wrong blue focus ring.
+input.dono-input:focus,
+button.dono-input:focus,
+select.dono-select:focus,
+textarea.dono-textarea:focus {
+    outline: 0;
+    border-color: $accent;
+    box-shadow: 0 0 0 3px rgba($accent, .12);
+}
+
+input.dono-input--edited:focus,
+button.dono-input--edited:focus,
+textarea.dono-textarea--edited:focus {
+    box-shadow: inset 2px 0 0 $accent, 0 0 0 3px rgba($accent, .12);
+}
+
+.dono-input--edited,
+.dono-textarea--edited {
+    border-color: $accent;
+    box-shadow: inset 2px 0 0 $accent;
+}
+
+.dono-textarea {
+    min-height: 88px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.dono-input--mono,
+.dono-textarea--mono {
+    font-family: $font-mono;
+    font-size: $text-sm;
+}
+
+// select element-qualified (0,1,1) to beat `.wp-core-ui select`: restate the
+// chrome WP overrides (border, radius, padding, font, line-height, max-width)
+// and repaint the Dono caret over WP's dashicon arrow.
+select.dono-select {
+    max-width: none;
+    font-size: 13.5px;
+    line-height: normal;
+    border: 1px solid $border-mid;
+    border-radius: $radius-md;
+    padding: 7px 28px 7px 10px;
+    appearance: none;
+    background: $bg-card url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='none' stroke='%236b7280' stroke-width='1.5' d='M1 1l4 4 4-4'/%3E%3C/svg%3E") no-repeat right 10px center;
+}
+
+.dono-input-row {
+    display: flex;
+    gap: $space-2;
+
+    .dono-input { flex: 1; }
+
+    .dono-copy-btn {
+        flex-shrink: 0;
+        padding: 6px 10px;
+        background: $bg-page;
+        border: 1px solid $border-mid;
+        border-radius: $radius-md;
+        cursor: pointer;
+        font-size: $text-sm;
+        color: $text-muted;
+        font-family: inherit;
+
+        &:hover { color: $text; background: #eef1f4; }
+    }
+
+    &--locked .dono-input {
+        background: $bg-page;
+        color: $text-muted;
+    }
+}

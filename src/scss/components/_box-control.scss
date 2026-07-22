@@ -1,0 +1,206 @@
+// BoxControl: connected-row T/R/B/L numeric editor for box-model attributes.
+.dono-box-control {
+    margin-bottom: 18px;
+
+    &:last-child { margin-bottom: 0; }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+
+    &__title {
+        font-size: 13px;
+        font-weight: 600;
+        color: $text;
+        line-height: 1.4;
+        letter-spacing: -.005em;
+    }
+
+    &__link {
+        appearance: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 6px;
+        color: $text-muted;
+        cursor: pointer;
+        transition: background-color .12s, color .12s;
+
+        &:hover { background: $bg-page; color: $text; }
+        &:focus-visible { outline: 0; box-shadow: 0 0 0 2px $accent-soft; }
+
+        &.is-on {
+            background: $accent-soft;
+            color: $accent;
+        }
+
+        svg { display: block; }
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: repeat(var(--dono-box-cells, 4), 1fr) auto;
+        background: #fff;
+        border: 1px solid $border-mid;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    &__cell {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        padding: 10px 4px;
+        margin: 0;
+        border-right: 1px solid $border-soft;
+        min-width: 0;
+        cursor: text;
+        transition: background-color .12s;
+
+        &:hover { background: $bg-page; }
+        &:focus-within { background: $accent-soft; }
+    }
+
+    &__row > &__cell:nth-last-of-type(2) { border-right: 0; } // last cell before unit
+
+    &__label {
+        font-size: 9px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        color: $text-muted;
+        line-height: 1;
+    }
+
+    // Element-prefixed selector bumps specificity over WP admin's
+    // `input[type=number]` and `input:focus` rules which otherwise paint
+    // their own border + blue focus ring inside our cells.
+    &__input,
+    input.dono-box-control__input,
+    input[type="number"].dono-box-control__input {
+        appearance: textfield;
+        -moz-appearance: textfield;
+        width: 100%;
+        min-height: 0;
+        height: 22px;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        font-size: 14px;
+        font-weight: 500;
+        font-variant-numeric: tabular-nums;
+        color: $text;
+        text-align: center;
+        font-family: inherit;
+        line-height: 1;
+
+        &:focus {
+            outline: 0;
+            border: 0;
+            box-shadow: none;
+        }
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+
+    &__unit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 14px;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        color: $text-muted;
+        background: $bg-page;
+        border-left: 1px solid $border-soft;
+    }
+
+    // Linked mode: one slider + number + unit, replacing the per-side cells.
+    // Same outer border + radius as the row for visual continuity.
+    &__linked {
+        display: grid;
+        grid-template-columns: 1fr 56px auto;
+        align-items: stretch;
+        background: #fff;
+        border: 1px solid $border-mid;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    &__range {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 100%;
+        height: 100%;
+        min-height: 44px;
+        padding: 0 14px;
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+
+        &::-webkit-slider-runnable-track {
+            height: 4px;
+            background: $border-soft;
+            border-radius: 2px;
+        }
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: $accent;
+            border: 0;
+            margin-top: -5px;
+            cursor: pointer;
+            transition: transform .12s;
+        }
+        &:hover::-webkit-slider-thumb,
+        &:focus::-webkit-slider-thumb { transform: scale(1.15); }
+
+        &::-moz-range-track {
+            height: 4px;
+            background: $border-soft;
+            border-radius: 2px;
+        }
+        &::-moz-range-thumb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: $accent;
+            border: 0;
+            cursor: pointer;
+        }
+
+        &:focus { outline: 0; }
+    }
+
+    &__linked-num {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: 1px solid $border-soft;
+        cursor: text;
+        transition: background-color .12s;
+
+        &:hover         { background: $bg-page; }
+        &:focus-within  { background: $accent-soft; }
+    }
+}

@@ -1,0 +1,73 @@
+// NumberWithUnit: number + unit menu, stored as a single CSS string.
+
+.dono-number-unit {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &__label {
+        font-size: 11px;
+        font-weight: 500;
+        color: $text-muted;
+    }
+
+    &__row {
+        display: flex;
+        align-items: stretch;
+    }
+
+    &__num {
+        flex: 1;
+        min-width: 0;
+        height: 28px;
+        padding: 0 8px;
+        font-size: 12px;
+        font-variant-numeric: tabular-nums;
+        border: 1px solid $border-mid;
+        border-radius: 6px 0 0 6px;
+        background: #fff;
+        color: $text;
+
+        &:focus {
+            outline: 0;
+            border-color: $accent;
+            box-shadow: 0 0 0 3px $accent-soft;
+            z-index: 1;
+        }
+    }
+
+    &__unit,
+    &__unit-static {
+        height: 28px;
+        padding: 0 8px;
+        font-size: 11px;
+        color: $text-muted;
+        background: $bg-soft;
+        border: 1px solid $border-mid;
+        border-left: 0;
+        border-radius: 0 6px 6px 0;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    &__unit-static {
+        cursor: default;
+        padding-right: 10px;
+    }
+    &__unit {
+        appearance: none;
+        -webkit-appearance: none;
+        padding-right: 22px;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%236b7280' d='M0 0l5 6 5-6z'/></svg>");
+        background-repeat: no-repeat;
+        background-position: right 6px center;
+
+        &:focus { outline: 0; border-color: $accent; }
+    }
+
+    &__help {
+        margin: 0;
+        font-size: 11px;
+        color: $text-muted;
+    }
+}

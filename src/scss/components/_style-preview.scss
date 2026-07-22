@@ -1,0 +1,195 @@
+// StylePreview. Previewed-page visuals read `var(--dono-*)`; the browser-frame
+// chrome keeps fixed colors since it isn't part of what the admin is styling.
+
+.dono-style-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &__frame {
+        background: #fff;
+        border: 1px solid #eef0f2;
+        border-radius: 12px;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 1px 3px rgba(15, 23, 42, .06);
+        overflow: hidden;
+    }
+
+    &__chrome {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        background: #f7f8fa;
+        border-bottom: 1px solid #eef0f2;
+    }
+
+    &__dots {
+        display: inline-flex;
+        gap: 4px;
+
+        span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #d6dadf;
+        }
+
+        span:nth-child(1) { background: #f3766d; }
+        span:nth-child(2) { background: #f3b94f; }
+        span:nth-child(3) { background: #69c279; }
+    }
+
+    &__addr {
+        flex: 1;
+        padding: 3px 10px;
+        background: #fff;
+        border: 1px solid #eef0f2;
+        border-radius: 999px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 11px;
+        color: #6b7280;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__page {
+        background: var(--dono-bg, #fff);
+        color: var(--dono-text, #111827);
+        font-family: var(--dono-font-family, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
+        font-size: var(--dono-font-size, 15px);
+        font-weight: var(--dono-body-weight, 400);
+    }
+
+    &__hero {
+        position: relative;
+        height: 140px;
+        overflow: hidden;
+        background:
+            linear-gradient(135deg,
+                color-mix(in srgb, var(--dono-accent, #1e8a4e) 20%, #f5d97f),
+                color-mix(in srgb, var(--dono-accent, #1e8a4e) 60%, #e8b94c) 60%,
+                var(--dono-accent, #1e8a4e));
+        background-size: cover;
+        background-position: center;
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, .35) 100%);
+        }
+    }
+
+    &__hero-title {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        bottom: 12px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: var(--dono-heading-weight, 600);
+        letter-spacing: -0.01em;
+        z-index: 2;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+        font-family: var(--dono-font-family, inherit);
+    }
+
+    &__body {
+        padding: 16px;
+        background: var(--dono-bg, #fff);
+    }
+
+    &__desc {
+        font-size: 12px;
+        color: var(--dono-text-muted, #6b7280);
+        line-height: 1.55;
+        margin-bottom: 14px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    &__progress-track {
+        height: 6px;
+        background: var(--dono-bg-soft, #eef0f2);
+        border: var(--dono-border-width, 0) solid var(--dono-border, transparent);
+        border-radius: var(--dono-radius-sm, 3px);
+        overflow: hidden;
+        margin-bottom: 6px;
+    }
+
+    &__progress-fill {
+        height: 100%;
+        background: var(--dono-accent, #1e8a4e);
+        border-radius: var(--dono-radius-sm, 3px);
+        transition: width .2s ease, background .2s ease;
+    }
+
+    &__progress-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: var(--dono-text-muted, #6b7280);
+        margin-bottom: 14px;
+
+        strong {
+            color: var(--dono-text, #111827);
+            font-weight: 600;
+        }
+    }
+
+    &__amounts {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+        margin-bottom: 12px;
+    }
+
+    &__amount {
+        padding: 8px 0;
+        border: var(--dono-border-width, 1px) solid var(--dono-border, #e5e7eb);
+        border-radius: var(--dono-radius-sm, 6px);
+        background: var(--dono-bg, #fff);
+        text-align: center;
+        font-size: 12px;
+        color: var(--dono-text, #111827);
+        font-weight: 500;
+        transition: background .2s ease, border-color .2s ease;
+
+        &.is-sel {
+            background: var(--dono-accent-soft, #e7f5ec);
+            border-color: var(--dono-accent, #1e8a4e);
+            color: var(--dono-accent, #14693a);
+            font-weight: 600;
+        }
+    }
+
+    &__cta {
+        width: 100%;
+        padding: 10px 0;
+        // Honor the same button tokens as the donor-form runtime so presets
+        // that override --dono-button-bg / --dono-button-fg / --dono-button-border
+        // (Quiet's outline button, future presets) preview accurately. The
+        // accent stays as the fallback for filled-style presets.
+        background: var(--dono-button-bg, var(--dono-accent, #1e8a4e));
+        color: var(--dono-button-fg, #fff);
+        border: var(--dono-button-border, 0);
+        border-radius: var(--dono-button-radius, var(--dono-radius-sm, 6px));
+        font-size: 13px;
+        font-weight: var(--dono-button-weight, 600);
+        text-align: center;
+        letter-spacing: 0.01em;
+        box-shadow: var(--dono-button-shadow, 0 1px 2px rgba(0, 0, 0, .08));
+        transition: background .2s ease;
+    }
+
+    &__meta {
+        margin-top: 10px;
+        font-size: 11px;
+        color: var(--dono-text-muted, #9ca3af);
+        text-align: center;
+        font-variant-numeric: tabular-nums;
+    }
+}
