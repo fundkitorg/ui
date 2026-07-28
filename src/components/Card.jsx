@@ -1,47 +1,103 @@
 /**
  * Card chrome. Props:
- *   leading  node           - rendered before the title block (e.g. <BrandMark />)
- *   title    string         - card title (left of head)
- *   sub      string         - small muted line under title
- *   meta     node           - text or pill on the right of head
- *   edited   bool | number  - true = "Edited" pill; number = "N change(s)" pill
- *   foot     node           - rendered inside .dono-card__foot
- *   children node           - body content
+ *   leading     node           - rendered before the title block (e.g. <BrandMark />)
+ *   title       string         - card title (left of head)
+ *   sub         string         - small muted line under title
+ *   meta        node           - text or pill on the right of head
+ *   edited      bool | number  - true = "Edited" pill; number = "N change(s)" pill
+ *   foot        node           - rendered inside .dono-card__foot
+ *   children    node           - body content
+ *   collapsible bool           - head toggles the body; `meta` stays visible when closed
+ *   defaultOpen bool           - uncontrolled starting state (default closed)
+ *   open        bool           - controlled state; pair with onToggle
+ *   onToggle    fn(next)       - called with the state the card is moving to
+ *
+ * A collapsible head is a single button, so `leading`, `meta` and `edited` must
+ * stay non-interactive. Anything clickable belongs in the body or foot.
  */
+import { useState } from '@wordpress/element';
 import { __, _n, sprintf } from '@wordpress/i18n';
+import { ChevronDown } from 'lucide-react';
 
-export default function Card( { leading, title, sub, meta, edited, foot, children } ) {
+export default function Card( {
+    leading,
+    title,
+    sub,
+    meta,
+    edited,
+    foot,
+    children,
+    collapsible = false,
+    defaultOpen = false,
+    open: controlledOpen,
+    onToggle,
+} ) {
+    const isControlled = controlledOpen !== undefined;
+    const [ uncontrolled, setUncontrolled ] = useState( !! defaultOpen );
+    const isOpen = ! collapsible || ( isControlled ? !! controlledOpen : uncontrolled );
+
+    const toggle = () => {
+        if ( ! isControlled ) setUncontrolled( ! isOpen );
+        if ( onToggle ) onToggle( ! isOpen );
+    };
+
     const showHead = leading || title || meta || edited;
-    return (
-        <div className="dono-card">
-            { showHead && (
-                <div className="dono-card__head">
-                    <div className="dono-card__head-left">
-                        { leading }
-                        { title && (
-                            <div>
-                                <h3 className="dono-card__title">{ title }</h3>
-                                { sub && <div className="dono-card__sub">{ sub }</div> }
-                            </div>
-                        ) }
-                        { typeof edited === 'number' && edited > 0 && (
-                            <span className="dono-edited-pill">
-                                { sprintf(
-                                    /* translators: %d: number of edited fields in this card */
-                                    _n( '%d change', '%d changes', edited, 'dono' ),
-                                    edited,
-                                ) }
-                            </span>
-                        ) }
-                        { edited === true && (
-                            <span className="dono-edited-pill">{ __( 'Edited', 'dono' ) }</span>
-                        ) }
+
+    const headInner = (
+        <>
+            <div className="dono-card__head-left">
+                { leading }
+                { title && (
+                    <div>
+                        <h3 className="dono-card__title">{ title }</h3>
+                        { sub && <div className="dono-card__sub">{ sub }</div> }
                     </div>
-                    { meta && <span className="dono-card__meta">{ meta }</span> }
-                </div>
+                ) }
+                { typeof edited === 'number' && edited > 0 && (
+                    <span className="dono-edited-pill">
+                        { sprintf(
+                            /* translators: %d: number of edited fields in this card */
+                            _n( '%d change', '%d changes', edited, 'dono' ),
+                            edited,
+                        ) }
+                    </span>
+                ) }
+                { edited === true && (
+                    <span className="dono-edited-pill">{ __( 'Edited', 'dono' ) }</span>
+                ) }
+            </div>
+            { meta && <span className="dono-card__meta">{ meta }</span> }
+            { collapsible && (
+                <ChevronDown
+                    size={ 16 }
+                    strokeWidth={ 2 }
+                    className="dono-card__chevron"
+                    aria-hidden="true"
+                />
             ) }
-            <div className="dono-card__body">{ children }</div>
-            { foot && <div className="dono-card__foot">{ foot }</div> }
+        </>
+    );
+
+    const cls = collapsible
+        ? `dono-card dono-card--collapsible ${ isOpen ? 'is-open' : 'is-closed' }`
+        : 'dono-card';
+
+    return (
+        <div className={ cls }>
+            { showHead && ( collapsible ? (
+                <button
+                    type="button"
+                    className="dono-card__head dono-card__head--toggle"
+                    aria-expanded={ isOpen }
+                    onClick={ toggle }
+                >
+                    { headInner }
+                </button>
+            ) : (
+                <div className="dono-card__head">{ headInner }</div>
+            ) ) }
+            { isOpen && <div className="dono-card__body">{ children }</div> }
+            { isOpen && foot && <div className="dono-card__foot">{ foot }</div> }
         </div>
     );
 }
