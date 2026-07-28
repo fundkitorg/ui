@@ -85,8 +85,12 @@
         transition: transform .15s;
     }
 
+    // Three children, so space-between would strand the status pill mid-row;
+    // push it next to the chevron instead.
+    &--collapsible .dono-card__head-left { margin-right: auto; }
+
     &--collapsible.is-closed {
-        .dono-card__head { border-bottom: 0; border-radius: $radius-lg; }
+        .dono-card__head { border-bottom: 0; border-radius: $radius-lg; padding-bottom: $space-4; }
         .dono-card__chevron { transform: rotate(-90deg); }
     }
 }
