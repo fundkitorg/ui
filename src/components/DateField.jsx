@@ -39,7 +39,9 @@ export default function DateField( {
     const dateFmt  = format || settings?.formats?.date || 'M j, Y';
     const timeFmt  = settings?.formats?.time || 'H:i';
     const displayFmt = withTime ? `${ dateFmt } · ${ timeFmt }` : dateFmt;
-    const displayValue = value ? dateI18n( displayFmt, value ) : '';
+    const displayValue = value
+        ? dateI18n( displayFmt, withTime ? value : anchorNoon( value, settings ) )
+        : '';
 
     const triggerClass = [
         'dono-input',
@@ -101,6 +103,26 @@ export default function DateField( {
             ) }
         />
     );
+}
+
+/**
+ * A date-only value is a calendar day, not an instant, but dateI18n resolves
+ * one: it reads "2026-01-01" in the browser's timezone and renders it in the
+ * site's, so a browser ahead of the site shows the day before. That is not a
+ * cosmetic slip. "2026-01-01" displayed as "December 31, 2025" puts a donation
+ * in the wrong year on a screen whose whole job is stating which day it was.
+ *
+ * Anchoring at noon in the SITE's timezone survives the round trip whatever
+ * either offset is, because the render undoes exactly the shift applied here.
+ */
+function anchorNoon( value, settings ) {
+    const parts = String( value ).slice( 0, 10 ).split( '-' ).map( Number );
+    if ( parts.length !== 3 || parts.some( Number.isNaN ) ) return value;
+
+    const offset = Number( settings?.timezone?.offset ?? 0 );
+    const [ y, m, d ] = parts;
+
+    return new Date( Date.UTC( y, m - 1, d, 12 - offset ) );
 }
 
 function normalise( next, withTime ) {
