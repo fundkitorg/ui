@@ -18,6 +18,10 @@
     width: 520px;
     max-width: 100%;
     max-height: 90vh;
+
+    // A dialog people compose in rather than confirm in: a subject line and a
+    // body want more than 520px before they start wrapping mid-thought.
+    &--wide { width: 720px; }
     background: $bg-card;
     border-radius: $radius-lg;
     box-shadow: $shadow-lg;

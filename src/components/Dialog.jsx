@@ -5,13 +5,14 @@
  * Props:
  *   title    string - heading (left of head)
  *   onClose  fn      - overlay click, the close button and Escape call this
+ *   size     string  - 'wide' for an editing surface (720px); default is 520px
  *   foot     node    - rendered in .dono-dialog__foot (optional)
  *   children node    - body content
  */
 import { useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
-export default function Dialog( { title, onClose, foot, children } ) {
+export default function Dialog( { title, onClose, size, foot, children } ) {
     useEffect( () => {
         const onKey = ( e ) => { if ( e.key === 'Escape' && onClose ) onClose(); };
         document.addEventListener( 'keydown', onKey );
@@ -21,7 +22,7 @@ export default function Dialog( { title, onClose, foot, children } ) {
     return (
         <div className="dono-dialog-overlay" onClick={ onClose }>
             <div
-                className="dono-dialog"
+                className={ `dono-dialog${ size ? ` dono-dialog--${ size }` : '' }` }
                 onClick={ ( e ) => e.stopPropagation() }
                 role="dialog"
                 aria-modal="true"
