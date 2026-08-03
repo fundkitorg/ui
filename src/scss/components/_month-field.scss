@@ -1,0 +1,69 @@
+// MonthField popover: a year stepper over a twelve-month grid. The trigger
+// reuses .dono-date-field from _date-field.scss, so the two controls are the
+// same object to the eye; this partial only adds the grid.
+
+.dono-month-field {
+    min-width: 232px;
+
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+
+    &__year {
+        font-size: $text-md;
+        font-weight: $weight-semibold;
+        color: $text;
+    }
+
+    &__nav {
+        width: 26px;
+        height: 26px;
+        padding: 0;
+        border: 0;
+        border-radius: $radius-sm;
+        background: none;
+        cursor: pointer;
+        font-size: 17px;
+        line-height: 1;
+        color: $text-muted;
+
+        &:hover:not(:disabled) { background: $bg-soft; color: $text; }
+
+        &:disabled {
+            color: $text-soft;
+            cursor: default;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px;
+    }
+
+    &__month {
+        padding: 7px 4px;
+        border: 0;
+        border-radius: $radius-sm;
+        background: none;
+        cursor: pointer;
+        font-size: $text-base;
+        color: $text;
+
+        &:hover:not(:disabled) { background: $bg-soft; }
+
+        &.is-selected {
+            background: $accent;
+            color: $bg-card;
+            font-weight: $weight-semibold;
+        }
+
+        &:disabled {
+            color: $text-soft;
+            cursor: default;
+        }
+    }
+}

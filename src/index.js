@@ -20,6 +20,7 @@ export { default as ColorInput } from './components/ColorInput';
 export { default as CountrySelect } from './components/CountrySelect';
 export { default as CoverImagePicker } from './components/CoverImagePicker';
 export { default as DateField } from './components/DateField';
+export { default as MonthField } from './components/MonthField';
 export { default as Dialog } from './components/Dialog';
 export { default as Drawer } from './components/Drawer';
 export { default as EmptyState } from './components/EmptyState';
