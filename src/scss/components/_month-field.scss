@@ -61,8 +61,13 @@
             font-weight: $weight-semibold;
         }
 
+        // After .is-selected on purpose: a stored value can fall outside a
+        // range that narrowed later, and a month that cannot be picked must
+        // not be painted as the current pick.
         &:disabled {
+            background: none;
             color: $text-soft;
+            font-weight: inherit;
             cursor: default;
         }
     }
