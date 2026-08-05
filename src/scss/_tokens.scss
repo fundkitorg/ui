@@ -9,7 +9,14 @@ $accent-tint:    #f3faf5;  // Whisper-quiet accent wash (card hover, pre-selecte
 // Neutrals (text + surface)
 $text:           #111827;  // Default body text.
 $text-muted:     #6b7280;  // Secondary labels, help text, captions.
-$text-soft:      #9ca3af;  // Placeholder text, decorative metadata.
+// Everything using this carries text or is a control: placeholders, the close
+// glyph on dialogs, drawers, notices and toasts, muted DataViews cells, the
+// empty state of a date field. At #9ca3af that was 2.5:1 on white, so the
+// placeholder telling you what a field wants and the X that dismisses a dialog
+// were both below the floor. It matches $text-muted now (4.8:1). If a genuinely
+// decorative value is ever needed, for a rule or a divider carrying no meaning,
+// add a token for that rather than lightening this one back.
+$text-soft:      #6b7280;  // Placeholder text and quiet controls. Carries text: keep at AA.
 
 $bg-page:        #f7f8fa;  // Page background (admin chrome).
 $bg-soft:        #f3f4f6;  // Quiet fills (avatar placeholder, code chips).
