@@ -230,6 +230,17 @@ body[class*="_page_dono-"] {
     &.is-muted { background: $bg-soft;      color: $text-muted; }
     &.is-info  { background: $blue-soft;    color: $blue; }
 
+    // Colour modifiers, as emitted by the StatusBadge component. The same
+    // palette as the .is-* states above, under the naming that component
+    // uses. They lived in one consumer's own stylesheet, so a screen only
+    // got coloured badges if its bundle happened to pull that file in, and
+    // a new screen rendered plain grey text.
+    &--green { background: $accent-soft; color: $accent-dark; }
+    &--amber { background: $amber-soft;  color: $amber; }
+    &--red   { background: $red-soft;    color: $red; }
+    &--gray  { background: $bg-soft;     color: $text-muted; }
+    &--blue  { background: $blue-soft;   color: $blue; }
+
     &--type {
         background: $accent-soft;
         color: $accent-dark;
@@ -237,4 +248,45 @@ body[class*="_page_dono-"] {
 
         &::before { display: none; }
     }
+}
+
+// ---- Row actions ----
+//
+// The trailing action cell of a list row: a quiet icon button, and the
+// DropdownMenu kebab. Defined here rather than per screen, because the first
+// screen to reuse the kebab without copying the rule got the component
+// library's default button size and stood a head taller than its own row.
+.dono-row-actions {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    justify-content: flex-end;
+}
+
+.dono-icon-btn {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: $text-soft;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover { background: $bg-page; color: $text; }
+}
+
+.dono-row-actions .components-dropdown-menu__toggle {
+    min-width: 28px;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    color: $text-soft;
+
+    &:hover:not(:disabled) { background: $bg-page; color: $text; }
+
+    svg { width: 16px; height: 16px; }
 }
