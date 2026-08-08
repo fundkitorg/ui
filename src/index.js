@@ -1,8 +1,7 @@
 /**
  * @dono/ui — public barrel.
  *
- * Components ship as source; the consumer's build transpiles them. Import from
- * the package root:
+ * Components are compiled to dist/ on publish. Import from the package root:
  *
  *   import { Btn, Card, MetricCard } from '@dono/ui';
  *
