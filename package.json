@@ -1,6 +1,6 @@
 {
   "name": "@dono/ui",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Dono design system — shared admin UI components, tokens, and widgets.",
   "license": "GPL-2.0-or-later",
   "repository": {
