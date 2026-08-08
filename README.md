@@ -10,8 +10,7 @@ in a consuming plugin.** If a UI piece is missing, add it here, composed from th
 existing primitives and tokens. Everything routes through the token catalogue —
 no hardcoded colours, spacing, radii, or shadows outside `src/scss/_tokens.scss`.
 
-This is what keeps the free plugin, the Pro add-ons, and the standalone products
-visually identical.
+This is what keeps every product built on it visually identical.
 
 ## What's here
 
@@ -63,9 +62,3 @@ npm run storybook
 
 Renders every component against the Dono tokens. Storybook uses its own Vite
 preview; production consumers use their own build.
-
-## Two-package design system
-
-- **@dono/ui** (this, public) — base components every product uses.
-- **@dono/ui-pro** (private) — premium components for paid add-ons; depends on
-  this package.

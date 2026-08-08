@@ -6,7 +6,7 @@
 // Targets the WP-generated body classes, matching any plugin whose menu slug
 // starts with `dono` so add-ons with their own slug are covered too:
 //   - body.toplevel_page_dono            -> Dono's "Dashboard" entry
-//   - body.toplevel_page_dono-license    -> an add-on's top-level entry
+//   - body.toplevel_page_dono-addon      -> an add-on's own top-level entry
 //   - body[class*="dono_page_dono-"]     -> every Dono submenu page
 //   - body[class*="_page_dono-"]         -> every add-on submenu page
 //
