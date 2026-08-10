@@ -97,7 +97,7 @@ function TokenRow( { tokenKey, def, current, isOverridden, onChange, onReset } )
     );
 }
 
-function TokenControl( { tokenKey, def, value, onChange } ) {
+function TokenControl( { def, value, onChange } ) {
     switch ( def.control ) {
         case 'color':
             return <ColorInput value={ value } onChange={ onChange } />;

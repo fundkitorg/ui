@@ -20,10 +20,16 @@ export default function Dialog( { title, onClose, size, foot, children } ) {
     }, [ onClose ] );
 
     return (
-        <div className="dono-dialog-overlay" onClick={ onClose }>
+        // The overlay is backdrop chrome, so it takes a presentation role and
+        // closes only on a click that landed on itself. Keyboard users close
+        // with Escape, handled above.
+        <div
+            className="dono-dialog-overlay"
+            role="presentation"
+            onClick={ ( e ) => { if ( e.target === e.currentTarget && onClose ) onClose(); } }
+        >
             <div
                 className={ `dono-dialog${ size ? ` dono-dialog--${ size }` : '' }` }
-                onClick={ ( e ) => e.stopPropagation() }
                 role="dialog"
                 aria-modal="true"
                 aria-label={ title }

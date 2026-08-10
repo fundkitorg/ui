@@ -16,6 +16,7 @@ const RANGE_DAYS = { 'last-7': 7, 'last-30': 30, 'last-90': 90 };
 function compareTriggerLabel( mode, range ) {
     const days = RANGE_DAYS[ range ];
     if ( mode === 'period' && days ) {
+        /* translators: %d: number of days in the comparison window */
         return sprintf( __( 'vs previous %d days', 'dono' ), days );
     }
     if ( mode === 'year' ) return __( 'vs same period last year', 'dono' );

@@ -79,7 +79,7 @@ export default function Slider( {
                         onChange={ ( e ) => emit( e.target.value ) }
                         disabled={ disabled }
                     />
-                    <label className="dono-slider__num">
+                    <div className="dono-slider__num">
                         <input
                             type="number"
                             className="dono-slider__input"
@@ -90,7 +90,7 @@ export default function Slider( {
                             onChange={ ( e ) => emit( e.target.value ) }
                             disabled={ disabled }
                         />
-                    </label>
+                    </div>
                     { hasUnitMenu ? (
                         <div className="dono-slider__unit-cell">
                             <button

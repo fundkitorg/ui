@@ -83,7 +83,7 @@ export default function BoxControl( {
                         value={ linkedValue }
                         onChange={ ( e ) => setAll( e.target.value ) }
                     />
-                    <label className="dono-box-control__linked-num">
+                    <div className="dono-box-control__linked-num">
                         <input
                             type="number"
                             className="dono-box-control__input"
@@ -92,7 +92,7 @@ export default function BoxControl( {
                             value={ linkedValue }
                             onChange={ ( e ) => setAll( e.target.value ) }
                         />
-                    </label>
+                    </div>
                     { unit && <div className="dono-box-control__unit">{ unit }</div> }
                 </div>
             ) : (

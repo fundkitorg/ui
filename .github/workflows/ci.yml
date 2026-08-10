@@ -1,0 +1,39 @@
+name: CI
+
+# Lint and build on every push and pull request. The package ships compiled
+# JS, so a build that fails here is a build that fails inside every consumer's
+# install: `prepare` is what produces dist/ when a plugin installs this from a
+# git tag, and nothing else runs it.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    name: Lint and build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      # `npm ci` already ran this through prepare; running it again on its own
+      # is what proves the script a consumer depends on still works.
+      - name: Build
+        run: npm run build
+
+      - name: dist/ was produced
+        run: |
+          test -f dist/index.js || { echo "::error::dist/index.js missing; consumers would install an empty package"; exit 1; }
+          echo "compiled $(find dist -name '*.js' | wc -l | tr -d ' ') files"

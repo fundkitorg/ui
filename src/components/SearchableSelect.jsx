@@ -92,6 +92,10 @@ export default function SearchableSelect( {
     };
 
     return (
+        // The wrapper carries no interaction of its own. Its only handler
+        // cancels a mousedown so focus stays in the combobox, which has no
+        // keyboard equivalent to add: keyboard users never lose focus here.
+        // eslint-disable-next-line jsx-a11y/no-static-element-interactions
         <div
             ref={ wrapRef }
             className={ `dono-searchable${ open ? ' is-open' : '' }${ disabled ? ' is-disabled' : '' } ${ className }`.trim() }
@@ -125,6 +129,12 @@ export default function SearchableSelect( {
             { open && matches.length > 0 && (
                 <ul className="dono-searchable__list" role="listbox">
                     { matches.map( ( opt, i ) => (
+                        // Options are chosen from the keyboard on the combobox
+                        // itself, which owns arrows, Enter and Escape. Giving
+                        // each option its own key handler would need focus on
+                        // the option, which the listbox pattern keeps on the
+                        // input.
+                        // eslint-disable-next-line jsx-a11y/click-events-have-key-events
                         <li
                             key={ opt.value }
                             role="option"

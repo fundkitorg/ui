@@ -20,10 +20,16 @@ export default function Drawer( { title, sub, onClose, foot, children } ) {
     }, [ onClose ] );
 
     return (
-        <div className="dono-drawer-overlay" onClick={ onClose }>
+        // The overlay is backdrop chrome, so it takes a presentation role and
+        // closes only on a click that landed on itself. Keyboard users close
+        // with Escape, handled above.
+        <div
+            className="dono-drawer-overlay"
+            role="presentation"
+            onClick={ ( e ) => { if ( e.target === e.currentTarget && onClose ) onClose(); } }
+        >
             <aside
                 className="dono-drawer"
-                onClick={ ( e ) => e.stopPropagation() }
                 role="dialog"
                 aria-label={ title }
             >
