@@ -6,7 +6,7 @@
  */
 
 import { __ } from '@wordpress/i18n';
-import { formatAmount } from '../utils/format';
+import { formatAmount, parseTimestamp } from '../utils/format';
 
 const SAMPLE_CAMPAIGN = {
     title:        'Bring clean water to 1,000 villages',
@@ -168,7 +168,7 @@ function derivePresets( goalCents ) {
 
 function shortDate( iso ) {
     try {
-        const d = new Date( String( iso ).replace( ' ', 'T' ) );
+        const d = parseTimestamp( iso );
         const hasTime = String( iso ).length > 10;
         const dateOpts = { month: 'short', day: 'numeric', year: 'numeric' };
         if ( ! hasTime ) return d.toLocaleDateString( undefined, dateOpts );
