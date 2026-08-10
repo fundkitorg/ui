@@ -23,27 +23,24 @@ This is what keeps every product built on it visually identical.
 
 ## Consuming it
 
-Components ship as **source** (JSX + SCSS). Consumers transpile with their own
-`@wordpress/scripts` toolchain so the JSX compiles identically everywhere.
+JavaScript ships **compiled**: `prepare` runs Babel on install, so a consumer
+imports plain JS and needs no build configuration for it. SCSS ships as
+**source**, so it compiles against the consuming plugin's own token overrides.
 
 Install (git tag, no npm registry yet):
 
 ```sh
-npm install getdono/ui#v0.1.0
+npm install "git+https://github.com/getdono/ui.git#v0.2.2"
 ```
+
+Name the URL in full rather than the `getdono/ui#tag` shorthand: npm expands the
+shorthand to `ssh://git@github.com`, which any machine without a GitHub SSH key
+fails on, CI runners included.
 
 JS:
 
 ```js
 import { Btn, Card, Notice, MetricCard } from '@dono/ui';
-```
-
-Tell the consumer's webpack to transpile this package's source (the
-`@wordpress/scripts` default excludes `node_modules`):
-
-```js
-// webpack.config.js
-babelRule.exclude = /node_modules\/(?!@dono\/ui)/;
 ```
 
 SCSS (in a page-level stylesheet):
