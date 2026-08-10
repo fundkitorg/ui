@@ -124,6 +124,12 @@ textarea.dono-textarea--edited:focus {
 // select element-qualified (0,1,1) to beat `.wp-core-ui select`: restate the
 // chrome WP overrides (border, radius, padding, font, line-height, max-width)
 // and repaint the Dono caret over WP's dashicon arrow.
+//
+// This ties with `select.dono-input--edited` above and wins on source order, so
+// its `border` shorthand resets that rule's accent back to grey while the inset
+// bar survives. An edited dropdown then reads as a stray green sliver against a
+// grey border. Restated at (0,2,1) below rather than reordered, so the chrome
+// can move without taking the edited state with it.
 select.dono-select {
     max-width: none;
     font-size: 13.5px;
@@ -133,6 +139,14 @@ select.dono-select {
     padding: 7px 28px 7px 10px;
     appearance: none;
     background: $bg-card url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='none' stroke='%236b7280' stroke-width='1.5' d='M1 1l4 4 4-4'/%3E%3C/svg%3E") no-repeat right 10px center;
+}
+
+select.dono-select.dono-input--edited {
+    border-color: $accent;
+}
+
+select.dono-select.dono-input--edited:focus {
+    box-shadow: inset 2px 0 0 $accent, 0 0 0 3px rgba($accent, .12);
 }
 
 .dono-input-row {
