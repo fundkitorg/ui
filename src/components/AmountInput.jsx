@@ -7,7 +7,7 @@
 import { useEffect, useState } from '@wordpress/element';
 
 import { currencySymbol } from '../utils/currency';
-import { numberFormat as orgNumberFormat, groupDigits } from '../utils/format';
+import { numberFormat as orgNumberFormat, groupDigits, currencyDecimals } from '../utils/format';
 
 export default function AmountInput( {
     value,
@@ -33,7 +33,11 @@ export default function AmountInput( {
     const fmt = numberFormat
         ? { ...orgNumberFormat(), ...numberFormat }
         : ( shorthand ? { ...orgNumberFormat(), ...shorthand } : orgNumberFormat() );
-    const dp  = typeof decimalPlaces === 'number' ? decimalPlaces : fmt.decimalPlaces;
+    // How many decimals a currency has is a fact about the currency, not a
+    // display preference. Taking it from the org number format meant an org
+    // set to no cents stripped the separator out of a typed 25.50 and read
+    // the result as 2550. The format still governs separators and symbol.
+    const dp  = typeof decimalPlaces === 'number' ? decimalPlaces : currencyDecimals( currency );
     const symbol = currencySymbol( currency );
 
     const formatValue = ( v ) => {
