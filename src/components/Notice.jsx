@@ -19,7 +19,7 @@ export default function Notice( { status = 'info', onRemove, isDismissible = tru
                 <button
                     type="button"
                     className="dono-notice__close"
-                    aria-label={ __( 'Dismiss', 'dono' ) }
+                    aria-label={ __( 'Dismiss', 'dono-fundraising-platform' ) }
                     onClick={ onRemove }
                 >
                     ×

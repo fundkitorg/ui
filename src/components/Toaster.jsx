@@ -29,7 +29,7 @@ export default function Toaster() {
     if ( ! items.length ) return null;
 
     return (
-        <div className="dono-toaster" role="region" aria-label={ __( 'Notifications', 'dono' ) }>
+        <div className="dono-toaster" role="region" aria-label={ __( 'Notifications', 'dono-fundraising-platform' ) }>
             { items.map( ( t ) => (
                 <div
                     key={ t.id }
@@ -50,7 +50,7 @@ export default function Toaster() {
                     <button
                         type="button"
                         className="dono-toast__close"
-                        aria-label={ __( 'Dismiss', 'dono' ) }
+                        aria-label={ __( 'Dismiss', 'dono-fundraising-platform' ) }
                         onClick={ () => dismiss( t.id ) }
                     >
                         ×

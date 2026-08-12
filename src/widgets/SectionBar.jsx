@@ -4,11 +4,11 @@ import { __, sprintf } from '@wordpress/i18n';
 import Icon from '../components/Icon';
 
 export const RANGE_OPTIONS = [
-    { value: 'today',    label: __( 'Today', 'dono' ) },
-    { value: 'last-7',   label: __( 'Last 7 days', 'dono' ) },
-    { value: 'last-30',  label: __( 'Last 30 days', 'dono' ) },
-    { value: 'last-90',  label: __( 'Last 90 days', 'dono' ) },
-    { value: 'all-time', label: __( 'All-time', 'dono' ) },
+    { value: 'today',    label: __( 'Today', 'dono-fundraising-platform' ) },
+    { value: 'last-7',   label: __( 'Last 7 days', 'dono-fundraising-platform' ) },
+    { value: 'last-30',  label: __( 'Last 30 days', 'dono-fundraising-platform' ) },
+    { value: 'last-90',  label: __( 'Last 90 days', 'dono-fundraising-platform' ) },
+    { value: 'all-time', label: __( 'All-time', 'dono-fundraising-platform' ) },
 ];
 
 const RANGE_DAYS = { 'last-7': 7, 'last-30': 30, 'last-90': 90 };
@@ -17,10 +17,10 @@ function compareTriggerLabel( mode, range ) {
     const days = RANGE_DAYS[ range ];
     if ( mode === 'period' && days ) {
         /* translators: %d: number of days in the comparison window */
-        return sprintf( __( 'vs previous %d days', 'dono' ), days );
+        return sprintf( __( 'vs previous %d days', 'dono-fundraising-platform' ), days );
     }
-    if ( mode === 'year' ) return __( 'vs same period last year', 'dono' );
-    return __( 'Compare to…', 'dono' );
+    if ( mode === 'year' ) return __( 'vs same period last year', 'dono-fundraising-platform' );
+    return __( 'Compare to…', 'dono-fundraising-platform' );
 }
 
 function ChevronDown() {
@@ -83,24 +83,24 @@ export default function SectionBar( {
                             </button>
                         ) }
                         renderContent={ ( { onClose } ) => (
-                            <MenuGroup label={ __( 'Compare to', 'dono' ) }>
+                            <MenuGroup label={ __( 'Compare to', 'dono-fundraising-platform' ) }>
                                 <MenuItem
                                     isSelected={ compareMode === 'none' }
                                     onClick={ () => { onCompareModeChange( 'none' ); onClose(); } }
                                 >
-                                    { __( 'No comparison', 'dono' ) }
+                                    { __( 'No comparison', 'dono-fundraising-platform' ) }
                                 </MenuItem>
                                 <MenuItem
                                     isSelected={ compareMode === 'period' }
                                     onClick={ () => { onCompareModeChange( 'period' ); onClose(); } }
                                 >
-                                    { __( 'Previous period', 'dono' ) }
+                                    { __( 'Previous period', 'dono-fundraising-platform' ) }
                                 </MenuItem>
                                 <MenuItem
                                     isSelected={ compareMode === 'year' }
                                     onClick={ () => { onCompareModeChange( 'year' ); onClose(); } }
                                 >
-                                    { __( 'Same period last year', 'dono' ) }
+                                    { __( 'Same period last year', 'dono-fundraising-platform' ) }
                                 </MenuItem>
                             </MenuGroup>
                         ) }

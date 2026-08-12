@@ -82,7 +82,7 @@ function TokenRow( { tokenKey, def, current, isOverridden, onChange, onReset } )
                         className="dono-token-editor__reset"
                         onClick={ onReset }
                     >
-                        { __( 'Reset', 'dono' ) }
+                        { __( 'Reset', 'dono-fundraising-platform' ) }
                     </Button>
                 ) }
             </div>
@@ -139,7 +139,7 @@ function TokenControl( { def, value, onChange } ) {
                     value={ value }
                     onChange={ onChange }
                     placeholder={ def.default || '' }
-                    help={ __( 'CSS font-family stack. e.g. Inter, system-ui, sans-serif.', 'dono' ) }
+                    help={ __( 'CSS font-family stack. e.g. Inter, system-ui, sans-serif.', 'dono-fundraising-platform' ) }
                     __nextHasNoMarginBottom
                     __next40pxDefaultSize
                 />

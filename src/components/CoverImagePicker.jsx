@@ -8,12 +8,12 @@ import { __ } from '@wordpress/i18n';
 function openMediaFrame( { onSelect, currentId } ) {
     if ( ! window.wp?.media ) {
         // eslint-disable-next-line no-alert
-        alert( __( 'Media library not loaded.', 'dono' ) );
+        alert( __( 'Media library not loaded.', 'dono-fundraising-platform' ) );
         return;
     }
     const frame = window.wp.media( {
-        title:    __( 'Select campaign cover image', 'dono' ),
-        button:   { text: __( 'Use this image', 'dono' ) },
+        title:    __( 'Select campaign cover image', 'dono-fundraising-platform' ),
+        button:   { text: __( 'Use this image', 'dono-fundraising-platform' ) },
         library:  { type: 'image' },
         multiple: false,
     } );
@@ -45,10 +45,10 @@ export default function CoverImagePicker( { id, url, onChange } ) {
                 <img src={ url } alt="" />
                 <div className="dono-cover__actions">
                     <Button variant="secondary" onClick={ pick }>
-                        { __( 'Replace', 'dono' ) }
+                        { __( 'Replace', 'dono-fundraising-platform' ) }
                     </Button>
                     <Button variant="tertiary" isDestructive onClick={ () => onChange( null ) }>
-                        { __( 'Remove', 'dono' ) }
+                        { __( 'Remove', 'dono-fundraising-platform' ) }
                     </Button>
                 </div>
             </div>
@@ -63,9 +63,9 @@ export default function CoverImagePicker( { id, url, onChange } ) {
                 </svg>
             </div>
             <Button variant="secondary" onClick={ ( e ) => { e.stopPropagation(); pick(); } }>
-                { __( 'Select an image', 'dono' ) }
+                { __( 'Select an image', 'dono-fundraising-platform' ) }
             </Button>
-            <div className="dono-cover__hint">{ __( 'or click anywhere in this area', 'dono' ) }</div>
+            <div className="dono-cover__hint">{ __( 'or click anywhere in this area', 'dono-fundraising-platform' ) }</div>
         </div>
     );
 }

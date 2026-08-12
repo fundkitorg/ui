@@ -10,15 +10,15 @@ import { formatAmount } from '../utils/format';
 const CHANNEL_COLORS = [ '#1e8a4e', '#2271b1', '#856a1d', '#7c2222', '#5b21b6', '#0891b2', '#be185d', '#65a30d', '#9ca3af' ];
 
 const CHANNEL_LABELS = {
-    email:         __( 'Email', 'dono' ),
-    direct:        __( 'Direct', 'dono' ),
-    social:        __( 'Organic social', 'dono' ),
-    'paid-social': __( 'Paid social', 'dono' ),
-    organic:       __( 'Organic search', 'dono' ),
-    cpc:           __( 'Paid search', 'dono' ),
-    referral:      __( 'Referral', 'dono' ),
-    qr:            __( 'QR / In-person', 'dono' ),
-    peer:          __( 'Peer-to-peer', 'dono' ),
+    email:         __( 'Email', 'dono-fundraising-platform' ),
+    direct:        __( 'Direct', 'dono-fundraising-platform' ),
+    social:        __( 'Organic social', 'dono-fundraising-platform' ),
+    'paid-social': __( 'Paid social', 'dono-fundraising-platform' ),
+    organic:       __( 'Organic search', 'dono-fundraising-platform' ),
+    cpc:           __( 'Paid search', 'dono-fundraising-platform' ),
+    referral:      __( 'Referral', 'dono-fundraising-platform' ),
+    qr:            __( 'QR / In-person', 'dono-fundraising-platform' ),
+    peer:          __( 'Peer-to-peer', 'dono-fundraising-platform' ),
 };
 
 export default function ChannelBreakdown( { rows = [], currency } ) {
@@ -27,7 +27,7 @@ export default function ChannelBreakdown( { rows = [], currency } ) {
     if ( rows.length === 0 || total === 0 ) {
         return (
             <p className="dono-panel__empty">
-                { __( 'No donations yet. Channels appear once attribution flows through.', 'dono' ) }
+                { __( 'No donations yet. Channels appear once attribution flows through.', 'dono-fundraising-platform' ) }
             </p>
         );
     }

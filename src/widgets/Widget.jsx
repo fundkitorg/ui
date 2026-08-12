@@ -21,7 +21,7 @@ export function WidgetCard( {
                 <button
                     type="button"
                     className="dono-widget__handle"
-                    aria-label={ __( 'Drag to reorder', 'dono' ) }
+                    aria-label={ __( 'Drag to reorder', 'dono-fundraising-platform' ) }
                     { ...dragHandleProps }
                 >
                     <Icon name="drag-grip" size={ 14 } />
@@ -39,7 +39,7 @@ export function WidgetCard( {
                                 variant="tertiary"
                                 onClick={ onToggle }
                                 aria-expanded={ isOpen }
-                                aria-label={ __( 'Widget options', 'dono' ) }
+                                aria-label={ __( 'Widget options', 'dono-fundraising-platform' ) }
                                 icon={ <Icon name="settings" size={ 18 } /> }
                             />
                         ) }
@@ -49,19 +49,19 @@ export function WidgetCard( {
                                     disabled={ ! canMoveUp }
                                     onClick={ () => { onMoveUp?.(); onClose(); } }
                                 >
-                                    { __( 'Move up', 'dono' ) }
+                                    { __( 'Move up', 'dono-fundraising-platform' ) }
                                 </MenuItem>
                                 <MenuItem
                                     disabled={ ! canMoveDown }
                                     onClick={ () => { onMoveDown?.(); onClose(); } }
                                 >
-                                    { __( 'Move down', 'dono' ) }
+                                    { __( 'Move down', 'dono-fundraising-platform' ) }
                                 </MenuItem>
                                 <MenuItem
                                     isDestructive
                                     onClick={ () => { onHide?.(); onClose(); } }
                                 >
-                                    { __( 'Hide widget', 'dono' ) }
+                                    { __( 'Hide widget', 'dono-fundraising-platform' ) }
                                 </MenuItem>
                             </MenuGroup>
                         ) }

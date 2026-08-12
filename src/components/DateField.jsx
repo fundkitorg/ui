@@ -66,8 +66,8 @@ export default function DateField( {
                 >
                     <span className={ `dono-date-field__value${ value ? '' : ' is-empty' }` }>
                         { displayValue || placeholder || ( withTime
-                            ? __( 'Select date and time', 'dono' )
-                            : __( 'Select a date', 'dono' ) ) }
+                            ? __( 'Select date and time', 'dono-fundraising-platform' )
+                            : __( 'Select a date', 'dono-fundraising-platform' ) ) }
                     </span>
                     <svg className="dono-date-field__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                         <rect x="3" y="4" width="18" height="18" rx="2" />
@@ -95,8 +95,8 @@ export default function DateField( {
                             className="dono-date-field__clear"
                         >
                             { withTime
-                                ? __( 'Clear date and time', 'dono' )
-                                : __( 'Clear date', 'dono' ) }
+                                ? __( 'Clear date and time', 'dono-fundraising-platform' )
+                                : __( 'Clear date', 'dono-fundraising-platform' ) }
                         </Button>
                     ) }
                 </div>

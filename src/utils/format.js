@@ -165,12 +165,12 @@ export function timeAgo( iso ) {
     const d = parseTimestamp( iso );
     if ( Number.isNaN( d.getTime() ) ) return iso;
     const diff = Math.max( 0, ( Date.now() - d.getTime() ) / 1000 );
-    if ( diff < 60 )      return __( 'just now', 'dono' );
+    if ( diff < 60 )      return __( 'just now', 'dono-fundraising-platform' );
     /* translators: %d: number of minutes */
-    if ( diff < 3600 )    return sprintf( __( '%dm ago', 'dono' ),  Math.floor( diff / 60 ) );
+    if ( diff < 3600 )    return sprintf( __( '%dm ago', 'dono-fundraising-platform' ),  Math.floor( diff / 60 ) );
     /* translators: %d: number of hours */
-    if ( diff < 86400 )   return sprintf( __( '%dh ago', 'dono' ),  Math.floor( diff / 3600 ) );
+    if ( diff < 86400 )   return sprintf( __( '%dh ago', 'dono-fundraising-platform' ),  Math.floor( diff / 3600 ) );
     /* translators: %d: number of days */
-    if ( diff < 604800 )  return sprintf( __( '%dd ago', 'dono' ),  Math.floor( diff / 86400 ) );
+    if ( diff < 604800 )  return sprintf( __( '%dd ago', 'dono-fundraising-platform' ),  Math.floor( diff / 86400 ) );
     return formatDate( iso );
 }

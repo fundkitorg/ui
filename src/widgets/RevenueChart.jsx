@@ -30,7 +30,7 @@ export default function RevenueChart( { series = [], currency, compareOn, compar
     } ) ), [ series, prev ] );
 
     if ( ! series || series.length === 0 ) {
-        return <div className="dono-chart-empty">{ __( 'No data yet.', 'dono' ) }</div>;
+        return <div className="dono-chart-empty">{ __( 'No data yet.', 'dono-fundraising-platform' ) }</div>;
     }
 
     const fmtY = ( v ) => formatAmount( v, currency );
@@ -80,7 +80,7 @@ export default function RevenueChart( { series = [], currency, compareOn, compar
                         labelFormatter={ ( d ) => formatDate( d ) }
                         formatter={ ( value, name ) => [
                             formatAmount( value || 0, currency ),
-                            name === 'current' ? __( 'Current', 'dono' ) : __( 'Previous', 'dono' ),
+                            name === 'current' ? __( 'Current', 'dono-fundraising-platform' ) : __( 'Previous', 'dono-fundraising-platform' ),
                         ] }
                     />
                     <Area

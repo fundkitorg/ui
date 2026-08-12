@@ -40,7 +40,7 @@ export default function Dialog( { title, onClose, size, foot, children } ) {
                         type="button"
                         className="dono-dialog__close"
                         onClick={ onClose }
-                        aria-label={ __( 'Close', 'dono' ) }
+                        aria-label={ __( 'Close', 'dono-fundraising-platform' ) }
                     >
                         ✕
                     </button>

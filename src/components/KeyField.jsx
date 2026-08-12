@@ -40,19 +40,19 @@ export default function KeyField( { value, onChange, secret, placeholder, ariaLa
                     type="button"
                     className="dono-copy-btn"
                     onClick={ onToggle }
-                    aria-label={ ariaLabel || ( shown ? __( 'Hide', 'dono' ) : __( 'Reveal', 'dono' ) ) }
+                    aria-label={ ariaLabel || ( shown ? __( 'Hide', 'dono-fundraising-platform' ) : __( 'Reveal', 'dono-fundraising-platform' ) ) }
                 >
-                    { shown ? __( 'Hide', 'dono' ) : __( 'Reveal', 'dono' ) }
+                    { shown ? __( 'Hide', 'dono-fundraising-platform' ) : __( 'Reveal', 'dono-fundraising-platform' ) }
                 </button>
             ) : (
                 <button
                     type="button"
                     className="dono-copy-btn"
                     onClick={ onCopy }
-                    aria-label={ ariaLabel || __( 'Copy', 'dono' ) }
+                    aria-label={ ariaLabel || __( 'Copy', 'dono-fundraising-platform' ) }
                     disabled={ ! display }
                 >
-                    { __( 'Copy', 'dono' ) }
+                    { __( 'Copy', 'dono-fundraising-platform' ) }
                 </button>
             ) }
         </div>

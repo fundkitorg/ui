@@ -82,13 +82,13 @@ export default function StylePreview( {
                         <div className="dono-style-preview__progress-meta">
                             <span>
                                 <strong>{ formatAmount( raisedCents, currency ) }</strong>
-                                { ' ' }{ __( 'raised', 'dono' ) }
+                                { ' ' }{ __( 'raised', 'dono-fundraising-platform' ) }
                             </span>
                             { goalCents > 0 && (
                                 <span>
-                                    { __( 'of', 'dono' ) }{ ' ' }
+                                    { __( 'of', 'dono-fundraising-platform' ) }{ ' ' }
                                     { formatAmount( goalCents, currency ) }{ ' ' }
-                                    { __( 'goal', 'dono' ) }
+                                    { __( 'goal', 'dono-fundraising-platform' ) }
                                 </span>
                             ) }
                         </div>
@@ -105,15 +105,15 @@ export default function StylePreview( {
                         </div>
 
                         <div className="dono-style-preview__cta">
-                            { __( 'Donate', 'dono' ) }{ ' ' }
+                            { __( 'Donate', 'dono-fundraising-platform' ) }{ ' ' }
                             { formatAmount( presets[ selectedIdx ], currency ) }
                         </div>
 
                         <div className="dono-style-preview__meta">
                             { donors > 0
-                                ? `${ donors } ${ donors === 1 ? __( 'donor', 'dono' ) : __( 'donors', 'dono' ) }`
-                                : __( 'No donors yet', 'dono' ) }
-                            { endsAt && ` · ${ __( 'ends', 'dono' ) } ${ shortDate( endsAt ) }` }
+                                ? `${ donors } ${ donors === 1 ? __( 'donor', 'dono-fundraising-platform' ) : __( 'donors', 'dono-fundraising-platform' ) }`
+                                : __( 'No donors yet', 'dono-fundraising-platform' ) }
+                            { endsAt && ` · ${ __( 'ends', 'dono-fundraising-platform' ) } ${ shortDate( endsAt ) }` }
                         </div>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ export function ComparisonBadge( { pct } ) {
     const cls = `dono-cmp ${ positive ? 'is-up' : negative ? 'is-down' : 'is-flat' }`;
     const arrow = positive ? 'arrow-up' : negative ? 'arrow-down' : null;
     return (
-        <span className={ cls } title={ __( 'vs previous period', 'dono' ) }>
+        <span className={ cls } title={ __( 'vs previous period', 'dono-fundraising-platform' ) }>
             { arrow && <Icon name={ arrow } size={ 10 } /> }
             { Math.abs( pct ) }%
         </span>
@@ -21,7 +21,7 @@ export default function MetricCard( { label, value, sub, changePct, icon, onMenu
             <div className="dono-metric__head">
                 <span className="dono-metric__icon">{ icon }</span>
                 { onMenuClick && (
-                    <button type="button" className="dono-metric__menu" aria-label={ __( 'More', 'dono' ) } onClick={ onMenuClick }>
+                    <button type="button" className="dono-metric__menu" aria-label={ __( 'More', 'dono-fundraising-platform' ) } onClick={ onMenuClick }>
                         <Icon name="more" size={ 14 } />
                     </button>
                 ) }

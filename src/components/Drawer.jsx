@@ -42,7 +42,7 @@ export default function Drawer( { title, sub, onClose, foot, children } ) {
                         type="button"
                         className="dono-drawer__close"
                         onClick={ onClose }
-                        aria-label={ __( 'Close', 'dono' ) }
+                        aria-label={ __( 'Close', 'dono-fundraising-platform' ) }
                     >
                         ✕
                     </button>

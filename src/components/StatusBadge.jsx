@@ -1,9 +1,9 @@
 import { __ } from '@wordpress/i18n';
 
 export const STATUS_LABEL = {
-    draft:     __( 'Draft', 'dono' ),
-    published: __( 'Active', 'dono' ),
-    archived:  __( 'Archived', 'dono' ),
+    draft:     __( 'Draft', 'dono-fundraising-platform' ),
+    published: __( 'Active', 'dono-fundraising-platform' ),
+    archived:  __( 'Archived', 'dono-fundraising-platform' ),
 };
 
 export const STATUS_COLORS = {

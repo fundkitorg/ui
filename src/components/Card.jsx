@@ -57,13 +57,13 @@ export default function Card( {
                     <span className="dono-edited-pill">
                         { sprintf(
                             /* translators: %d: number of edited fields in this card */
-                            _n( '%d change', '%d changes', edited, 'dono' ),
+                            _n( '%d change', '%d changes', edited, 'dono-fundraising-platform' ),
                             edited,
                         ) }
                     </span>
                 ) }
                 { edited === true && (
-                    <span className="dono-edited-pill">{ __( 'Edited', 'dono' ) }</span>
+                    <span className="dono-edited-pill">{ __( 'Edited', 'dono-fundraising-platform' ) }</span>
                 ) }
             </div>
             { meta && <span className="dono-card__meta">{ meta }</span> }

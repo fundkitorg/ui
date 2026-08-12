@@ -28,7 +28,7 @@ export default function MonthField( { value, onChange, min, max, ariaLabel } ) {
     const label  = parsed
         ? sprintf(
             /* translators: 1: month name, 2: four-digit year. */
-            __( '%1$s %2$s', 'dono' ),
+            __( '%1$s %2$s', 'dono-fundraising-platform' ),
             months[ parsed.month - 1 ],
             String( parsed.year )
         )
@@ -65,7 +65,7 @@ export default function MonthField( { value, onChange, min, max, ariaLabel } ) {
                     aria-label={ ariaLabel }
                 >
                     <span className={ `dono-date-field__value${ label ? '' : ' is-empty' }` }>
-                        { label || __( 'Select a month', 'dono' ) }
+                        { label || __( 'Select a month', 'dono-fundraising-platform' ) }
                     </span>
                     <svg className="dono-date-field__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                         <rect x="3" y="4" width="18" height="18" rx="2" />
@@ -83,7 +83,7 @@ export default function MonthField( { value, onChange, min, max, ariaLabel } ) {
                             className="dono-month-field__nav"
                             onClick={ () => setYear( year - 1 ) }
                             disabled={ ! hasAnyMonth( year - 1 ) }
-                            aria-label={ __( 'Previous year', 'dono' ) }
+                            aria-label={ __( 'Previous year', 'dono-fundraising-platform' ) }
                         >
                             ‹
                         </button>
@@ -93,7 +93,7 @@ export default function MonthField( { value, onChange, min, max, ariaLabel } ) {
                             className="dono-month-field__nav"
                             onClick={ () => setYear( year + 1 ) }
                             disabled={ ! hasAnyMonth( year + 1 ) }
-                            aria-label={ __( 'Next year', 'dono' ) }
+                            aria-label={ __( 'Next year', 'dono-fundraising-platform' ) }
                         >
                             ›
                         </button>

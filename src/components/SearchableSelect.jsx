@@ -111,7 +111,7 @@ export default function SearchableSelect( {
                 type="text"
                 className="dono-searchable__input"
                 value={ open ? query : selectedLabel }
-                placeholder={ open ? ( placeholder || __( 'Search…', 'dono' ) ) : ( selectedLabel || placeholder || __( 'Search…', 'dono' ) ) }
+                placeholder={ open ? ( placeholder || __( 'Search…', 'dono-fundraising-platform' ) ) : ( selectedLabel || placeholder || __( 'Search…', 'dono-fundraising-platform' ) ) }
                 disabled={ disabled }
                 onFocus={ () => { setOpen( true ); setQuery( '' ); } }
                 onChange={ ( e ) => { setQuery( e.target.value ); if ( ! open ) setOpen( true ); } }

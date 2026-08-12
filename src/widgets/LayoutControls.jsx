@@ -20,10 +20,10 @@ export default function LayoutControls( { hidden, registry, onUnhide, onReset } 
                 >
                     <Icon name="layout-grid" size={ 14 } />
                     { hidden.length === 0
-                        ? __( 'Customize', 'dono' )
+                        ? __( 'Customize', 'dono-fundraising-platform' )
                         : sprintf(
                             /* translators: %d: number of hidden widgets */
-                            _n( '%d hidden widget', '%d hidden widgets', hidden.length, 'dono' ),
+                            _n( '%d hidden widget', '%d hidden widgets', hidden.length, 'dono-fundraising-platform' ),
                             hidden.length
                         ) }
                 </button>
@@ -31,7 +31,7 @@ export default function LayoutControls( { hidden, registry, onUnhide, onReset } 
             renderContent={ ( { onClose } ) => (
                 <>
                     { hidden.length > 0 && (
-                        <MenuGroup label={ __( 'Show again', 'dono' ) }>
+                        <MenuGroup label={ __( 'Show again', 'dono-fundraising-platform' ) }>
                             { hidden.map( ( key ) => {
                                 const label = registry[ key ]?.title || registry[ key ]?.label || key;
                                 return (
@@ -46,7 +46,7 @@ export default function LayoutControls( { hidden, registry, onUnhide, onReset } 
                         <MenuItem
                             onClick={ () => { onReset(); onClose(); } }
                         >
-                            { __( 'Reset layout', 'dono' ) }
+                            { __( 'Reset layout', 'dono-fundraising-platform' ) }
                         </MenuItem>
                     </MenuGroup>
                 </>
