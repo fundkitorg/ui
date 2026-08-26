@@ -19,7 +19,7 @@ body[class*="_page_giveflow-"] {
     // etc.) from the default WP admin blue to the GiveFlow accent. Many WP
     // components read --wp-admin-theme-color directly.
     --wp-admin-theme-color:           #{$accent};
-    --wp-admin-theme-color--rgb:      30, 138, 78;
+    --wp-admin-theme-color--rgb:      33, 29, 63;
     --wp-admin-theme-color-darker-10: #{$accent-dark};
     --wp-admin-theme-color-darker-20: #{$accent-dark};
 

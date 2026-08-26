@@ -12,7 +12,7 @@
     // DataViews reads its accent from --wp-admin-theme-color; override locally
     // so the selected row, checkbox tick, sort caret, etc. all read accent green.
     --wp-admin-theme-color:           #{$accent};
-    --wp-admin-theme-color--rgb:      30, 138, 78;
+    --wp-admin-theme-color--rgb:      33, 29, 63;
     --wp-admin-theme-color-darker-10: #{$accent-dark};
     --wp-admin-theme-color-darker-20: #{$accent-dark};
     --wp-components-color-accent:           #{$accent};
@@ -207,7 +207,7 @@
             background: $accent-soft;
             color: $text;
 
-            &:hover { background: rgba(30, 138, 78, 0.18); }
+            &:hover { background: rgba(33, 29, 63, 0.18); }
         }
     }
 
