@@ -30,20 +30,20 @@ export default function RevenueChart( { series = [], currency, compareOn, compar
     } ) ), [ series, prev ] );
 
     if ( ! series || series.length === 0 ) {
-        return <div className="dono-chart-empty">{ __( 'No data yet.', 'dono-fundraising-platform' ) }</div>;
+        return <div className="giveflow-chart-empty">{ __( 'No data yet.', 'giveflow-fundraising-campaigns' ) }</div>;
     }
 
     const fmtY = ( v ) => formatAmount( v, currency );
     const fmtX = ( v ) => String( v ).slice( 5 ); // MM-DD
 
     return (
-        <div className="dono-recharts">
+        <div className="giveflow-recharts">
             <ResponsiveContainer width="100%" height={ 280 }>
                 <AreaChart data={ data } margin={ { top: 12, right: 12, bottom: 0, left: 0 } }>
                     <defs>
-                        <linearGradient id="dono-rev-grad" x1="0" x2="0" y1="0" y2="1">
-                            <stop offset="0%"   stopColor="#1e8a4e" stopOpacity={ 0.22 } />
-                            <stop offset="100%" stopColor="#1e8a4e" stopOpacity={ 0 } />
+                        <linearGradient id="giveflow-rev-grad" x1="0" x2="0" y1="0" y2="1">
+                            <stop offset="0%"   stopColor="#6f5ce6" stopOpacity={ 0.22 } />
+                            <stop offset="100%" stopColor="#6f5ce6" stopOpacity={ 0 } />
                         </linearGradient>
                     </defs>
                     <CartesianGrid stroke="#eef0f2" strokeDasharray="2 4" vertical={ false } />
@@ -80,15 +80,15 @@ export default function RevenueChart( { series = [], currency, compareOn, compar
                         labelFormatter={ ( d ) => formatDate( d ) }
                         formatter={ ( value, name ) => [
                             formatAmount( value || 0, currency ),
-                            name === 'current' ? __( 'Current', 'dono-fundraising-platform' ) : __( 'Previous', 'dono-fundraising-platform' ),
+                            name === 'current' ? __( 'Current', 'giveflow-fundraising-campaigns' ) : __( 'Previous', 'giveflow-fundraising-campaigns' ),
                         ] }
                     />
                     <Area
                         type="monotone"
                         dataKey="current"
-                        stroke="#1e8a4e"
+                        stroke="#6f5ce6"
                         strokeWidth={ 2 }
-                        fill="url(#dono-rev-grad)"
+                        fill="url(#giveflow-rev-grad)"
                         isAnimationActive={ false }
                     />
                     { prev && (

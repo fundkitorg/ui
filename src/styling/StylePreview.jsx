@@ -51,69 +51,69 @@ export default function StylePreview( {
     const addr = `${ host }/campaigns/${ slug }`;
 
     return (
-        <div className="dono-style-preview">
-            <div className="dono-style-preview__frame" style={ tokensToStyle( effective ) }>
-                <div className="dono-style-preview__chrome">
-                    <span className="dono-style-preview__dots" aria-hidden="true">
+        <div className="giveflow-style-preview">
+            <div className="giveflow-style-preview__frame" style={ tokensToStyle( effective ) }>
+                <div className="giveflow-style-preview__chrome">
+                    <span className="giveflow-style-preview__dots" aria-hidden="true">
                         <span /><span /><span />
                     </span>
-                    <span className="dono-style-preview__addr">{ addr }</span>
+                    <span className="giveflow-style-preview__addr">{ addr }</span>
                 </div>
 
-                <div className="dono-style-preview__page">
+                <div className="giveflow-style-preview__page">
                     <div
-                        className="dono-style-preview__hero"
+                        className="giveflow-style-preview__hero"
                         style={ imageUrl ? { backgroundImage: `url(${ imageUrl })` } : undefined }
                     >
-                        <div className="dono-style-preview__hero-title">{ title }</div>
+                        <div className="giveflow-style-preview__hero-title">{ title }</div>
                     </div>
 
-                    <div className="dono-style-preview__body">
+                    <div className="giveflow-style-preview__body">
                         { description && (
-                            <div className="dono-style-preview__desc">{ description }</div>
+                            <div className="giveflow-style-preview__desc">{ description }</div>
                         ) }
 
-                        <div className="dono-style-preview__progress-track">
+                        <div className="giveflow-style-preview__progress-track">
                             <div
-                                className="dono-style-preview__progress-fill"
+                                className="giveflow-style-preview__progress-fill"
                                 style={ { width: `${ pct }%` } }
                             />
                         </div>
-                        <div className="dono-style-preview__progress-meta">
+                        <div className="giveflow-style-preview__progress-meta">
                             <span>
                                 <strong>{ formatAmount( raisedCents, currency ) }</strong>
-                                { ' ' }{ __( 'raised', 'dono-fundraising-platform' ) }
+                                { ' ' }{ __( 'raised', 'giveflow-fundraising-campaigns' ) }
                             </span>
                             { goalCents > 0 && (
                                 <span>
-                                    { __( 'of', 'dono-fundraising-platform' ) }{ ' ' }
+                                    { __( 'of', 'giveflow-fundraising-campaigns' ) }{ ' ' }
                                     { formatAmount( goalCents, currency ) }{ ' ' }
-                                    { __( 'goal', 'dono-fundraising-platform' ) }
+                                    { __( 'goal', 'giveflow-fundraising-campaigns' ) }
                                 </span>
                             ) }
                         </div>
 
-                        <div className="dono-style-preview__amounts">
+                        <div className="giveflow-style-preview__amounts">
                             { presets.map( ( a, i ) => (
                                 <div
                                     key={ i }
-                                    className={ `dono-style-preview__amount${ i === selectedIdx ? ' is-sel' : '' }` }
+                                    className={ `giveflow-style-preview__amount${ i === selectedIdx ? ' is-sel' : '' }` }
                                 >
                                     { formatAmount( a, currency ) }
                                 </div>
                             ) ) }
                         </div>
 
-                        <div className="dono-style-preview__cta">
-                            { __( 'Donate', 'dono-fundraising-platform' ) }{ ' ' }
+                        <div className="giveflow-style-preview__cta">
+                            { __( 'Donate', 'giveflow-fundraising-campaigns' ) }{ ' ' }
                             { formatAmount( presets[ selectedIdx ], currency ) }
                         </div>
 
-                        <div className="dono-style-preview__meta">
+                        <div className="giveflow-style-preview__meta">
                             { donors > 0
-                                ? `${ donors } ${ donors === 1 ? __( 'donor', 'dono-fundraising-platform' ) : __( 'donors', 'dono-fundraising-platform' ) }`
-                                : __( 'No donors yet', 'dono-fundraising-platform' ) }
-                            { endsAt && ` · ${ __( 'ends', 'dono-fundraising-platform' ) } ${ shortDate( endsAt ) }` }
+                                ? `${ donors } ${ donors === 1 ? __( 'donor', 'giveflow-fundraising-campaigns' ) : __( 'donors', 'giveflow-fundraising-campaigns' ) }`
+                                : __( 'No donors yet', 'giveflow-fundraising-campaigns' ) }
+                            { endsAt && ` · ${ __( 'ends', 'giveflow-fundraising-campaigns' ) } ${ shortDate( endsAt ) }` }
                         </div>
                     </div>
                 </div>

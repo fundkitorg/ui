@@ -11,15 +11,15 @@ export default function Notice( { status = 'info', onRemove, isDismissible = tru
     const s = STATUSES.includes( status ) ? status : 'info';
     return (
         <div
-            className={ `dono-notice dono-notice--${ s }` }
+            className={ `giveflow-notice giveflow-notice--${ s }` }
             role={ s === 'error' || s === 'warning' ? 'alert' : 'status' }
         >
-            <div className="dono-notice__body">{ children }</div>
+            <div className="giveflow-notice__body">{ children }</div>
             { isDismissible && onRemove && (
                 <button
                     type="button"
-                    className="dono-notice__close"
-                    aria-label={ __( 'Dismiss', 'dono-fundraising-platform' ) }
+                    className="giveflow-notice__close"
+                    aria-label={ __( 'Dismiss', 'giveflow-fundraising-campaigns' ) }
                     onClick={ onRemove }
                 >
                     ×

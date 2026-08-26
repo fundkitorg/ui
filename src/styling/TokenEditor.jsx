@@ -3,7 +3,7 @@
  * each shows the effective value (override or default) with a Reset link.
  *
  * Pure / prop-driven: pass `catalogue`, `groups`, and `defaults` explicitly.
- * The Dono plugin sources these from window.dono.styling and passes them in.
+ * The GiveFlow plugin sources these from window.giveflow.styling and passes them in.
  */
 
 import { PanelBody, RangeControl, SelectControl, TextControl, Button } from '@wordpress/components';
@@ -45,7 +45,7 @@ export default function TokenEditor( {
     };
 
     return (
-        <div className="dono-token-editor">
+        <div className="giveflow-token-editor">
             { orderedGroups.map( ( g, gi ) => (
                 <PanelBody
                     key={ g }
@@ -72,17 +72,17 @@ export default function TokenEditor( {
 function TokenRow( { tokenKey, def, current, isOverridden, onChange, onReset } ) {
     const label = def.label || tokenKey;
     return (
-        <div className="dono-token-editor__row">
-            <div className="dono-token-editor__row-head">
-                <span className="dono-token-editor__label">{ label }</span>
+        <div className="giveflow-token-editor__row">
+            <div className="giveflow-token-editor__row-head">
+                <span className="giveflow-token-editor__label">{ label }</span>
                 { isOverridden && (
                     <Button
                         variant="link"
                         size="small"
-                        className="dono-token-editor__reset"
+                        className="giveflow-token-editor__reset"
                         onClick={ onReset }
                     >
-                        { __( 'Reset', 'dono-fundraising-platform' ) }
+                        { __( 'Reset', 'giveflow-fundraising-campaigns' ) }
                     </Button>
                 ) }
             </div>
@@ -92,7 +92,7 @@ function TokenRow( { tokenKey, def, current, isOverridden, onChange, onReset } )
                 value={ current }
                 onChange={ onChange }
             />
-            { def.help && <p className="dono-token-editor__help">{ def.help }</p> }
+            { def.help && <p className="giveflow-token-editor__help">{ def.help }</p> }
         </div>
     );
 }
@@ -139,7 +139,7 @@ function TokenControl( { def, value, onChange } ) {
                     value={ value }
                     onChange={ onChange }
                     placeholder={ def.default || '' }
-                    help={ __( 'CSS font-family stack. e.g. Inter, system-ui, sans-serif.', 'dono-fundraising-platform' ) }
+                    help={ __( 'CSS font-family stack. e.g. Inter, system-ui, sans-serif.', 'giveflow-fundraising-campaigns' ) }
                     __nextHasNoMarginBottom
                     __next40pxDefaultSize
                 />

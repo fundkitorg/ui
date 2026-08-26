@@ -56,14 +56,14 @@ export default function BoxControl( {
     const linkedValue = Number( value.top ) || 0;
 
     return (
-        <div className="dono-box-control">
+        <div className="giveflow-box-control">
             { ( title || linkable ) && (
-                <div className="dono-box-control__header">
-                    { title && <span className="dono-box-control__title">{ title }</span> }
+                <div className="giveflow-box-control__header">
+                    { title && <span className="giveflow-box-control__title">{ title }</span> }
                     { linkable && (
                         <button
                             type="button"
-                            className={ `dono-box-control__link ${ linked ? 'is-on' : '' }` }
+                            className={ `giveflow-box-control__link ${ linked ? 'is-on' : '' }` }
                             aria-pressed={ linked }
                             aria-label={ linked ? 'Sides linked' : 'Link sides' }
                             onClick={ toggleLink }
@@ -74,41 +74,41 @@ export default function BoxControl( {
                 </div>
             ) }
             { linked ? (
-                <div className="dono-box-control__linked">
+                <div className="giveflow-box-control__linked">
                     <input
                         type="range"
-                        className="dono-box-control__range"
+                        className="giveflow-box-control__range"
                         min={ min }
                         max={ max }
                         value={ linkedValue }
                         onChange={ ( e ) => setAll( e.target.value ) }
                     />
-                    <div className="dono-box-control__linked-num">
+                    <div className="giveflow-box-control__linked-num">
                         <input
                             type="number"
-                            className="dono-box-control__input"
+                            className="giveflow-box-control__input"
                             min={ min }
                             max={ max }
                             value={ linkedValue }
                             onChange={ ( e ) => setAll( e.target.value ) }
                         />
                     </div>
-                    { unit && <div className="dono-box-control__unit">{ unit }</div> }
+                    { unit && <div className="giveflow-box-control__unit">{ unit }</div> }
                 </div>
             ) : (
                 <div
-                    className="dono-box-control__row"
-                    style={ { '--dono-box-cells': sideList.length } }
+                    className="giveflow-box-control__row"
+                    style={ { '--giveflow-box-cells': sideList.length } }
                 >
                     { sideList.map( ( side ) => (
                         <label
                             key={ side }
-                            className={ `dono-box-control__cell dono-box-control__cell--${ side }` }
+                            className={ `giveflow-box-control__cell giveflow-box-control__cell--${ side }` }
                         >
-                            <span className="dono-box-control__label">{ side }</span>
+                            <span className="giveflow-box-control__label">{ side }</span>
                             <input
                                 type="number"
-                                className="dono-box-control__input"
+                                className="giveflow-box-control__input"
                                 min={ min }
                                 max={ max }
                                 value={ value[ side ] || 0 }
@@ -116,7 +116,7 @@ export default function BoxControl( {
                             />
                         </label>
                     ) ) }
-                    { unit && <div className="dono-box-control__unit">{ unit }</div> }
+                    { unit && <div className="giveflow-box-control__unit">{ unit }</div> }
                 </div>
             ) }
         </div>

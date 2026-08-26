@@ -9,17 +9,17 @@
  */
 export default function FormRow( { label, help, fieldHelp, required, wide, children } ) {
     return (
-        <div className={ `dono-form-row${ wide ? ' dono-form-row--wide' : '' }` }>
+        <div className={ `giveflow-form-row${ wide ? ' giveflow-form-row--wide' : '' }` }>
             { label && (
-                <div className="dono-form-row__label">
+                <div className="giveflow-form-row__label">
                     { label }
                     { required && <span className="req">*</span> }
-                    { help && <div className="dono-form-row__help">{ help }</div> }
+                    { help && <div className="giveflow-form-row__help">{ help }</div> }
                 </div>
             ) }
-            <div className="dono-form-row__field">
+            <div className="giveflow-form-row__field">
                 { children }
-                { fieldHelp && <div className="dono-form-row__field-help">{ fieldHelp }</div> }
+                { fieldHelp && <div className="giveflow-form-row__field-help">{ fieldHelp }</div> }
             </div>
         </div>
     );

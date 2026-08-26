@@ -7,18 +7,18 @@ import { formatAmount } from '../utils/format';
  * donations.source_attribution.utm_source; unknown values map to "direct".
  */
 // Channel palette keyed to bucket ids from CampaignMetricsService::classifyChannel.
-const CHANNEL_COLORS = [ '#1e8a4e', '#2271b1', '#856a1d', '#7c2222', '#5b21b6', '#0891b2', '#be185d', '#65a30d', '#9ca3af' ];
+const CHANNEL_COLORS = [ '#6f5ce6', '#b08a12', '#1f7fb8', '#c25050', '#0a9bab', '#9a3fb0', '#619c22', '#c2417e', '#7278cf' ];
 
 const CHANNEL_LABELS = {
-    email:         __( 'Email', 'dono-fundraising-platform' ),
-    direct:        __( 'Direct', 'dono-fundraising-platform' ),
-    social:        __( 'Organic social', 'dono-fundraising-platform' ),
-    'paid-social': __( 'Paid social', 'dono-fundraising-platform' ),
-    organic:       __( 'Organic search', 'dono-fundraising-platform' ),
-    cpc:           __( 'Paid search', 'dono-fundraising-platform' ),
-    referral:      __( 'Referral', 'dono-fundraising-platform' ),
-    qr:            __( 'QR / In-person', 'dono-fundraising-platform' ),
-    peer:          __( 'Peer-to-peer', 'dono-fundraising-platform' ),
+    email:         __( 'Email', 'giveflow-fundraising-campaigns' ),
+    direct:        __( 'Direct', 'giveflow-fundraising-campaigns' ),
+    social:        __( 'Organic social', 'giveflow-fundraising-campaigns' ),
+    'paid-social': __( 'Paid social', 'giveflow-fundraising-campaigns' ),
+    organic:       __( 'Organic search', 'giveflow-fundraising-campaigns' ),
+    cpc:           __( 'Paid search', 'giveflow-fundraising-campaigns' ),
+    referral:      __( 'Referral', 'giveflow-fundraising-campaigns' ),
+    qr:            __( 'QR / In-person', 'giveflow-fundraising-campaigns' ),
+    peer:          __( 'Peer-to-peer', 'giveflow-fundraising-campaigns' ),
 };
 
 export default function ChannelBreakdown( { rows = [], currency } ) {
@@ -26,8 +26,8 @@ export default function ChannelBreakdown( { rows = [], currency } ) {
 
     if ( rows.length === 0 || total === 0 ) {
         return (
-            <p className="dono-panel__empty">
-                { __( 'No donations yet. Channels appear once attribution flows through.', 'dono-fundraising-platform' ) }
+            <p className="giveflow-panel__empty">
+                { __( 'No donations yet. Channels appear once attribution flows through.', 'giveflow-fundraising-campaigns' ) }
             </p>
         );
     }
@@ -35,29 +35,29 @@ export default function ChannelBreakdown( { rows = [], currency } ) {
     const label = ( ch ) => CHANNEL_LABELS[ ch ] || ch.charAt( 0 ).toUpperCase() + ch.slice( 1 );
 
     return (
-        <div className="dono-gateway">
-            <div className="dono-stackbar">
+        <div className="giveflow-gateway">
+            <div className="giveflow-stackbar">
                 { rows.map( ( r, i ) => {
                     const pct = total > 0 ? ( r.amount_cents / total ) * 100 : 0;
                     return (
                         <div
                             key={ r.channel }
-                            className="dono-stackbar__seg"
+                            className="giveflow-stackbar__seg"
                             style={ { width: `${ pct }%`, background: CHANNEL_COLORS[ i % CHANNEL_COLORS.length ] } }
                             title={ `${ label( r.channel ) }: ${ formatAmount( r.amount_cents, currency ) }` }
                         />
                     );
                 } ) }
             </div>
-            <ul className="dono-gateway__legend">
+            <ul className="giveflow-gateway__legend">
                 { rows.map( ( r, i ) => {
                     const pct = total > 0 ? Math.round( ( r.amount_cents / total ) * 100 ) : 0;
                     return (
                         <li key={ r.channel }>
-                            <span className="dono-gateway__dot" style={ { background: CHANNEL_COLORS[ i % CHANNEL_COLORS.length ] } } />
-                            <span className="dono-gateway__label">{ label( r.channel ) }</span>
-                            <span className="dono-gateway__value">{ formatAmount( r.amount_cents, currency ) }</span>
-                            <span className="dono-gateway__pct">{ pct }%</span>
+                            <span className="giveflow-gateway__dot" style={ { background: CHANNEL_COLORS[ i % CHANNEL_COLORS.length ] } } />
+                            <span className="giveflow-gateway__label">{ label( r.channel ) }</span>
+                            <span className="giveflow-gateway__value">{ formatAmount( r.amount_cents, currency ) }</span>
+                            <span className="giveflow-gateway__pct">{ pct }%</span>
                         </li>
                     );
                 } ) }

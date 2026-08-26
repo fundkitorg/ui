@@ -2,7 +2,7 @@
 
 @import '../tokens';
 
-.dono-switch {
+.giveflow-switch {
     position: relative;
     display: inline-block;
     width: 34px;
@@ -39,7 +39,7 @@
 
 // Toggle row: title + sub on the left, the Switch on the right. Lives with
 // the component (ToggleRow in Switch.jsx); previously copy-pasted per page.
-.dono-toggle-row {
+.giveflow-toggle-row {
     display: flex;
     align-items: center;
     gap: 14px;

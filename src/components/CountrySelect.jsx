@@ -22,7 +22,7 @@ export default function CountrySelect( { value, onChange, placeholder, disabled 
             value={ String( value || '' ).toUpperCase() }
             onChange={ onChange }
             options={ options }
-            placeholder={ placeholder || __( 'Search country…', 'dono-fundraising-platform' ) }
+            placeholder={ placeholder || __( 'Search country…', 'giveflow-fundraising-campaigns' ) }
             disabled={ disabled }
             className={ className }
         />

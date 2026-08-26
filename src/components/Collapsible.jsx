@@ -33,30 +33,30 @@ export default function Collapsible( {
         else setUncontrolled( ( v ) => ! v );
     };
 
-    const headerId = `dono-collapsible-${ id }-header`;
-    const bodyId   = `dono-collapsible-${ id }-body`;
+    const headerId = `giveflow-collapsible-${ id }-header`;
+    const bodyId   = `giveflow-collapsible-${ id }-body`;
 
     return (
-        <section className={ `dono-collapsible ${ isOpen ? 'is-open' : 'is-closed' }` }>
+        <section className={ `giveflow-collapsible ${ isOpen ? 'is-open' : 'is-closed' }` }>
             <button
                 type="button"
-                className="dono-collapsible__header"
+                className="giveflow-collapsible__header"
                 id={ headerId }
                 aria-expanded={ isOpen }
                 aria-controls={ bodyId }
                 onClick={ handleToggle }
             >
-                <span className="dono-collapsible__title">{ title }</span>
+                <span className="giveflow-collapsible__title">{ title }</span>
                 <ChevronDown
                     size={ 14 }
                     strokeWidth={ 2 }
-                    className="dono-collapsible__chevron"
+                    className="giveflow-collapsible__chevron"
                     aria-hidden="true"
                 />
             </button>
             { isOpen && (
                 <div
-                    className="dono-collapsible__body"
+                    className="giveflow-collapsible__body"
                     id={ bodyId }
                     role="region"
                     aria-labelledby={ headerId }

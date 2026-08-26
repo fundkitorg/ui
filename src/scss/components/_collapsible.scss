@@ -1,6 +1,6 @@
 // Collapsible inspector section. Header is a button; chevron rotates when open.
 
-.dono-collapsible {
+.giveflow-collapsible {
     border-top: 1px solid $border-soft;
     background: #fff;
 
@@ -37,7 +37,7 @@
         transition: transform .15s ease;
     }
 
-    &.is-open  .dono-collapsible__chevron { transform: rotate(180deg); }
+    &.is-open  .giveflow-collapsible__chevron { transform: rotate(180deg); }
 
     &__body {
         padding: 8px 16px 16px;
@@ -47,10 +47,10 @@
     }
 }
 
-// .dono-segmented moved to _shared/components/_segmented.scss.
+// .giveflow-segmented moved to _shared/components/_segmented.scss.
 
 // 2x2 grid for boxed inputs (padding sides etc.).
-.dono-box-grid {
+.giveflow-box-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;

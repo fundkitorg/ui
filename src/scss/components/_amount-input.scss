@@ -1,5 +1,5 @@
 // AmountInput: currency prefix badge joined to a digit-grouped numeric input.
-.dono-amount {
+.giveflow-amount {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: stretch;
@@ -38,8 +38,8 @@
     // Element-prefixed reset so WP admin's `input[type="text"]` default
     // styles (margin, box-shadow, border) don't bleed in.
     &__input,
-    input.dono-amount__input,
-    input[type="text"].dono-amount__input {
+    input.giveflow-amount__input,
+    input[type="text"].giveflow-amount__input {
         appearance: none;
         width: 100%;
         min-width: 0;

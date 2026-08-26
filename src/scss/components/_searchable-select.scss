@@ -1,6 +1,6 @@
 // Searchable select (combobox). Consumed by `SearchableSelect.jsx`.
 //
-// Children are matched as descendants of `.dono-searchable` (two-class
+// Children are matched as descendants of `.giveflow-searchable` (two-class
 // specificity) rather than flat BEM. That is deliberate: inside the normal
 // WP admin chrome, core's `.wrap ul` / `.wrap ul li` rules out-specify a
 // single class and would otherwise repaint the dropdown list/options. Same
@@ -8,10 +8,10 @@
 
 @import '../tokens';
 
-.dono-searchable {
+.giveflow-searchable {
     position: relative;
 
-    .dono-searchable__input {
+    .giveflow-searchable__input {
         width: 100%;
         padding: 10px 36px 10px 12px;
         font-size: $text-md;
@@ -35,7 +35,7 @@
         }
     }
 
-    .dono-searchable__chevron {
+    .giveflow-searchable__chevron {
         position: absolute;
         right: 12px;
         top: 50%;
@@ -45,9 +45,9 @@
         display: inline-flex;
         transition: transform .15s ease;
     }
-    &.is-open .dono-searchable__chevron { transform: translateY(-50%) rotate(180deg); }
+    &.is-open .giveflow-searchable__chevron { transform: translateY(-50%) rotate(180deg); }
 
-    .dono-searchable__list {
+    .giveflow-searchable__list {
         position: absolute;
         top: calc(100% + 4px);
         left: 0;
@@ -64,7 +64,7 @@
         z-index: $z-popover;
     }
 
-    .dono-searchable__option {
+    .giveflow-searchable__option {
         margin: 0;
         padding: 8px 10px;
         border-radius: $radius-sm;
@@ -81,8 +81,8 @@
         &.is-current { color: $accent-dark; font-weight: $weight-medium; }
     }
 
-    .dono-searchable__label { flex: 1; }
-    .dono-searchable__hint {
+    .giveflow-searchable__label { flex: 1; }
+    .giveflow-searchable__hint {
         font-size: $text-xs;
         color: $text-soft;
         font-family: $font-mono;

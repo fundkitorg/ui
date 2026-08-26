@@ -24,7 +24,7 @@ export default function KeyField( { value, onChange, secret, placeholder, ariaLa
 
     const inputProps = {
         type,
-        className: 'dono-input dono-input--mono',
+        className: 'giveflow-input giveflow-input--mono',
         value: display,
         placeholder,
         ...( onChange
@@ -33,26 +33,26 @@ export default function KeyField( { value, onChange, secret, placeholder, ariaLa
     };
 
     return (
-        <div className={ `dono-input-row${ masked ? ' dono-input-row--locked' : '' }` }>
+        <div className={ `giveflow-input-row${ masked ? ' giveflow-input-row--locked' : '' }` }>
             <input { ...inputProps } />
             { secret ? (
                 <button
                     type="button"
-                    className="dono-copy-btn"
+                    className="giveflow-copy-btn"
                     onClick={ onToggle }
-                    aria-label={ ariaLabel || ( shown ? __( 'Hide', 'dono-fundraising-platform' ) : __( 'Reveal', 'dono-fundraising-platform' ) ) }
+                    aria-label={ ariaLabel || ( shown ? __( 'Hide', 'giveflow-fundraising-campaigns' ) : __( 'Reveal', 'giveflow-fundraising-campaigns' ) ) }
                 >
-                    { shown ? __( 'Hide', 'dono-fundraising-platform' ) : __( 'Reveal', 'dono-fundraising-platform' ) }
+                    { shown ? __( 'Hide', 'giveflow-fundraising-campaigns' ) : __( 'Reveal', 'giveflow-fundraising-campaigns' ) }
                 </button>
             ) : (
                 <button
                     type="button"
-                    className="dono-copy-btn"
+                    className="giveflow-copy-btn"
                     onClick={ onCopy }
-                    aria-label={ ariaLabel || __( 'Copy', 'dono-fundraising-platform' ) }
+                    aria-label={ ariaLabel || __( 'Copy', 'giveflow-fundraising-campaigns' ) }
                     disabled={ ! display }
                 >
-                    { __( 'Copy', 'dono-fundraising-platform' ) }
+                    { __( 'Copy', 'giveflow-fundraising-campaigns' ) }
                 </button>
             ) }
         </div>

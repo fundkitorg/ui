@@ -19,7 +19,7 @@ import Field from './Field';
 
 export default function Segmented( { label, help, value, onChange, options = [], ariaLabel } ) {
     const buttons = (
-        <div className="dono-segmented" role="group" aria-label={ ariaLabel || label }>
+        <div className="giveflow-segmented" role="group" aria-label={ ariaLabel || label }>
             { options.map( ( o ) => {
                 const optValue = typeof o === 'string' ? o : o.value;
                 const optLabel = typeof o === 'string' ? o : o.label;
@@ -29,7 +29,7 @@ export default function Segmented( { label, help, value, onChange, options = [],
                     <button
                         key={ String( optValue ) }
                         type="button"
-                        className={ `dono-segmented__btn ${ isOn ? 'is-on' : '' }` }
+                        className={ `giveflow-segmented__btn ${ isOn ? 'is-on' : '' }` }
                         aria-pressed={ isOn }
                         onClick={ () => onChange && onChange( optValue ) }
                     >

@@ -6,7 +6,7 @@
  *   title    string - heading (left of head)
  *   onClose  fn      - overlay click, the close button and Escape call this
  *   size     string  - 'wide' for an editing surface (720px); default is 520px
- *   foot     node    - rendered in .dono-dialog__foot (optional)
+ *   foot     node    - rendered in .giveflow-dialog__foot (optional)
  *   children node    - body content
  */
 import { useEffect } from '@wordpress/element';
@@ -24,31 +24,31 @@ export default function Dialog( { title, onClose, size, foot, children } ) {
         // closes only on a click that landed on itself. Keyboard users close
         // with Escape, handled above.
         <div
-            className="dono-dialog-overlay"
+            className="giveflow-dialog-overlay"
             role="presentation"
             onClick={ ( e ) => { if ( e.target === e.currentTarget && onClose ) onClose(); } }
         >
             <div
-                className={ `dono-dialog${ size ? ` dono-dialog--${ size }` : '' }` }
+                className={ `giveflow-dialog${ size ? ` giveflow-dialog--${ size }` : '' }` }
                 role="dialog"
                 aria-modal="true"
                 aria-label={ title }
             >
-                <div className="dono-dialog__head">
+                <div className="giveflow-dialog__head">
                     <h2>{ title }</h2>
                     <button
                         type="button"
-                        className="dono-dialog__close"
+                        className="giveflow-dialog__close"
                         onClick={ onClose }
-                        aria-label={ __( 'Close', 'dono-fundraising-platform' ) }
+                        aria-label={ __( 'Close', 'giveflow-fundraising-campaigns' ) }
                     >
                         ✕
                     </button>
                 </div>
 
-                <div className="dono-dialog__body">{ children }</div>
+                <div className="giveflow-dialog__body">{ children }</div>
 
-                { foot && <div className="dono-dialog__foot">{ foot }</div> }
+                { foot && <div className="giveflow-dialog__foot">{ foot }</div> }
             </div>
         </div>
     );

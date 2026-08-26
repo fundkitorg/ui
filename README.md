@@ -1,11 +1,11 @@
-# @dono/ui
+# @giveflow/ui
 
-The Dono design system — shared admin UI components, design tokens, and dashboard
-widgets used across the Dono plugin and its add-ons.
+The GiveFlow design system — shared admin UI components, design tokens, and dashboard
+widgets used across the GiveFlow plugin and its add-ons.
 
 ## Principle: stick to the designs
 
-Dono has a deliberate, polished visual language. **Never hand-roll one-off styles
+GiveFlow has a deliberate, polished visual language. **Never hand-roll one-off styles
 in a consuming plugin.** If a UI piece is missing, add it here, composed from the
 existing primitives and tokens. Everything routes through the token catalogue —
 no hardcoded colours, spacing, radii, or shadows outside `src/scss/_tokens.scss`.
@@ -30,24 +30,24 @@ imports plain JS and needs no build configuration for it. SCSS ships as
 Install (git tag, no npm registry yet):
 
 ```sh
-npm install "git+https://github.com/getdono/ui.git#v0.2.2"
+npm install "git+https://github.com/givefloworg/ui.git#v0.4.0"
 ```
 
-Name the URL in full rather than the `getdono/ui#tag` shorthand: npm expands the
+Name the URL in full rather than the `givefloworg/ui#tag` shorthand: npm expands the
 shorthand to `ssh://git@github.com`, which any machine without a GitHub SSH key
 fails on, CI runners included.
 
 JS:
 
 ```js
-import { Btn, Card, Notice, MetricCard } from '@dono/ui';
+import { Btn, Card, Notice, MetricCard } from '@giveflow/ui';
 ```
 
 SCSS (in a page-level stylesheet):
 
 ```scss
-@import '@dono/ui/scss/tokens';
-@import '@dono/ui/scss/components/buttons';
+@import '@giveflow/ui/scss/tokens';
+@import '@giveflow/ui/scss/components/buttons';
 ```
 
 ## Storybook
@@ -57,5 +57,5 @@ npm install
 npm run storybook
 ```
 
-Renders every component against the Dono tokens. Storybook uses its own Vite
+Renders every component against the GiveFlow tokens. Storybook uses its own Vite
 preview; production consumers use their own build.

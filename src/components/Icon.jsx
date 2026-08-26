@@ -176,7 +176,7 @@ export default function Icon( { name, size = 16, strokeWidth = 1.75, className, 
     const LucideIcon = ICONS[ name ];
     if ( ! LucideIcon ) {
         if ( typeof console !== 'undefined' ) {
-            console.warn( `[Dono] Unknown icon: ${ name }` );
+            console.warn( `[GiveFlow] Unknown icon: ${ name }` );
         }
         return null;
     }

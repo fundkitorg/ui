@@ -2,7 +2,7 @@
 
 @import '../tokens';
 
-.dono-form-row {
+.giveflow-form-row {
     display: grid;
     grid-template-columns: 200px 1fr;
     gap: $space-5;
@@ -47,9 +47,9 @@
     }
 }
 
-.dono-input,
-.dono-textarea,
-.dono-select {
+.giveflow-input,
+.giveflow-textarea,
+.giveflow-select {
     width: 100%;
     padding: 7px 10px;
     background: $bg-card;
@@ -68,69 +68,69 @@
 }
 
 // WordPress admin's `input[type=text]` (0,1,1) and `.wp-core-ui select` (0,1,1)
-// outrank the bare `.dono-input` / `.dono-select` classes (0,1,0), so at rest
+// outrank the bare `.giveflow-input` / `.giveflow-select` classes (0,1,0), so at rest
 // inputs and dropdowns fall back to WP's grey #949494 border, 2px corners and
 // dashicon arrow. Element-qualify to match that specificity; this sheet is
 // enqueued after wp-admin's forms.css so source order wins. The :focus and
 // --edited element bumps below (0,2,1) still win over these.
-input.dono-input {
+input.giveflow-input {
     border: 1px solid $border-mid;
     border-radius: $radius-md;
     background: $bg-card;
     padding: 7px 10px;
 }
-input.dono-input--edited,
-select.dono-input--edited {
+input.giveflow-input--edited,
+select.giveflow-input--edited {
     border-color: $accent;
     box-shadow: inset 2px 0 0 $accent;
 }
 
-// Element selectors (input.dono-input) are intentional: they bump specificity
+// Element selectors (input.giveflow-input) are intentional: they bump specificity
 // over WordPress admin's `input[type=text]:focus { ... }` (0,0,2,1) and
 // `select:focus`, which otherwise paint the wrong blue focus ring.
-input.dono-input:focus,
-button.dono-input:focus,
-select.dono-select:focus,
-textarea.dono-textarea:focus {
+input.giveflow-input:focus,
+button.giveflow-input:focus,
+select.giveflow-select:focus,
+textarea.giveflow-textarea:focus {
     outline: 0;
     border-color: $accent;
     box-shadow: 0 0 0 3px rgba($accent, .12);
 }
 
-input.dono-input--edited:focus,
-button.dono-input--edited:focus,
-textarea.dono-textarea--edited:focus {
+input.giveflow-input--edited:focus,
+button.giveflow-input--edited:focus,
+textarea.giveflow-textarea--edited:focus {
     box-shadow: inset 2px 0 0 $accent, 0 0 0 3px rgba($accent, .12);
 }
 
-.dono-input--edited,
-.dono-textarea--edited {
+.giveflow-input--edited,
+.giveflow-textarea--edited {
     border-color: $accent;
     box-shadow: inset 2px 0 0 $accent;
 }
 
-.dono-textarea {
+.giveflow-textarea {
     min-height: 88px;
     resize: vertical;
     line-height: 1.5;
 }
 
-.dono-input--mono,
-.dono-textarea--mono {
+.giveflow-input--mono,
+.giveflow-textarea--mono {
     font-family: $font-mono;
     font-size: $text-sm;
 }
 
 // select element-qualified (0,1,1) to beat `.wp-core-ui select`: restate the
 // chrome WP overrides (border, radius, padding, font, line-height, max-width)
-// and repaint the Dono caret over WP's dashicon arrow.
+// and repaint the GiveFlow caret over WP's dashicon arrow.
 //
-// This ties with `select.dono-input--edited` above and wins on source order, so
+// This ties with `select.giveflow-input--edited` above and wins on source order, so
 // its `border` shorthand resets that rule's accent back to grey while the inset
 // bar survives. An edited dropdown then reads as a stray green sliver against a
 // grey border. Restated at (0,2,1) below rather than reordered, so the chrome
 // can move without taking the edited state with it.
-select.dono-select {
+select.giveflow-select {
     max-width: none;
     font-size: 13.5px;
     line-height: normal;
@@ -141,21 +141,21 @@ select.dono-select {
     background: $bg-card url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='none' stroke='%236b7280' stroke-width='1.5' d='M1 1l4 4 4-4'/%3E%3C/svg%3E") no-repeat right 10px center;
 }
 
-select.dono-select.dono-input--edited {
+select.giveflow-select.giveflow-input--edited {
     border-color: $accent;
 }
 
-select.dono-select.dono-input--edited:focus {
+select.giveflow-select.giveflow-input--edited:focus {
     box-shadow: inset 2px 0 0 $accent, 0 0 0 3px rgba($accent, .12);
 }
 
-.dono-input-row {
+.giveflow-input-row {
     display: flex;
     gap: $space-2;
 
-    .dono-input { flex: 1; }
+    .giveflow-input { flex: 1; }
 
-    .dono-copy-btn {
+    .giveflow-copy-btn {
         flex-shrink: 0;
         padding: 6px 10px;
         background: $bg-page;
@@ -169,7 +169,7 @@ select.dono-select.dono-input--edited:focus {
         &:hover { color: $text; background: #eef1f4; }
     }
 
-    &--locked .dono-input {
+    &--locked .giveflow-input {
         background: $bg-page;
         color: $text-muted;
     }

@@ -1,14 +1,14 @@
-// Dono admin design tokens. Single source of truth.
+// GiveFlow admin design tokens. Single source of truth.
 
 // Brand colours
-$accent:         #1e8a4e;  // Primary brand green. Buttons, focus rings, active states.
-$accent-dark:    #14693a;  // Hover/pressed accent. Body text variant.
-$accent-soft:    #e7f5ec;  // Filled badges and selection backgrounds.
-$accent-tint:    #f3faf5;  // Whisper-quiet accent wash (card hover, pre-selected tiles).
+$accent:         #211d3f;  // Primary brand indigo. Buttons, focus rings, active states.
+$accent-dark:    #34306b;  // Hover/pressed accent. Body text variant.
+$accent-soft:    #efedf8;  // Filled badges and selection backgrounds.
+$accent-tint:    #f5f4fa;  // Whisper-quiet accent wash (card hover, pre-selected tiles).
 
 // Neutrals (text + surface)
-$text:           #111827;  // Default body text.
-$text-muted:     #6b7280;  // Secondary labels, help text, captions.
+$text:           #211d3f;  // Default body text.
+$text-muted:     #5c5878;  // Secondary labels, help text, captions.
 // Everything using this carries text or is a control: placeholders, the close
 // glyph on dialogs, drawers, notices and toasts, muted DataViews cells, the
 // empty state of a date field. At #9ca3af that was 2.5:1 on white, so the
@@ -16,14 +16,14 @@ $text-muted:     #6b7280;  // Secondary labels, help text, captions.
 // were both below the floor. It matches $text-muted now (4.8:1). If a genuinely
 // decorative value is ever needed, for a rule or a divider carrying no meaning,
 // add a token for that rather than lightening this one back.
-$text-soft:      #6b7280;  // Placeholder text and quiet controls. Carries text: keep at AA.
+$text-soft:      #5c5878;  // Placeholder text and quiet controls. Carries text: keep at AA.
 
 $bg-page:        #f7f8fa;  // Page background (admin chrome).
-$bg-soft:        #f3f4f6;  // Quiet fills (avatar placeholder, code chips).
+$bg-soft:        #f5f6f7;  // Quiet fills (avatar placeholder, code chips).
 $bg-card:        #ffffff;  // Cards, inputs, raised surfaces.
 
-$border-mid:     #e5e7eb;  // 1px boundaries on inputs, cards, tiles.
-$border-soft:    #eef0f2;  // Hairline dividers between rows or sections.
+$border-mid:     #eee7db;  // 1px boundaries on inputs, cards, tiles.
+$border-soft:    #f2ede4;  // Hairline dividers between rows or sections.
 
 // Status colours (base = filled badge, soft = active background, tint = wash)
 $amber:          #b97a05;
@@ -59,9 +59,9 @@ $radius-xl:      16px;
 $radius-pill:    999px;
 
 // Shadow scale: sm = input lift, md = card chrome, lg = floating panels.
-$shadow-sm:      0 1px 2px rgba(15, 23, 42, .04);
-$shadow-md:      0 1px 2px rgba(15, 23, 42, .04), 0 1px 3px rgba(15, 23, 42, .06);
-$shadow-lg:      0 8px 24px rgba(15, 23, 42, .08);
+$shadow-sm:      0 1px 2px rgba(33, 29, 63, .04);
+$shadow-md:      0 1px 2px rgba(33, 29, 63, .04), 0 1px 3px rgba(33, 29, 63, .06);
+$shadow-lg:      0 8px 24px rgba(33, 29, 63, .08);
 
 // Type scale (px; admin context, no rem reset)
 $text-xs:        11px;   // Uppercase captions, tag labels.
@@ -92,32 +92,32 @@ $font-mono:      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospac
 
 // Colours mirrored on :root for runtime theming; spacing/radius stay SCSS-only.
 :root {
-    --dono-color-accent:        #{$accent};
-    --dono-color-accent-dark:   #{$accent-dark};
-    --dono-color-accent-soft:   #{$accent-soft};
-    --dono-color-accent-tint:   #{$accent-tint};
+    --giveflow-color-accent:        #{$accent};
+    --giveflow-color-accent-dark:   #{$accent-dark};
+    --giveflow-color-accent-soft:   #{$accent-soft};
+    --giveflow-color-accent-tint:   #{$accent-tint};
 
-    --dono-color-text:          #{$text};
-    --dono-color-text-muted:    #{$text-muted};
-    --dono-color-text-soft:     #{$text-soft};
+    --giveflow-color-text:          #{$text};
+    --giveflow-color-text-muted:    #{$text-muted};
+    --giveflow-color-text-soft:     #{$text-soft};
 
-    --dono-color-bg-page:       #{$bg-page};
-    --dono-color-bg-soft:       #{$bg-soft};
-    --dono-color-bg-card:       #{$bg-card};
+    --giveflow-color-bg-page:       #{$bg-page};
+    --giveflow-color-bg-soft:       #{$bg-soft};
+    --giveflow-color-bg-card:       #{$bg-card};
 
-    --dono-color-border-mid:    #{$border-mid};
-    --dono-color-border-soft:   #{$border-soft};
+    --giveflow-color-border-mid:    #{$border-mid};
+    --giveflow-color-border-soft:   #{$border-soft};
 
-    --dono-color-amber:         #{$amber};
-    --dono-color-amber-soft:    #{$amber-soft};
-    --dono-color-red:           #{$red};
-    --dono-color-red-soft:      #{$red-soft};
-    --dono-color-blue:          #{$blue};
-    --dono-color-blue-soft:     #{$blue-soft};
+    --giveflow-color-amber:         #{$amber};
+    --giveflow-color-amber-soft:    #{$amber-soft};
+    --giveflow-color-red:           #{$red};
+    --giveflow-color-red-soft:      #{$red-soft};
+    --giveflow-color-blue:          #{$blue};
+    --giveflow-color-blue-soft:     #{$blue-soft};
 
-    --dono-shadow-sm:           #{$shadow-sm};
-    --dono-shadow-md:           #{$shadow-md};
-    --dono-shadow-lg:           #{$shadow-lg};
+    --giveflow-shadow-sm:           #{$shadow-sm};
+    --giveflow-shadow-md:           #{$shadow-md};
+    --giveflow-shadow-lg:           #{$shadow-lg};
 }
 
 // Lucide icons are stroke-only (fill="none"). WP rules like

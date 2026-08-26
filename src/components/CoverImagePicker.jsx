@@ -8,12 +8,12 @@ import { __ } from '@wordpress/i18n';
 function openMediaFrame( { onSelect, currentId } ) {
     if ( ! window.wp?.media ) {
         // eslint-disable-next-line no-alert
-        alert( __( 'Media library not loaded.', 'dono-fundraising-platform' ) );
+        alert( __( 'Media library not loaded.', 'giveflow-fundraising-campaigns' ) );
         return;
     }
     const frame = window.wp.media( {
-        title:    __( 'Select campaign cover image', 'dono-fundraising-platform' ),
-        button:   { text: __( 'Use this image', 'dono-fundraising-platform' ) },
+        title:    __( 'Select campaign cover image', 'giveflow-fundraising-campaigns' ),
+        button:   { text: __( 'Use this image', 'giveflow-fundraising-campaigns' ) },
         library:  { type: 'image' },
         multiple: false,
     } );
@@ -41,31 +41,31 @@ export default function CoverImagePicker( { id, url, onChange } ) {
 
     if ( url ) {
         return (
-            <div className="dono-cover dono-cover--filled">
+            <div className="giveflow-cover giveflow-cover--filled">
                 <img src={ url } alt="" />
-                <div className="dono-cover__actions">
+                <div className="giveflow-cover__actions">
                     <Button variant="secondary" onClick={ pick }>
-                        { __( 'Replace', 'dono-fundraising-platform' ) }
+                        { __( 'Replace', 'giveflow-fundraising-campaigns' ) }
                     </Button>
                     <Button variant="tertiary" isDestructive onClick={ () => onChange( null ) }>
-                        { __( 'Remove', 'dono-fundraising-platform' ) }
+                        { __( 'Remove', 'giveflow-fundraising-campaigns' ) }
                     </Button>
                 </div>
             </div>
         );
     }
     return (
-        <div className="dono-cover" onClick={ pick } role="button" tabIndex={ 0 }
+        <div className="giveflow-cover" onClick={ pick } role="button" tabIndex={ 0 }
              onKeyDown={ ( e ) => ( e.key === 'Enter' || e.key === ' ' ) && pick() }>
-            <div className="dono-cover__icon" aria-hidden="true">
+            <div className="giveflow-cover__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="24" height="24">
                     <path fill="currentColor" d="M11 16h2v-4.17l1.59 1.58L16 12l-4-4-4 4 1.41 1.41L11 11.83V16zm-7 4h16v-2H4v2zm0-16h16V2H4v2z" />
                 </svg>
             </div>
             <Button variant="secondary" onClick={ ( e ) => { e.stopPropagation(); pick(); } }>
-                { __( 'Select an image', 'dono-fundraising-platform' ) }
+                { __( 'Select an image', 'giveflow-fundraising-campaigns' ) }
             </Button>
-            <div className="dono-cover__hint">{ __( 'or click anywhere in this area', 'dono-fundraising-platform' ) }</div>
+            <div className="giveflow-cover__hint">{ __( 'or click anywhere in this area', 'giveflow-fundraising-campaigns' ) }</div>
         </div>
     );
 }

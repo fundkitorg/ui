@@ -1,22 +1,22 @@
 // Cross-page admin defaults. Imported by every admin entry SCSS so the
-// rules below apply to every Dono admin screen (list, detail, settings,
+// rules below apply to every GiveFlow admin screen (list, detail, settings,
 // donors, donations, forms, funds, onboarding) regardless of which
 // per-page wrapper class is present in the DOM.
 //
 // Targets the WP-generated body classes, matching any plugin whose menu slug
-// starts with `dono` so add-ons with their own slug are covered too:
-//   - body.toplevel_page_dono            -> Dono's "Dashboard" entry
-//   - body.toplevel_page_dono-addon      -> an add-on's own top-level entry
-//   - body[class*="dono_page_dono-"]     -> every Dono submenu page
-//   - body[class*="_page_dono-"]         -> every add-on submenu page
+// starts with `giveflow` so add-ons with their own slug are covered too:
+//   - body.toplevel_page_giveflow            -> GiveFlow's "Dashboard" entry
+//   - body.toplevel_page_giveflow-addon      -> an add-on's own top-level entry
+//   - body[class*="giveflow_page_giveflow-"]     -> every GiveFlow submenu page
+//   - body[class*="_page_giveflow-"]         -> every add-on submenu page
 //
-// The consumer is expected to have @import'd @dono/ui/scss/tokens
+// The consumer is expected to have @import'd @giveflow/ui/scss/tokens
 // already so $accent / $accent-dark are in scope.
 
-body[class*="toplevel_page_dono"],
-body[class*="_page_dono-"] {
+body[class*="toplevel_page_giveflow"],
+body[class*="_page_giveflow-"] {
     // Re-skin WP components (ToggleControl, primary buttons, focus rings,
-    // etc.) from the default WP admin blue to the Dono accent. Many WP
+    // etc.) from the default WP admin blue to the GiveFlow accent. Many WP
     // components read --wp-admin-theme-color directly.
     --wp-admin-theme-color:           #{$accent};
     --wp-admin-theme-color--rgb:      30, 138, 78;
@@ -31,7 +31,7 @@ body[class*="_page_dono-"] {
 
     // wp-admin's common.css ships `a:focus { border-radius: 2px;
     // box-shadow: 0 0 0 1.5px var(--wp-admin-theme-color); ... }` which
-    // wraps every Dono link styled as a tab/button in a square coloured
+    // wraps every GiveFlow link styled as a tab/button in a square coloured
     // ring on click. Kill the shadow globally. border-radius and color
     // are restated per-class on the elements that need it (since
     // border-radius isn't inherited and the per-class color is part of
@@ -39,17 +39,17 @@ body[class*="_page_dono-"] {
     // colour preserved, not the page default).
     a:focus { box-shadow: none; }
 
-    // Dono-styled keyboard focus ring on the shared .dono-btn primitive.
-    // Should live in @dono/ui long-term; kept here until the package
+    // GiveFlow-styled keyboard focus ring on the shared .giveflow-btn primitive.
+    // Should live in @giveflow/ui long-term; kept here until the package
     // ships a focus rule of its own.
     //
-    // Note: when .dono-btn renders as an <a>, multiple wp-admin / block-
+    // Note: when .giveflow-btn renders as an <a>, multiple wp-admin / block-
     // theme rules at `a`, `a:hover`, `a:focus`, `a:active` win on
-    // specificity (0,1,1 over .dono-btn's 0,1,0) and dye the text bright
+    // specificity (0,1,1 over .giveflow-btn's 0,1,0) and dye the text bright
     // blue, drop border-radius to 2px, and add a square box-shadow ring.
-    // Restate the dono values per anchor pseudo-state so the button
+    // Restate the giveflow values per anchor pseudo-state so the button
     // stays itself.
-    .dono-btn {
+    .giveflow-btn {
         &:hover, &:focus, &:active { color: $text; }
         &:focus {
             outline: none;
@@ -66,7 +66,7 @@ body[class*="_page_dono-"] {
         }
         &--ghost {
             &:focus, &:active { color: $text-muted; }
-            // @dono/ui sets ghost :hover to $text intentionally; keep it.
+            // @giveflow/ui sets ghost :hover to $text intentionally; keep it.
         }
         &--danger {
             &:hover, &:focus, &:active { color: $red; }
@@ -74,7 +74,7 @@ body[class*="_page_dono-"] {
     }
 
     // Hide the native number-stepper buttons on admin number inputs for a flat,
-    // consistent look (across .dono-input / .dono-inp / .dono-fld). The field
+    // consistent look (across .giveflow-input / .giveflow-inp / .giveflow-fld). The field
     // still accepts numbers and keyboard up/down.
     input[type="number"] {
         -moz-appearance: textfield;
@@ -87,11 +87,11 @@ body[class*="_page_dono-"] {
     }
 }
 
-// Page chrome shared by every Dono admin screen (core + add-ons): crumbs,
+// Page chrome shared by every GiveFlow admin screen (core + add-ons): crumbs,
 // page head, the view-toggle tab pills, and status pills. Same classes as
 // the campaign screens so add-on pages are indistinguishable from core.
 
-.dono-crumbs {
+.giveflow-crumbs {
     font-size: 13px;
     color: $text-muted;
     margin-bottom: 6px;
@@ -102,7 +102,7 @@ body[class*="_page_dono-"] {
     .sep { margin: 0 6px; color: #cbd0d5; }
 }
 
-.dono-page-head {
+.giveflow-page-head {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -150,7 +150,7 @@ body[class*="_page_dono-"] {
     &__sub { margin: 4px 0 0; }
 }
 
-.dono-cmp-toggle {
+.giveflow-cmp-toggle {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -190,18 +190,18 @@ body[class*="_page_dono-"] {
     &.is-active svg { color: $accent-dark; }
 }
 
-.dono-view-toggle {
+.giveflow-view-toggle {
     display: inline-flex;
     align-items: center;
     gap: 6px;
 
-    .dono-cmp-toggle {
+    .giveflow-cmp-toggle {
         text-decoration: none;
         font-weight: 500;
         box-shadow: none;
         border-color: $border-mid;
     }
-    .dono-cmp-toggle.is-active {
+    .giveflow-cmp-toggle.is-active {
         background: $accent-soft;
         border-color: $accent;
         color: $accent-dark;
@@ -210,7 +210,7 @@ body[class*="_page_dono-"] {
     }
 }
 
-.dono-pill {
+.giveflow-pill {
     display: inline-flex; align-items: center; gap: 5px;
     padding: 2px 9px;
     border-radius: 999px;
@@ -220,7 +220,7 @@ body[class*="_page_dono-"] {
 
     &::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 
-    &:has(.dono-pill__dot)::before { display: none; }
+    &:has(.giveflow-pill__dot)::before { display: none; }
 
     &--lg     { padding: 4px 12px; font-size: 12.5px; }
 
@@ -256,14 +256,14 @@ body[class*="_page_dono-"] {
 // DropdownMenu kebab. Defined here rather than per screen, because the first
 // screen to reuse the kebab without copying the rule got the component
 // library's default button size and stood a head taller than its own row.
-.dono-row-actions {
+.giveflow-row-actions {
     display: flex;
     align-items: center;
     gap: 2px;
     justify-content: flex-end;
 }
 
-.dono-icon-btn {
+.giveflow-icon-btn {
     appearance: none;
     border: 0;
     background: transparent;
@@ -279,7 +279,7 @@ body[class*="_page_dono-"] {
     &:hover { background: $bg-page; color: $text; }
 }
 
-.dono-row-actions .components-dropdown-menu__toggle {
+.giveflow-row-actions .components-dropdown-menu__toggle {
     min-width: 28px;
     width: 28px;
     height: 28px;

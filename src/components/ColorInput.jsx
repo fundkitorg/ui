@@ -10,23 +10,23 @@ export default function ColorInput( { value, onChange, label } ) {
 
     return (
         <Dropdown
-            contentClassName="dono-color-picker-popover"
+            contentClassName="giveflow-color-picker-popover"
             popoverProps={ { placement: 'bottom-start' } }
             renderToggle={ ( { isOpen, onToggle } ) => (
                 <button
                     type="button"
-                    className="dono-color"
+                    className="giveflow-color"
                     onClick={ onToggle }
                     aria-expanded={ isOpen }
                     aria-label={ label || current || 'Pick a color' }
                 >
                     <span
-                        className="dono-color__swatch"
+                        className="giveflow-color__swatch"
                         style={ { background: current || 'transparent' } }
                         aria-hidden="true"
                     />
                     { current && (
-                        <span className="dono-color__hex">
+                        <span className="giveflow-color__hex">
                             { current.toUpperCase() }
                         </span>
                     ) }

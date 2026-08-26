@@ -1,8 +1,8 @@
 // MonthField popover: a year stepper over a twelve-month grid. The trigger
-// reuses .dono-date-field from _date-field.scss, so the two controls are the
+// reuses .giveflow-date-field from _date-field.scss, so the two controls are the
 // same object to the eye; this partial only adds the grid.
 
-.dono-month-field {
+.giveflow-month-field {
     min-width: 232px;
 
     &__head {

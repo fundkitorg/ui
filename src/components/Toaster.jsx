@@ -29,19 +29,19 @@ export default function Toaster() {
     if ( ! items.length ) return null;
 
     return (
-        <div className="dono-toaster" role="region" aria-label={ __( 'Notifications', 'dono-fundraising-platform' ) }>
+        <div className="giveflow-toaster" role="region" aria-label={ __( 'Notifications', 'giveflow-fundraising-campaigns' ) }>
             { items.map( ( t ) => (
                 <div
                     key={ t.id }
-                    className={ `dono-toast dono-toast--${ t.type }` }
+                    className={ `giveflow-toast giveflow-toast--${ t.type }` }
                     role={ t.type === 'error' || t.type === 'warning' ? 'alert' : 'status' }
                 >
-                    <span className="dono-toast__icon"><Glyph type={ t.type } /></span>
-                    <span className="dono-toast__msg">{ t.message }</span>
+                    <span className="giveflow-toast__icon"><Glyph type={ t.type } /></span>
+                    <span className="giveflow-toast__msg">{ t.message }</span>
                     { t.action && (
                         <button
                             type="button"
-                            className="dono-toast__action"
+                            className="giveflow-toast__action"
                             onClick={ () => { t.action.onClick && t.action.onClick(); dismiss( t.id ); } }
                         >
                             { t.action.label }
@@ -49,8 +49,8 @@ export default function Toaster() {
                     ) }
                     <button
                         type="button"
-                        className="dono-toast__close"
-                        aria-label={ __( 'Dismiss', 'dono-fundraising-platform' ) }
+                        className="giveflow-toast__close"
+                        aria-label={ __( 'Dismiss', 'giveflow-fundraising-campaigns' ) }
                         onClick={ () => dismiss( t.id ) }
                     >
                         ×

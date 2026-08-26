@@ -72,15 +72,15 @@ export default function AmountInput( {
     };
 
     return (
-        <div className={ `dono-amount${ disabled ? ' is-disabled' : '' } ${ className }`.trim() }>
-            <span className="dono-amount__prefix" aria-hidden="true">
-                { ! symbolOnly && <span className="dono-amount__code">{ currency }</span> }
-                <span className="dono-amount__symbol">{ symbol }</span>
+        <div className={ `giveflow-amount${ disabled ? ' is-disabled' : '' } ${ className }`.trim() }>
+            <span className="giveflow-amount__prefix" aria-hidden="true">
+                { ! symbolOnly && <span className="giveflow-amount__code">{ currency }</span> }
+                <span className="giveflow-amount__symbol">{ symbol }</span>
             </span>
             <input
                 type="text"
                 inputMode={ dp > 0 ? 'decimal' : 'numeric' }
-                className="dono-amount__input"
+                className="giveflow-amount__input"
                 value={ text }
                 onChange={ handleChange }
                 onFocus={ () => setFocused( true ) }

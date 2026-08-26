@@ -3,10 +3,10 @@
  */
 export default function SectionBar( { title, sub, right } ) {
     return (
-        <div className="dono-section-bar">
+        <div className="giveflow-section-bar">
             <h2>{ title }</h2>
             { ( sub || right ) && (
-                <div className="dono-section-bar__sub">{ right || sub }</div>
+                <div className="giveflow-section-bar__sub">{ right || sub }</div>
             ) }
         </div>
     );
