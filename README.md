@@ -30,10 +30,10 @@ imports plain JS and needs no build configuration for it. SCSS ships as
 Install (git tag, no npm registry yet):
 
 ```sh
-npm install "git+https://github.com/givefloworg/ui.git#v0.4.0"
+npm install "git+https://github.com/fundkitorg/ui.git#v0.4.0"
 ```
 
-Name the URL in full rather than the `givefloworg/ui#tag` shorthand: npm expands the
+Name the URL in full rather than the `fundkitorg/ui#tag` shorthand: npm expands the
 shorthand to `ssh://git@github.com`, which any machine without a GitHub SSH key
 fails on, CI runners included.
 
