@@ -5,7 +5,7 @@
  *   sub         string         - small muted line under title
  *   meta        node           - text or pill on the right of head
  *   edited      bool | number  - true = "Edited" pill; number = "N change(s)" pill
- *   foot        node           - rendered inside .giveflow-card__foot
+ *   foot        node           - rendered inside .fundkit-card__foot
  *   children    node           - body content
  *   collapsible bool           - head toggles the body; `meta` stays visible when closed
  *   defaultOpen bool           - uncontrolled starting state (default closed)
@@ -45,33 +45,33 @@ export default function Card( {
 
     const headInner = (
         <>
-            <div className="giveflow-card__head-left">
+            <div className="fundkit-card__head-left">
                 { leading }
                 { title && (
                     <div>
-                        <h3 className="giveflow-card__title">{ title }</h3>
-                        { sub && <div className="giveflow-card__sub">{ sub }</div> }
+                        <h3 className="fundkit-card__title">{ title }</h3>
+                        { sub && <div className="fundkit-card__sub">{ sub }</div> }
                     </div>
                 ) }
                 { typeof edited === 'number' && edited > 0 && (
-                    <span className="giveflow-edited-pill">
+                    <span className="fundkit-edited-pill">
                         { sprintf(
                             /* translators: %d: number of edited fields in this card */
-                            _n( '%d change', '%d changes', edited, 'giveflow-fundraising-campaigns' ),
+                            _n( '%d change', '%d changes', edited, 'fundkit-fundraising-campaigns' ),
                             edited,
                         ) }
                     </span>
                 ) }
                 { edited === true && (
-                    <span className="giveflow-edited-pill">{ __( 'Edited', 'giveflow-fundraising-campaigns' ) }</span>
+                    <span className="fundkit-edited-pill">{ __( 'Edited', 'fundkit-fundraising-campaigns' ) }</span>
                 ) }
             </div>
-            { meta && <span className="giveflow-card__meta">{ meta }</span> }
+            { meta && <span className="fundkit-card__meta">{ meta }</span> }
             { collapsible && (
                 <ChevronDown
                     size={ 16 }
                     strokeWidth={ 2 }
-                    className="giveflow-card__chevron"
+                    className="fundkit-card__chevron"
                     aria-hidden="true"
                 />
             ) }
@@ -79,25 +79,25 @@ export default function Card( {
     );
 
     const cls = collapsible
-        ? `giveflow-card giveflow-card--collapsible ${ isOpen ? 'is-open' : 'is-closed' }`
-        : 'giveflow-card';
+        ? `fundkit-card fundkit-card--collapsible ${ isOpen ? 'is-open' : 'is-closed' }`
+        : 'fundkit-card';
 
     return (
         <div className={ cls }>
             { showHead && ( collapsible ? (
                 <button
                     type="button"
-                    className="giveflow-card__head giveflow-card__head--toggle"
+                    className="fundkit-card__head fundkit-card__head--toggle"
                     aria-expanded={ isOpen }
                     onClick={ toggle }
                 >
                     { headInner }
                 </button>
             ) : (
-                <div className="giveflow-card__head">{ headInner }</div>
+                <div className="fundkit-card__head">{ headInner }</div>
             ) ) }
-            { isOpen && <div className="giveflow-card__body">{ children }</div> }
-            { isOpen && foot && <div className="giveflow-card__foot">{ foot }</div> }
+            { isOpen && <div className="fundkit-card__body">{ children }</div> }
+            { isOpen && foot && <div className="fundkit-card__foot">{ foot }</div> }
         </div>
     );
 }

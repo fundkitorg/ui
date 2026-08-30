@@ -3,7 +3,7 @@
  * each shows the effective value (override or default) with a Reset link.
  *
  * Pure / prop-driven: pass `catalogue`, `groups`, and `defaults` explicitly.
- * The GiveFlow plugin sources these from window.giveflow.styling and passes them in.
+ * The FundKit plugin sources these from window.fundkit.styling and passes them in.
  */
 
 import { PanelBody, RangeControl, SelectControl, TextControl, Button } from '@wordpress/components';
@@ -45,7 +45,7 @@ export default function TokenEditor( {
     };
 
     return (
-        <div className="giveflow-token-editor">
+        <div className="fundkit-token-editor">
             { orderedGroups.map( ( g, gi ) => (
                 <PanelBody
                     key={ g }
@@ -72,17 +72,17 @@ export default function TokenEditor( {
 function TokenRow( { tokenKey, def, current, isOverridden, onChange, onReset } ) {
     const label = def.label || tokenKey;
     return (
-        <div className="giveflow-token-editor__row">
-            <div className="giveflow-token-editor__row-head">
-                <span className="giveflow-token-editor__label">{ label }</span>
+        <div className="fundkit-token-editor__row">
+            <div className="fundkit-token-editor__row-head">
+                <span className="fundkit-token-editor__label">{ label }</span>
                 { isOverridden && (
                     <Button
                         variant="link"
                         size="small"
-                        className="giveflow-token-editor__reset"
+                        className="fundkit-token-editor__reset"
                         onClick={ onReset }
                     >
-                        { __( 'Reset', 'giveflow-fundraising-campaigns' ) }
+                        { __( 'Reset', 'fundkit-fundraising-campaigns' ) }
                     </Button>
                 ) }
             </div>
@@ -92,7 +92,7 @@ function TokenRow( { tokenKey, def, current, isOverridden, onChange, onReset } )
                 value={ current }
                 onChange={ onChange }
             />
-            { def.help && <p className="giveflow-token-editor__help">{ def.help }</p> }
+            { def.help && <p className="fundkit-token-editor__help">{ def.help }</p> }
         </div>
     );
 }
@@ -139,7 +139,7 @@ function TokenControl( { def, value, onChange } ) {
                     value={ value }
                     onChange={ onChange }
                     placeholder={ def.default || '' }
-                    help={ __( 'CSS font-family stack. e.g. Inter, system-ui, sans-serif.', 'giveflow-fundraising-campaigns' ) }
+                    help={ __( 'CSS font-family stack. e.g. Inter, system-ui, sans-serif.', 'fundkit-fundraising-campaigns' ) }
                     __nextHasNoMarginBottom
                     __next40pxDefaultSize
                 />

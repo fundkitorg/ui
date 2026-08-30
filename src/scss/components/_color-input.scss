@@ -1,6 +1,6 @@
 // Color trigger button (swatch + hex label) used by ColorInput.jsx. Opens
 // the WP ColorPicker in a popover.
-.giveflow-color {
+.fundkit-color {
     appearance: none;
     display: inline-flex;
     align-items: center;
@@ -39,6 +39,6 @@
     }
 }
 
-.giveflow-color-picker-popover {
+.fundkit-color-picker-popover {
     .components-popover__content { padding: 12px; }
 }

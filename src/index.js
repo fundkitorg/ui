@@ -1,11 +1,11 @@
 /**
- * @giveflow/ui — public barrel.
+ * @fundkit/ui — public barrel.
  *
  * Components are compiled to dist/ on publish. Import from the package root:
  *
- *   import { Btn, Card, MetricCard } from '@giveflow/ui';
+ *   import { Btn, Card, MetricCard } from '@fundkit/ui';
  *
- * SCSS lives under `@giveflow/ui/scss/*` and is imported from page-level
+ * SCSS lives under `@fundkit/ui/scss/*` and is imported from page-level
  * stylesheets, not from here.
  */
 

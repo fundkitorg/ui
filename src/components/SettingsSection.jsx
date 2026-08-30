@@ -3,12 +3,12 @@
  */
 export default function SettingsSection( { title, description, children } ) {
     return (
-        <div className="giveflow-section">
-            <div className="giveflow-section__intro">
-                <h3 className="giveflow-section__title">{ title }</h3>
-                { description && <p className="giveflow-section__desc">{ description }</p> }
+        <div className="fundkit-section">
+            <div className="fundkit-section__intro">
+                <h3 className="fundkit-section__title">{ title }</h3>
+                { description && <p className="fundkit-section__desc">{ description }</p> }
             </div>
-            <div className="giveflow-section__body">
+            <div className="fundkit-section__body">
                 { children }
             </div>
         </div>

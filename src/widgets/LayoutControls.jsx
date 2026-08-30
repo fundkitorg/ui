@@ -14,16 +14,16 @@ export default function LayoutControls( { hidden, registry, onUnhide, onReset } 
             renderToggle={ ( { isOpen, onToggle } ) => (
                 <button
                     type="button"
-                    className={ `giveflow-layout-toggle${ isOpen ? ' is-open' : '' }` }
+                    className={ `fundkit-layout-toggle${ isOpen ? ' is-open' : '' }` }
                     onClick={ onToggle }
                     aria-expanded={ isOpen }
                 >
                     <Icon name="layout-grid" size={ 14 } />
                     { hidden.length === 0
-                        ? __( 'Customize', 'giveflow-fundraising-campaigns' )
+                        ? __( 'Customize', 'fundkit-fundraising-campaigns' )
                         : sprintf(
                             /* translators: %d: number of hidden widgets */
-                            _n( '%d hidden widget', '%d hidden widgets', hidden.length, 'giveflow-fundraising-campaigns' ),
+                            _n( '%d hidden widget', '%d hidden widgets', hidden.length, 'fundkit-fundraising-campaigns' ),
                             hidden.length
                         ) }
                 </button>
@@ -31,7 +31,7 @@ export default function LayoutControls( { hidden, registry, onUnhide, onReset } 
             renderContent={ ( { onClose } ) => (
                 <>
                     { hidden.length > 0 && (
-                        <MenuGroup label={ __( 'Show again', 'giveflow-fundraising-campaigns' ) }>
+                        <MenuGroup label={ __( 'Show again', 'fundkit-fundraising-campaigns' ) }>
                             { hidden.map( ( key ) => {
                                 const label = registry[ key ]?.title || registry[ key ]?.label || key;
                                 return (
@@ -46,7 +46,7 @@ export default function LayoutControls( { hidden, registry, onUnhide, onReset } 
                         <MenuItem
                             onClick={ () => { onReset(); onClose(); } }
                         >
-                            { __( 'Reset layout', 'giveflow-fundraising-campaigns' ) }
+                            { __( 'Reset layout', 'fundkit-fundraising-campaigns' ) }
                         </MenuItem>
                     </MenuGroup>
                 </>

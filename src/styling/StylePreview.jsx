@@ -51,69 +51,69 @@ export default function StylePreview( {
     const addr = `${ host }/campaigns/${ slug }`;
 
     return (
-        <div className="giveflow-style-preview">
-            <div className="giveflow-style-preview__frame" style={ tokensToStyle( effective ) }>
-                <div className="giveflow-style-preview__chrome">
-                    <span className="giveflow-style-preview__dots" aria-hidden="true">
+        <div className="fundkit-style-preview">
+            <div className="fundkit-style-preview__frame" style={ tokensToStyle( effective ) }>
+                <div className="fundkit-style-preview__chrome">
+                    <span className="fundkit-style-preview__dots" aria-hidden="true">
                         <span /><span /><span />
                     </span>
-                    <span className="giveflow-style-preview__addr">{ addr }</span>
+                    <span className="fundkit-style-preview__addr">{ addr }</span>
                 </div>
 
-                <div className="giveflow-style-preview__page">
+                <div className="fundkit-style-preview__page">
                     <div
-                        className="giveflow-style-preview__hero"
+                        className="fundkit-style-preview__hero"
                         style={ imageUrl ? { backgroundImage: `url(${ imageUrl })` } : undefined }
                     >
-                        <div className="giveflow-style-preview__hero-title">{ title }</div>
+                        <div className="fundkit-style-preview__hero-title">{ title }</div>
                     </div>
 
-                    <div className="giveflow-style-preview__body">
+                    <div className="fundkit-style-preview__body">
                         { description && (
-                            <div className="giveflow-style-preview__desc">{ description }</div>
+                            <div className="fundkit-style-preview__desc">{ description }</div>
                         ) }
 
-                        <div className="giveflow-style-preview__progress-track">
+                        <div className="fundkit-style-preview__progress-track">
                             <div
-                                className="giveflow-style-preview__progress-fill"
+                                className="fundkit-style-preview__progress-fill"
                                 style={ { width: `${ pct }%` } }
                             />
                         </div>
-                        <div className="giveflow-style-preview__progress-meta">
+                        <div className="fundkit-style-preview__progress-meta">
                             <span>
                                 <strong>{ formatAmount( raisedCents, currency ) }</strong>
-                                { ' ' }{ __( 'raised', 'giveflow-fundraising-campaigns' ) }
+                                { ' ' }{ __( 'raised', 'fundkit-fundraising-campaigns' ) }
                             </span>
                             { goalCents > 0 && (
                                 <span>
-                                    { __( 'of', 'giveflow-fundraising-campaigns' ) }{ ' ' }
+                                    { __( 'of', 'fundkit-fundraising-campaigns' ) }{ ' ' }
                                     { formatAmount( goalCents, currency ) }{ ' ' }
-                                    { __( 'goal', 'giveflow-fundraising-campaigns' ) }
+                                    { __( 'goal', 'fundkit-fundraising-campaigns' ) }
                                 </span>
                             ) }
                         </div>
 
-                        <div className="giveflow-style-preview__amounts">
+                        <div className="fundkit-style-preview__amounts">
                             { presets.map( ( a, i ) => (
                                 <div
                                     key={ i }
-                                    className={ `giveflow-style-preview__amount${ i === selectedIdx ? ' is-sel' : '' }` }
+                                    className={ `fundkit-style-preview__amount${ i === selectedIdx ? ' is-sel' : '' }` }
                                 >
                                     { formatAmount( a, currency ) }
                                 </div>
                             ) ) }
                         </div>
 
-                        <div className="giveflow-style-preview__cta">
-                            { __( 'Donate', 'giveflow-fundraising-campaigns' ) }{ ' ' }
+                        <div className="fundkit-style-preview__cta">
+                            { __( 'Donate', 'fundkit-fundraising-campaigns' ) }{ ' ' }
                             { formatAmount( presets[ selectedIdx ], currency ) }
                         </div>
 
-                        <div className="giveflow-style-preview__meta">
+                        <div className="fundkit-style-preview__meta">
                             { donors > 0
-                                ? `${ donors } ${ donors === 1 ? __( 'donor', 'giveflow-fundraising-campaigns' ) : __( 'donors', 'giveflow-fundraising-campaigns' ) }`
-                                : __( 'No donors yet', 'giveflow-fundraising-campaigns' ) }
-                            { endsAt && ` · ${ __( 'ends', 'giveflow-fundraising-campaigns' ) } ${ shortDate( endsAt ) }` }
+                                ? `${ donors } ${ donors === 1 ? __( 'donor', 'fundkit-fundraising-campaigns' ) : __( 'donors', 'fundkit-fundraising-campaigns' ) }`
+                                : __( 'No donors yet', 'fundkit-fundraising-campaigns' ) }
+                            { endsAt && ` · ${ __( 'ends', 'fundkit-fundraising-campaigns' ) } ${ shortDate( endsAt ) }` }
                         </div>
                     </div>
                 </div>

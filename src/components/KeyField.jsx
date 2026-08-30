@@ -24,7 +24,7 @@ export default function KeyField( { value, onChange, secret, placeholder, ariaLa
 
     const inputProps = {
         type,
-        className: 'giveflow-input giveflow-input--mono',
+        className: 'fundkit-input fundkit-input--mono',
         value: display,
         placeholder,
         ...( onChange
@@ -33,26 +33,26 @@ export default function KeyField( { value, onChange, secret, placeholder, ariaLa
     };
 
     return (
-        <div className={ `giveflow-input-row${ masked ? ' giveflow-input-row--locked' : '' }` }>
+        <div className={ `fundkit-input-row${ masked ? ' fundkit-input-row--locked' : '' }` }>
             <input { ...inputProps } />
             { secret ? (
                 <button
                     type="button"
-                    className="giveflow-copy-btn"
+                    className="fundkit-copy-btn"
                     onClick={ onToggle }
-                    aria-label={ ariaLabel || ( shown ? __( 'Hide', 'giveflow-fundraising-campaigns' ) : __( 'Reveal', 'giveflow-fundraising-campaigns' ) ) }
+                    aria-label={ ariaLabel || ( shown ? __( 'Hide', 'fundkit-fundraising-campaigns' ) : __( 'Reveal', 'fundkit-fundraising-campaigns' ) ) }
                 >
-                    { shown ? __( 'Hide', 'giveflow-fundraising-campaigns' ) : __( 'Reveal', 'giveflow-fundraising-campaigns' ) }
+                    { shown ? __( 'Hide', 'fundkit-fundraising-campaigns' ) : __( 'Reveal', 'fundkit-fundraising-campaigns' ) }
                 </button>
             ) : (
                 <button
                     type="button"
-                    className="giveflow-copy-btn"
+                    className="fundkit-copy-btn"
                     onClick={ onCopy }
-                    aria-label={ ariaLabel || __( 'Copy', 'giveflow-fundraising-campaigns' ) }
+                    aria-label={ ariaLabel || __( 'Copy', 'fundkit-fundraising-campaigns' ) }
                     disabled={ ! display }
                 >
-                    { __( 'Copy', 'giveflow-fundraising-campaigns' ) }
+                    { __( 'Copy', 'fundkit-fundraising-campaigns' ) }
                 </button>
             ) }
         </div>

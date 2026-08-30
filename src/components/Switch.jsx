@@ -3,7 +3,7 @@
  */
 export function Switch( { checked, onChange, disabled, label, id } ) {
     return (
-        <label className="giveflow-switch" aria-label={ label }>
+        <label className="fundkit-switch" aria-label={ label }>
             <input
                 id={ id }
                 type="checkbox"
@@ -11,7 +11,7 @@ export function Switch( { checked, onChange, disabled, label, id } ) {
                 disabled={ !! disabled }
                 onChange={ ( e ) => onChange && onChange( e.target.checked ) }
             />
-            <span className="giveflow-switch__track" />
+            <span className="fundkit-switch__track" />
         </label>
     );
 }
@@ -21,10 +21,10 @@ export function Switch( { checked, onChange, disabled, label, id } ) {
  */
 export function ToggleRow( { title, sub, checked, onChange, disabled } ) {
     return (
-        <div className="giveflow-toggle-row">
-            <div className="giveflow-toggle-row__body">
-                <div className="giveflow-toggle-row__title">{ title }</div>
-                { sub && <div className="giveflow-toggle-row__sub">{ sub }</div> }
+        <div className="fundkit-toggle-row">
+            <div className="fundkit-toggle-row__body">
+                <div className="fundkit-toggle-row__title">{ title }</div>
+                { sub && <div className="fundkit-toggle-row__sub">{ sub }</div> }
             </div>
             <Switch checked={ checked } onChange={ onChange } disabled={ disabled } label={ title } />
         </div>

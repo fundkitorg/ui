@@ -3,10 +3,10 @@
  */
 export default function SectionBar( { title, sub, right } ) {
     return (
-        <div className="giveflow-section-bar">
+        <div className="fundkit-section-bar">
             <h2>{ title }</h2>
             { ( sub || right ) && (
-                <div className="giveflow-section-bar__sub">{ right || sub }</div>
+                <div className="fundkit-section-bar__sub">{ right || sub }</div>
             ) }
         </div>
     );

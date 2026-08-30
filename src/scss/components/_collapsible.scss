@@ -1,6 +1,6 @@
 // Collapsible inspector section. Header is a button; chevron rotates when open.
 
-.giveflow-collapsible {
+.fundkit-collapsible {
     border-top: 1px solid $border-soft;
     background: #fff;
 
@@ -37,7 +37,7 @@
         transition: transform .15s ease;
     }
 
-    &.is-open  .giveflow-collapsible__chevron { transform: rotate(180deg); }
+    &.is-open  .fundkit-collapsible__chevron { transform: rotate(180deg); }
 
     &__body {
         padding: 8px 16px 16px;
@@ -47,10 +47,10 @@
     }
 }
 
-// .giveflow-segmented moved to _shared/components/_segmented.scss.
+// .fundkit-segmented moved to _shared/components/_segmented.scss.
 
 // 2x2 grid for boxed inputs (padding sides etc.).
-.giveflow-box-grid {
+.fundkit-box-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;

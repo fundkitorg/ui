@@ -1,4 +1,4 @@
-// GiveFlow admin design tokens. Single source of truth.
+// FundKit admin design tokens. Single source of truth.
 
 // Brand colours
 $accent:         #211d3f;  // Primary brand indigo. Buttons, focus rings, active states.
@@ -92,32 +92,32 @@ $font-mono:      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospac
 
 // Colours mirrored on :root for runtime theming; spacing/radius stay SCSS-only.
 :root {
-    --giveflow-color-accent:        #{$accent};
-    --giveflow-color-accent-dark:   #{$accent-dark};
-    --giveflow-color-accent-soft:   #{$accent-soft};
-    --giveflow-color-accent-tint:   #{$accent-tint};
+    --fundkit-color-accent:        #{$accent};
+    --fundkit-color-accent-dark:   #{$accent-dark};
+    --fundkit-color-accent-soft:   #{$accent-soft};
+    --fundkit-color-accent-tint:   #{$accent-tint};
 
-    --giveflow-color-text:          #{$text};
-    --giveflow-color-text-muted:    #{$text-muted};
-    --giveflow-color-text-soft:     #{$text-soft};
+    --fundkit-color-text:          #{$text};
+    --fundkit-color-text-muted:    #{$text-muted};
+    --fundkit-color-text-soft:     #{$text-soft};
 
-    --giveflow-color-bg-page:       #{$bg-page};
-    --giveflow-color-bg-soft:       #{$bg-soft};
-    --giveflow-color-bg-card:       #{$bg-card};
+    --fundkit-color-bg-page:       #{$bg-page};
+    --fundkit-color-bg-soft:       #{$bg-soft};
+    --fundkit-color-bg-card:       #{$bg-card};
 
-    --giveflow-color-border-mid:    #{$border-mid};
-    --giveflow-color-border-soft:   #{$border-soft};
+    --fundkit-color-border-mid:    #{$border-mid};
+    --fundkit-color-border-soft:   #{$border-soft};
 
-    --giveflow-color-amber:         #{$amber};
-    --giveflow-color-amber-soft:    #{$amber-soft};
-    --giveflow-color-red:           #{$red};
-    --giveflow-color-red-soft:      #{$red-soft};
-    --giveflow-color-blue:          #{$blue};
-    --giveflow-color-blue-soft:     #{$blue-soft};
+    --fundkit-color-amber:         #{$amber};
+    --fundkit-color-amber-soft:    #{$amber-soft};
+    --fundkit-color-red:           #{$red};
+    --fundkit-color-red-soft:      #{$red-soft};
+    --fundkit-color-blue:          #{$blue};
+    --fundkit-color-blue-soft:     #{$blue-soft};
 
-    --giveflow-shadow-sm:           #{$shadow-sm};
-    --giveflow-shadow-md:           #{$shadow-md};
-    --giveflow-shadow-lg:           #{$shadow-lg};
+    --fundkit-shadow-sm:           #{$shadow-sm};
+    --fundkit-shadow-md:           #{$shadow-md};
+    --fundkit-shadow-lg:           #{$shadow-lg};
 }
 
 // Lucide icons are stroke-only (fill="none"). WP rules like

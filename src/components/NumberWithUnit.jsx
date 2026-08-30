@@ -25,7 +25,7 @@ export default function NumberWithUnit( {
     disabled = false,
 } ) {
     const id = useId();
-    const inputId = `giveflow-nu-${ id }`;
+    const inputId = `fundkit-nu-${ id }`;
     const parsed  = useMemo( () => parseValue( String( value || '' ), units ), [ value, units ] );
 
     const emit = ( nextNum, nextUnit ) => {
@@ -38,15 +38,15 @@ export default function NumberWithUnit( {
     };
 
     return (
-        <div className="giveflow-number-unit">
+        <div className="fundkit-number-unit">
             { label && (
-                <label htmlFor={ inputId } className="giveflow-number-unit__label">{ label }</label>
+                <label htmlFor={ inputId } className="fundkit-number-unit__label">{ label }</label>
             ) }
-            <div className="giveflow-number-unit__row">
+            <div className="fundkit-number-unit__row">
                 <input
                     id={ inputId }
                     type="number"
-                    className="giveflow-number-unit__num"
+                    className="fundkit-number-unit__num"
                     value={ parsed.num }
                     onChange={ ( e ) => emit( e.target.value, parsed.unit ) }
                     min={ min }
@@ -56,7 +56,7 @@ export default function NumberWithUnit( {
                 />
                 { units.length > 1 ? (
                     <select
-                        className="giveflow-number-unit__unit"
+                        className="fundkit-number-unit__unit"
                         value={ parsed.unit }
                         onChange={ ( e ) => emit( parsed.num, e.target.value ) }
                         disabled={ disabled }
@@ -65,10 +65,10 @@ export default function NumberWithUnit( {
                         { units.map( ( u ) => <option key={ u } value={ u }>{ u }</option> ) }
                     </select>
                 ) : (
-                    <span className="giveflow-number-unit__unit-static">{ units[ 0 ] }</span>
+                    <span className="fundkit-number-unit__unit-static">{ units[ 0 ] }</span>
                 ) }
             </div>
-            { help && <p className="giveflow-number-unit__help">{ help }</p> }
+            { help && <p className="fundkit-number-unit__help">{ help }</p> }
         </div>
     );
 }

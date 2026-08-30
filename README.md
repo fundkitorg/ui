@@ -1,11 +1,11 @@
-# @giveflow/ui
+# @fundkit/ui
 
-The GiveFlow design system — shared admin UI components, design tokens, and dashboard
-widgets used across the GiveFlow plugin and its add-ons.
+The FundKit design system — shared admin UI components, design tokens, and dashboard
+widgets used across the FundKit plugin and its add-ons.
 
 ## Principle: stick to the designs
 
-GiveFlow has a deliberate, polished visual language. **Never hand-roll one-off styles
+FundKit has a deliberate, polished visual language. **Never hand-roll one-off styles
 in a consuming plugin.** If a UI piece is missing, add it here, composed from the
 existing primitives and tokens. Everything routes through the token catalogue —
 no hardcoded colours, spacing, radii, or shadows outside `src/scss/_tokens.scss`.
@@ -40,14 +40,14 @@ fails on, CI runners included.
 JS:
 
 ```js
-import { Btn, Card, Notice, MetricCard } from '@giveflow/ui';
+import { Btn, Card, Notice, MetricCard } from '@fundkit/ui';
 ```
 
 SCSS (in a page-level stylesheet):
 
 ```scss
-@import '@giveflow/ui/scss/tokens';
-@import '@giveflow/ui/scss/components/buttons';
+@import '@fundkit/ui/scss/tokens';
+@import '@fundkit/ui/scss/components/buttons';
 ```
 
 ## Storybook
@@ -57,5 +57,5 @@ npm install
 npm run storybook
 ```
 
-Renders every component against the GiveFlow tokens. Storybook uses its own Vite
+Renders every component against the FundKit tokens. Storybook uses its own Vite
 preview; production consumers use their own build.

@@ -4,7 +4,7 @@
 
 @import '../tokens';
 
-.giveflow-toaster {
+.fundkit-toaster {
     position: fixed;
     right: 20px;
     bottom: 20px;
@@ -16,7 +16,7 @@
     pointer-events: none; // let clicks through the gaps
 }
 
-.giveflow-toast {
+.fundkit-toast {
     pointer-events: auto;
     display: flex;
     align-items: flex-start;
@@ -29,7 +29,7 @@
     font-family: $font-sans;
     font-size: $text-base;
     line-height: 1.4;
-    animation: giveflow-toast-in .18s ease-out;
+    animation: fundkit-toast-in .18s ease-out;
 
     &__icon {
         flex-shrink: 0;
@@ -80,19 +80,19 @@
         border: 1px solid $border-mid;
         border-left: 3px solid;
 
-        .giveflow-toast__action { color: $accent-dark; }
-        .giveflow-toast__close  { color: $text-soft; &:hover { color: $text; } }
+        .fundkit-toast__action { color: $accent-dark; }
+        .fundkit-toast__close  { color: $text-soft; &:hover { color: $text; } }
     }
 
-    &--error   { border-left-color: $red;   .giveflow-toast__icon { color: $red; } }
-    &--warning { border-left-color: $amber; .giveflow-toast__icon { color: $amber; } }
+    &--error   { border-left-color: $red;   .fundkit-toast__icon { color: $red; } }
+    &--warning { border-left-color: $amber; .fundkit-toast__icon { color: $amber; } }
 }
 
-@keyframes giveflow-toast-in {
+@keyframes fundkit-toast-in {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
 @media ( prefers-reduced-motion: reduce ) {
-    .giveflow-toast { animation: none; }
+    .fundkit-toast { animation: none; }
 }

@@ -33,30 +33,30 @@ export default function Collapsible( {
         else setUncontrolled( ( v ) => ! v );
     };
 
-    const headerId = `giveflow-collapsible-${ id }-header`;
-    const bodyId   = `giveflow-collapsible-${ id }-body`;
+    const headerId = `fundkit-collapsible-${ id }-header`;
+    const bodyId   = `fundkit-collapsible-${ id }-body`;
 
     return (
-        <section className={ `giveflow-collapsible ${ isOpen ? 'is-open' : 'is-closed' }` }>
+        <section className={ `fundkit-collapsible ${ isOpen ? 'is-open' : 'is-closed' }` }>
             <button
                 type="button"
-                className="giveflow-collapsible__header"
+                className="fundkit-collapsible__header"
                 id={ headerId }
                 aria-expanded={ isOpen }
                 aria-controls={ bodyId }
                 onClick={ handleToggle }
             >
-                <span className="giveflow-collapsible__title">{ title }</span>
+                <span className="fundkit-collapsible__title">{ title }</span>
                 <ChevronDown
                     size={ 14 }
                     strokeWidth={ 2 }
-                    className="giveflow-collapsible__chevron"
+                    className="fundkit-collapsible__chevron"
                     aria-hidden="true"
                 />
             </button>
             { isOpen && (
                 <div
-                    className="giveflow-collapsible__body"
+                    className="fundkit-collapsible__body"
                     id={ bodyId }
                     role="region"
                     aria-labelledby={ headerId }

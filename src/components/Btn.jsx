@@ -17,9 +17,9 @@ export default function Btn( {
     ...rest
 } ) {
     const classes = [
-        'giveflow-btn',
-        variant && `giveflow-btn--${ variant }`,
-        size && `giveflow-btn--${ size }`,
+        'fundkit-btn',
+        variant && `fundkit-btn--${ variant }`,
+        size && `fundkit-btn--${ size }`,
         className,
     ].filter( Boolean ).join( ' ' );
 

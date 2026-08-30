@@ -32,7 +32,7 @@ export default function Slider( {
     disabled = false,
 } ) {
     const id = useId();
-    const inputId = `giveflow-slider-${ id }`;
+    const inputId = `fundkit-slider-${ id }`;
     const num = Number.isFinite( Number( value ) ) ? Number( value ) : 0;
     const emit = ( v ) => onChange && onChange( Number( v ) );
 
@@ -60,18 +60,18 @@ export default function Slider( {
     }, [ unitOpen ] );
 
     return (
-        <div className="giveflow-slider">
+        <div className="fundkit-slider">
             { label && (
-                <label htmlFor={ inputId } className="giveflow-slider__label">
+                <label htmlFor={ inputId } className="fundkit-slider__label">
                     { label }
                 </label>
             ) }
-            <div className="giveflow-slider__shell" ref={ unitCellRef }>
-                <div className="giveflow-slider__row">
+            <div className="fundkit-slider__shell" ref={ unitCellRef }>
+                <div className="fundkit-slider__row">
                     <input
                         id={ inputId }
                         type="range"
-                        className="giveflow-slider__range"
+                        className="fundkit-slider__range"
                         min={ min }
                         max={ max }
                         step={ step }
@@ -79,10 +79,10 @@ export default function Slider( {
                         onChange={ ( e ) => emit( e.target.value ) }
                         disabled={ disabled }
                     />
-                    <div className="giveflow-slider__num">
+                    <div className="fundkit-slider__num">
                         <input
                             type="number"
-                            className="giveflow-slider__input"
+                            className="fundkit-slider__input"
                             min={ min }
                             max={ max }
                             step={ step }
@@ -92,10 +92,10 @@ export default function Slider( {
                         />
                     </div>
                     { hasUnitMenu ? (
-                        <div className="giveflow-slider__unit-cell">
+                        <div className="fundkit-slider__unit-cell">
                             <button
                                 type="button"
-                                className={ `giveflow-slider__unit-btn ${ unitOpen ? 'is-open' : '' }` }
+                                className={ `fundkit-slider__unit-btn ${ unitOpen ? 'is-open' : '' }` }
                                 onClick={ () => setUnitOpen( ! unitOpen ) }
                                 aria-haspopup="listbox"
                                 aria-expanded={ unitOpen }
@@ -104,18 +104,18 @@ export default function Slider( {
                             </button>
                         </div>
                     ) : unit ? (
-                        <div className="giveflow-slider__unit">{ unit }</div>
+                        <div className="fundkit-slider__unit">{ unit }</div>
                     ) : null }
                 </div>
                 { hasUnitMenu && unitOpen && (
-                    <ul className="giveflow-slider__unit-menu" role="listbox">
+                    <ul className="fundkit-slider__unit-menu" role="listbox">
                         { units.map( ( u ) => (
                             <li key={ u }>
                                 <button
                                     type="button"
                                     role="option"
                                     aria-selected={ u === unit }
-                                    className={ `giveflow-slider__unit-option ${ u === unit ? 'is-on' : '' }` }
+                                    className={ `fundkit-slider__unit-option ${ u === unit ? 'is-on' : '' }` }
                                     onClick={ () => {
                                         onUnitChange( u );
                                         setUnitOpen( false );
@@ -128,7 +128,7 @@ export default function Slider( {
                     </ul>
                 ) }
             </div>
-            { help && <p className="giveflow-slider__help">{ help }</p> }
+            { help && <p className="fundkit-slider__help">{ help }</p> }
         </div>
     );
 }

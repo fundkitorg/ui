@@ -98,7 +98,7 @@ export default function SearchableSelect( {
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions
         <div
             ref={ wrapRef }
-            className={ `giveflow-searchable${ open ? ' is-open' : '' }${ disabled ? ' is-disabled' : '' } ${ className }`.trim() }
+            className={ `fundkit-searchable${ open ? ' is-open' : '' }${ disabled ? ' is-disabled' : '' } ${ className }`.trim() }
             // Prevent focus from leaving the input when clicking list items.
             onMouseDown={ ( e ) => {
                 if ( inputRef.current && ! inputRef.current.contains( e.target ) ) {
@@ -109,9 +109,9 @@ export default function SearchableSelect( {
             <input
                 ref={ inputRef }
                 type="text"
-                className="giveflow-searchable__input"
+                className="fundkit-searchable__input"
                 value={ open ? query : selectedLabel }
-                placeholder={ open ? ( placeholder || __( 'Search…', 'giveflow-fundraising-campaigns' ) ) : ( selectedLabel || placeholder || __( 'Search…', 'giveflow-fundraising-campaigns' ) ) }
+                placeholder={ open ? ( placeholder || __( 'Search…', 'fundkit-fundraising-campaigns' ) ) : ( selectedLabel || placeholder || __( 'Search…', 'fundkit-fundraising-campaigns' ) ) }
                 disabled={ disabled }
                 onFocus={ () => { setOpen( true ); setQuery( '' ); } }
                 onChange={ ( e ) => { setQuery( e.target.value ); if ( ! open ) setOpen( true ); } }
@@ -120,14 +120,14 @@ export default function SearchableSelect( {
                 aria-expanded={ open }
                 role="combobox"
             />
-            <span className="giveflow-searchable__chevron" aria-hidden="true">
+            <span className="fundkit-searchable__chevron" aria-hidden="true">
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                     <path d="M2 4 L5 7 L8 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
             </span>
 
             { open && matches.length > 0 && (
-                <ul className="giveflow-searchable__list" role="listbox">
+                <ul className="fundkit-searchable__list" role="listbox">
                     { matches.map( ( opt, i ) => (
                         // Options are chosen from the keyboard on the combobox
                         // itself, which owns arrows, Enter and Escape. Giving
@@ -139,13 +139,13 @@ export default function SearchableSelect( {
                             key={ opt.value }
                             role="option"
                             aria-selected={ i === active }
-                            className={ `giveflow-searchable__option${ i === active ? ' is-active' : '' }${ opt.value === value ? ' is-current' : '' }` }
+                            className={ `fundkit-searchable__option${ i === active ? ' is-active' : '' }${ opt.value === value ? ' is-current' : '' }` }
                             onMouseEnter={ () => setActive( i ) }
                             onClick={ () => pick( opt ) }
                         >
-                            <span className="giveflow-searchable__label">{ opt.label }</span>
+                            <span className="fundkit-searchable__label">{ opt.label }</span>
                             { opt.hint && (
-                                <span className="giveflow-searchable__hint">{ opt.hint }</span>
+                                <span className="fundkit-searchable__hint">{ opt.hint }</span>
                             ) }
                         </li>
                     ) ) }

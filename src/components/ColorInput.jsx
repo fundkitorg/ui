@@ -10,23 +10,23 @@ export default function ColorInput( { value, onChange, label } ) {
 
     return (
         <Dropdown
-            contentClassName="giveflow-color-picker-popover"
+            contentClassName="fundkit-color-picker-popover"
             popoverProps={ { placement: 'bottom-start' } }
             renderToggle={ ( { isOpen, onToggle } ) => (
                 <button
                     type="button"
-                    className="giveflow-color"
+                    className="fundkit-color"
                     onClick={ onToggle }
                     aria-expanded={ isOpen }
                     aria-label={ label || current || 'Pick a color' }
                 >
                     <span
-                        className="giveflow-color__swatch"
+                        className="fundkit-color__swatch"
                         style={ { background: current || 'transparent' } }
                         aria-hidden="true"
                     />
                     { current && (
-                        <span className="giveflow-color__hex">
+                        <span className="fundkit-color__hex">
                             { current.toUpperCase() }
                         </span>
                     ) }

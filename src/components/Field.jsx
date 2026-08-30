@@ -4,11 +4,11 @@
  */
 export default function Field( { label, help, footer, children } ) {
     return (
-        <div className="giveflow-field">
-            { label && <div className="giveflow-field__label">{ label }</div> }
-            { help  && <div className="giveflow-field__help">{ help }</div> }
+        <div className="fundkit-field">
+            { label && <div className="fundkit-field__label">{ label }</div> }
+            { help  && <div className="fundkit-field__help">{ help }</div> }
             { children }
-            { footer && <div className="giveflow-field__footer">{ footer }</div> }
+            { footer && <div className="fundkit-field__footer">{ footer }</div> }
         </div>
     );
 }

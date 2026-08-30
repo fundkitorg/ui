@@ -9,17 +9,17 @@
  */
 export default function FormRow( { label, help, fieldHelp, required, wide, children } ) {
     return (
-        <div className={ `giveflow-form-row${ wide ? ' giveflow-form-row--wide' : '' }` }>
+        <div className={ `fundkit-form-row${ wide ? ' fundkit-form-row--wide' : '' }` }>
             { label && (
-                <div className="giveflow-form-row__label">
+                <div className="fundkit-form-row__label">
                     { label }
                     { required && <span className="req">*</span> }
-                    { help && <div className="giveflow-form-row__help">{ help }</div> }
+                    { help && <div className="fundkit-form-row__help">{ help }</div> }
                 </div>
             ) }
-            <div className="giveflow-form-row__field">
+            <div className="fundkit-form-row__field">
                 { children }
-                { fieldHelp && <div className="giveflow-form-row__field-help">{ fieldHelp }</div> }
+                { fieldHelp && <div className="fundkit-form-row__field-help">{ fieldHelp }</div> }
             </div>
         </div>
     );

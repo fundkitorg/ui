@@ -29,19 +29,19 @@ export default function Toaster() {
     if ( ! items.length ) return null;
 
     return (
-        <div className="giveflow-toaster" role="region" aria-label={ __( 'Notifications', 'giveflow-fundraising-campaigns' ) }>
+        <div className="fundkit-toaster" role="region" aria-label={ __( 'Notifications', 'fundkit-fundraising-campaigns' ) }>
             { items.map( ( t ) => (
                 <div
                     key={ t.id }
-                    className={ `giveflow-toast giveflow-toast--${ t.type }` }
+                    className={ `fundkit-toast fundkit-toast--${ t.type }` }
                     role={ t.type === 'error' || t.type === 'warning' ? 'alert' : 'status' }
                 >
-                    <span className="giveflow-toast__icon"><Glyph type={ t.type } /></span>
-                    <span className="giveflow-toast__msg">{ t.message }</span>
+                    <span className="fundkit-toast__icon"><Glyph type={ t.type } /></span>
+                    <span className="fundkit-toast__msg">{ t.message }</span>
                     { t.action && (
                         <button
                             type="button"
-                            className="giveflow-toast__action"
+                            className="fundkit-toast__action"
                             onClick={ () => { t.action.onClick && t.action.onClick(); dismiss( t.id ); } }
                         >
                             { t.action.label }
@@ -49,8 +49,8 @@ export default function Toaster() {
                     ) }
                     <button
                         type="button"
-                        className="giveflow-toast__close"
-                        aria-label={ __( 'Dismiss', 'giveflow-fundraising-campaigns' ) }
+                        className="fundkit-toast__close"
+                        aria-label={ __( 'Dismiss', 'fundkit-fundraising-campaigns' ) }
                         onClick={ () => dismiss( t.id ) }
                     >
                         ×

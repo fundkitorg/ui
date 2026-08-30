@@ -1,12 +1,12 @@
 // Skeleton placeholders. Used by MetricCard while widgets are loading, and
 // available anywhere else that wants a shimmer block.
 
-@keyframes giveflow-skeleton-pulse {
+@keyframes fundkit-skeleton-pulse {
     0%   { background-position:   0% 0%; }
     100% { background-position: -200% 0%; }
 }
 
-.giveflow-skeleton {
+.fundkit-skeleton {
     display: inline-block;
     width: 80px;
     height: 14px;
@@ -18,8 +18,8 @@
         $bg-soft 80%
     );
     background-size: 200% 100%;
-    animation: giveflow-skeleton-pulse 1.4s ease-in-out infinite;
+    animation: fundkit-skeleton-pulse 1.4s ease-in-out infinite;
 }
 
-.giveflow-skeleton--lg { width: 140px; height: 22px; }
-.giveflow-skeleton--sm { width: 48px;  height: 10px; }
+.fundkit-skeleton--lg { width: 140px; height: 22px; }
+.fundkit-skeleton--sm { width: 48px;  height: 10px; }

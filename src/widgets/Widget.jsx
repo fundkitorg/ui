@@ -16,22 +16,22 @@ export function WidgetCard( {
     bare = false,
 } ) {
     return (
-        <div className={ `giveflow-widget${ isOverlay ? ' is-overlay' : '' }${ bare ? ' giveflow-widget--bare' : '' }` }>
-            <div className="giveflow-widget__chrome">
+        <div className={ `fundkit-widget${ isOverlay ? ' is-overlay' : '' }${ bare ? ' fundkit-widget--bare' : '' }` }>
+            <div className="fundkit-widget__chrome">
                 <button
                     type="button"
-                    className="giveflow-widget__handle"
-                    aria-label={ __( 'Drag to reorder', 'giveflow-fundraising-campaigns' ) }
+                    className="fundkit-widget__handle"
+                    aria-label={ __( 'Drag to reorder', 'fundkit-fundraising-campaigns' ) }
                     { ...dragHandleProps }
                 >
                     <Icon name="drag-grip" size={ 14 } />
                 </button>
-                { title && <h3 className="giveflow-widget__title">{ title }</h3> }
-                <div className="giveflow-widget__head-extras">{ headerExtras }</div>
+                { title && <h3 className="fundkit-widget__title">{ title }</h3> }
+                <div className="fundkit-widget__head-extras">{ headerExtras }</div>
                 { ! isOverlay && (
                     <Dropdown
-                        className="giveflow-widget__menu"
-                        contentClassName="giveflow-widget__menu-content"
+                        className="fundkit-widget__menu"
+                        contentClassName="fundkit-widget__menu-content"
                         popoverProps={ { placement: 'bottom-end' } }
                         renderToggle={ ( { isOpen, onToggle } ) => (
                             <Button
@@ -39,7 +39,7 @@ export function WidgetCard( {
                                 variant="tertiary"
                                 onClick={ onToggle }
                                 aria-expanded={ isOpen }
-                                aria-label={ __( 'Widget options', 'giveflow-fundraising-campaigns' ) }
+                                aria-label={ __( 'Widget options', 'fundkit-fundraising-campaigns' ) }
                                 icon={ <Icon name="settings" size={ 18 } /> }
                             />
                         ) }
@@ -49,26 +49,26 @@ export function WidgetCard( {
                                     disabled={ ! canMoveUp }
                                     onClick={ () => { onMoveUp?.(); onClose(); } }
                                 >
-                                    { __( 'Move up', 'giveflow-fundraising-campaigns' ) }
+                                    { __( 'Move up', 'fundkit-fundraising-campaigns' ) }
                                 </MenuItem>
                                 <MenuItem
                                     disabled={ ! canMoveDown }
                                     onClick={ () => { onMoveDown?.(); onClose(); } }
                                 >
-                                    { __( 'Move down', 'giveflow-fundraising-campaigns' ) }
+                                    { __( 'Move down', 'fundkit-fundraising-campaigns' ) }
                                 </MenuItem>
                                 <MenuItem
                                     isDestructive
                                     onClick={ () => { onHide?.(); onClose(); } }
                                 >
-                                    { __( 'Hide widget', 'giveflow-fundraising-campaigns' ) }
+                                    { __( 'Hide widget', 'fundkit-fundraising-campaigns' ) }
                                 </MenuItem>
                             </MenuGroup>
                         ) }
                     />
                 ) }
             </div>
-            <div className="giveflow-widget__body">{ children }</div>
+            <div className="fundkit-widget__body">{ children }</div>
         </div>
     );
 }
@@ -94,7 +94,7 @@ export default function Widget( {
         <div
             ref={ setNodeRef }
             style={ style }
-            className={ `giveflow-widget-slot giveflow-widget-slot--${ span }${ isDragging ? ' is-dragging-source' : '' }` }
+            className={ `fundkit-widget-slot fundkit-widget-slot--${ span }${ isDragging ? ' is-dragging-source' : '' }` }
             data-widget-id={ id }
         >
             <WidgetCard

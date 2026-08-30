@@ -99,7 +99,7 @@ export default function WidgetGrid( { visibleOrder, registry, onReorder, onHide 
             onDragCancel={ handleDragCancel }
         >
             <SortableContext items={ visibleOrder } strategy={ rectSortingStrategy }>
-                <div className="giveflow-widget-grid">
+                <div className="fundkit-widget-grid">
                     { sections.map( ( section, sIdx ) => {
                         if ( section.type === 'full' ) {
                             return renderWidget( section.keys[ 0 ] );
@@ -107,11 +107,11 @@ export default function WidgetGrid( { visibleOrder, registry, onReorder, onHide 
                         const leftKeys  = section.keys.filter( ( _, i ) => i % 2 === 0 );
                         const rightKeys = section.keys.filter( ( _, i ) => i % 2 === 1 );
                         return (
-                            <div key={ `s-${ sIdx }` } className="giveflow-widget-grid__halves">
-                                <div className="giveflow-widget-grid__col">
+                            <div key={ `s-${ sIdx }` } className="fundkit-widget-grid__halves">
+                                <div className="fundkit-widget-grid__col">
                                     { leftKeys.map( renderWidget ) }
                                 </div>
-                                <div className="giveflow-widget-grid__col">
+                                <div className="fundkit-widget-grid__col">
                                     { rightKeys.map( renderWidget ) }
                                 </div>
                             </div>

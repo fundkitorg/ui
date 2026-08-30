@@ -11,15 +11,15 @@ export default function Notice( { status = 'info', onRemove, isDismissible = tru
     const s = STATUSES.includes( status ) ? status : 'info';
     return (
         <div
-            className={ `giveflow-notice giveflow-notice--${ s }` }
+            className={ `fundkit-notice fundkit-notice--${ s }` }
             role={ s === 'error' || s === 'warning' ? 'alert' : 'status' }
         >
-            <div className="giveflow-notice__body">{ children }</div>
+            <div className="fundkit-notice__body">{ children }</div>
             { isDismissible && onRemove && (
                 <button
                     type="button"
-                    className="giveflow-notice__close"
-                    aria-label={ __( 'Dismiss', 'giveflow-fundraising-campaigns' ) }
+                    className="fundkit-notice__close"
+                    aria-label={ __( 'Dismiss', 'fundkit-fundraising-campaigns' ) }
                     onClick={ onRemove }
                 >
                     ×

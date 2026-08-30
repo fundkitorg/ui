@@ -56,14 +56,14 @@ export default function BoxControl( {
     const linkedValue = Number( value.top ) || 0;
 
     return (
-        <div className="giveflow-box-control">
+        <div className="fundkit-box-control">
             { ( title || linkable ) && (
-                <div className="giveflow-box-control__header">
-                    { title && <span className="giveflow-box-control__title">{ title }</span> }
+                <div className="fundkit-box-control__header">
+                    { title && <span className="fundkit-box-control__title">{ title }</span> }
                     { linkable && (
                         <button
                             type="button"
-                            className={ `giveflow-box-control__link ${ linked ? 'is-on' : '' }` }
+                            className={ `fundkit-box-control__link ${ linked ? 'is-on' : '' }` }
                             aria-pressed={ linked }
                             aria-label={ linked ? 'Sides linked' : 'Link sides' }
                             onClick={ toggleLink }
@@ -74,41 +74,41 @@ export default function BoxControl( {
                 </div>
             ) }
             { linked ? (
-                <div className="giveflow-box-control__linked">
+                <div className="fundkit-box-control__linked">
                     <input
                         type="range"
-                        className="giveflow-box-control__range"
+                        className="fundkit-box-control__range"
                         min={ min }
                         max={ max }
                         value={ linkedValue }
                         onChange={ ( e ) => setAll( e.target.value ) }
                     />
-                    <div className="giveflow-box-control__linked-num">
+                    <div className="fundkit-box-control__linked-num">
                         <input
                             type="number"
-                            className="giveflow-box-control__input"
+                            className="fundkit-box-control__input"
                             min={ min }
                             max={ max }
                             value={ linkedValue }
                             onChange={ ( e ) => setAll( e.target.value ) }
                         />
                     </div>
-                    { unit && <div className="giveflow-box-control__unit">{ unit }</div> }
+                    { unit && <div className="fundkit-box-control__unit">{ unit }</div> }
                 </div>
             ) : (
                 <div
-                    className="giveflow-box-control__row"
-                    style={ { '--giveflow-box-cells': sideList.length } }
+                    className="fundkit-box-control__row"
+                    style={ { '--fundkit-box-cells': sideList.length } }
                 >
                     { sideList.map( ( side ) => (
                         <label
                             key={ side }
-                            className={ `giveflow-box-control__cell giveflow-box-control__cell--${ side }` }
+                            className={ `fundkit-box-control__cell fundkit-box-control__cell--${ side }` }
                         >
-                            <span className="giveflow-box-control__label">{ side }</span>
+                            <span className="fundkit-box-control__label">{ side }</span>
                             <input
                                 type="number"
-                                className="giveflow-box-control__input"
+                                className="fundkit-box-control__input"
                                 min={ min }
                                 max={ max }
                                 value={ value[ side ] || 0 }
@@ -116,7 +116,7 @@ export default function BoxControl( {
                             />
                         </label>
                     ) ) }
-                    { unit && <div className="giveflow-box-control__unit">{ unit }</div> }
+                    { unit && <div className="fundkit-box-control__unit">{ unit }</div> }
                 </div>
             ) }
         </div>

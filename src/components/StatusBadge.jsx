@@ -1,9 +1,9 @@
 import { __ } from '@wordpress/i18n';
 
 export const STATUS_LABEL = {
-    draft:     __( 'Draft', 'giveflow-fundraising-campaigns' ),
-    published: __( 'Active', 'giveflow-fundraising-campaigns' ),
-    archived:  __( 'Archived', 'giveflow-fundraising-campaigns' ),
+    draft:     __( 'Draft', 'fundkit-fundraising-campaigns' ),
+    published: __( 'Active', 'fundkit-fundraising-campaigns' ),
+    archived:  __( 'Archived', 'fundkit-fundraising-campaigns' ),
 };
 
 export const STATUS_COLORS = {
