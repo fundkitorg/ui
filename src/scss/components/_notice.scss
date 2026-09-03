@@ -42,6 +42,14 @@
         &:hover { color: $text; }
     }
 
+    // Field-level feedback: the same colours, none of the announcement.
+    &--compact {
+        padding: 8px 10px;
+        margin-bottom: 8px;
+        border: 0;
+        font-size: $text-sm;
+    }
+
     &--success { border-left-color: $accent;  background: $accent-tint; color: $accent-dark; }
     &--error   { border-left-color: $red;     background: $red-tint;    color: $red; }
     &--warning { border-left-color: $amber;   background: $amber-tint;  color: $amber; }
